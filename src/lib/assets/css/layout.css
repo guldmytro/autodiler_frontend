@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+  
+.content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+
+.container {
+    width: var(--width-container);
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+section {
+    padding: var(--padding-section) 0;
+}
+
+main {
+    position: relative;
+    z-index: 91;
+}
+
+.contacts {
+    position: relative;
+    z-index: 10;
+    padding-top: calc(var(--padding-section) / 2);
+}
+
+.breadcrumbs + .contacts {
+    padding-top: 0;
+}

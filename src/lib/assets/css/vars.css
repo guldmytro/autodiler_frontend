@@ -1,0 +1,20 @@
+:root {
+    --color-text: #323232;
+    --color-text-invert: #ffffff;
+    --color-text-breadcrumb: #8e8e8e;
+    --color-lighter: #919191;
+    --color-primary: #b30800;
+    --color-secondary: #f1ac46;
+    --color-third: #d38006;
+    --color-primary-hover: #960a03;
+    --color-primary-hover-2: #f3efef;
+    --color-border: #e0d8d8;
+    --box-shadow: 0 0 0.7rem 0 rgba(0, 0, 0, 0.15);
+    --box-shadow-2: 0 0.2rem 4.75rem 0 rgba(0, 0, 0, 0.15);
+    --padding-section: 8rem;
+    --offset-header: 11rem;
+    --color-bg-footer: #1c1c1c;
+    --filter-color-text: invert(13%) sepia(63%) saturate(0%) hue-rotate(220deg) brightness(101%) contrast(88%);
+    --filter-color-text-invert: invert(1);
+    --width-container: 1320px;
+}

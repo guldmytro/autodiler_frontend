@@ -1,0 +1,32 @@
+.splide__track {
+    overflow: hidden;
+    padding-bottom: 40rem;
+    margin-bottom: -40rem;
+    z-index: 3;
+}
+
+.splide__arrow {
+    top: unset;
+    bottom: 100%;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: var(--color-primary);
+    opacity: 1;
+}
+
+.splide__arrow svg {
+    fill: var(--color-text-invert);
+}
+
+.splide__arrow--next {
+    right: 0;
+}
+
+.splide__arrow--prev {
+    right: 5.5rem;
+    left: unset;
+}
+
+.splide__pagination {
+    display: none;
+}

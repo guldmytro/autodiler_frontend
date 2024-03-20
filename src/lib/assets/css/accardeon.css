@@ -1,0 +1,57 @@
+.accordeon {
+    list-style: none
+}
+
+.accordeon-item {
+    display: grid;
+    border-bottom: 1px solid #ddd;
+    grid-template-columns: minmax(0,1fr);
+    padding-bottom: 1rem
+}
+
+.accordeon-item__title {
+    padding-right: 3rem;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
+    font-size: 2.1rem;
+    font-weight: bold;
+}
+
+.accordeon-item__title .icon {
+    position: absolute;
+    width: 2.4rem;
+    height: 2.4rem;
+    content: '';
+    display: block;
+    pointer-events: none;
+    right: .5rem;
+    top: 50%;
+    transform: translateY(-35%);
+    background: url("$lib/assets/img/icon-arrow_down.svg") center / contain no-repeat;
+    transition: transform 150ms;
+}
+
+.accordeon-item__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 150ms;
+}
+
+.accordeon-item__text {
+    overflow: hidden;
+    padding-right: 2rem
+}
+
+.accordeon-item.active .accordeon-item__content {
+    grid-template-rows: 1fr;
+    padding-bottom: 1rem
+}
+
+.accordeon-item.active .icon {
+    transform: translateY(-35%) rotate(-180deg);
+}

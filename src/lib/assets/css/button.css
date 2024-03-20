@@ -1,0 +1,211 @@
+.button {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rem;
+    background-color: var(--color-primary);
+    color: var(--color-text-invert);
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.8em 2em 0.9em;
+    letter-spacing: 0.5px;
+    column-gap: 0.4em;
+    border: 1px solid var(--color-primary);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 150ms;
+}
+
+.button_loading {
+    color: var(--color-primary);
+}
+
+.button_loading::before {
+    position: absolute;
+    left: calc(50% - 1.1rem);
+    top: calc(50% - 1.1rem);
+    content: '';
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation-name: rotate;
+    animation-duration: 0.6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+
+.button_bordered {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #fff;
+    color: var(--color-primary);
+    font-weight: 600;
+    border: none;
+    color: var(--color-text);
+    text-decoration: underline; 
+}
+
+.button_circle {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    padding: 0;
+    background-color: #fff;
+    color: var(--color-primary);
+    border-color: transparent;
+}
+
+.button_circle.added {
+    background-color: var(--color-primary);
+    color: var(--color-text-invert);
+}
+
+.button:hover,
+.button_circle.added:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.button_bordered:hover {
+    background-color: #fff;
+    color: var(--color-text);
+}
+
+.button_circle:hover {
+    background-color: var(--color-primary-hover-2);
+    border-color: var(--color-primary-hover-2);
+}
+
+.header-button {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-primary);
+    background-color: var(--color-primary-hover-2);
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 1rem;
+    text-decoration: none;
+}
+
+.header-button__cnt {
+    font-size: 1rem;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    background-color: var(--color-secondary);
+    color: var(--color-text-invert);
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.4rem;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.quantity-controls {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.btn-cnt {
+    --color: #f1ac46;
+    --background-color: #fff5e8;
+    position: relative;
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--background-color);
+}
+
+.btn-cnt:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.btn-cnt_plus::before,
+.btn-cnt_plus::after,
+.btn-cnt_minus::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 42%;
+    border-radius: 10rem;
+    background-color: var(--color);
+    transform: translate(-50%, -50%);
+}
+
+.btn-cnt_plus::after {
+    height: 42%;
+    width: 3px;
+}
+
+.cnt-input {
+    border: none;
+    background-color: transparent;
+    width: 4ch;
+    text-align: center;
+    font-size: 1.8rem;
+    color: inherit;
+}
+
+.btn-cnt:hover {
+    --color: #fff;
+    --background-color: #f1ac46;
+}
+
+.btn-delete {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+}
+
+.btn-delete::before,
+.btn-delete::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 2px;
+    height: 70%;
+    background-color: red;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.btn-delete::before {
+    rotate: -45deg;
+}
+
+.btn-delete::after {
+    rotate: 45deg;
+}
+
+.archive-product-item .button_circle {
+    width: 4.25rem;
+    height: 4.25rem;
+}
