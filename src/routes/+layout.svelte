@@ -8,6 +8,7 @@
 	import HeadHrefLangs from '$lib/HeadHrefLangs.svelte'
     import Notifications from '$lib/components/global/Notifications.svelte';
 	import { ProgressBar } from "@prgm/sveltekit-progress-bar";
+	import { notifications } from '$lib/stores/notifications';
 	
 
 	beforeNavigate(() => {

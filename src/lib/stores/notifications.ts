@@ -2,7 +2,7 @@
 // @ts-noncheck
 import { writable, get } from "svelte/store";
 
-const initialData = {
+export const initialData = {
     product: [],
     email: [],
     login: []

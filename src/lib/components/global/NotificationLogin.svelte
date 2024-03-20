@@ -12,7 +12,7 @@
     let timer;
 
     function startTimer() {
-        timer = setTimeout(deleteItem, 4000);    
+        timer = setTimeout(deleteItem, 3000);    
     }
 
     function clearTimer() {
@@ -31,8 +31,6 @@
 </script>
 
 <li class="notifications-item"
-    on:mouseenter={clearTimer}
-    on:mouseleave={startTimer}
     in:fly={{ x: 200, duration: 300 }}
     out:fly={{ x: 200, duration: 250 }}>
     
