@@ -125,12 +125,13 @@
     }
 
     @media (max-width: 450px) {
-        .one-click-form-wrapper {
+        
+        :global(main.product .one-click-form-wrapper) {
             transform: translateX(-40%);
         }
 
-        .one-click-form-wrapper::before {
-            left: 50%;
+        :global(main.product .one-click-form-wrapper::before) {
+            left: 50%!important;
         }
     }
 </style>
