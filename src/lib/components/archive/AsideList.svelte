@@ -39,7 +39,10 @@
 					<img src="{PUBLIC_API_MEDIA}{item.data.image}" loading="lazy" height="10" class="term-img" alt={item.data[key]}>
 				{/if}
 				<span>
-					{item.data[key]} ({item.data.quantity})
+					{item.data[key]} 
+					{#if item?.data?.quantity > 0 }
+						({item.data.quantity})
+					{/if}
 				</span>
 			</a>
             {#if item.children}
