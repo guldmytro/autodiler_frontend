@@ -25,7 +25,7 @@
 	<title>{$LL.account.register.title()} - Авто Ділер</title>
 </svelte:head>
 
-<BreadCrumbs items={{}}  currentPage={$LL.account.register.title()}/>
+<BreadCrumbs items={{}} currentPage={$LL.account.register.title()}/>
 
 <main class="login">
     <div class="container">
@@ -33,6 +33,7 @@
             <form action="?/create" method="post" class="auth-form"
             use:enhance={create}>
                 <div class="auth-form__inner">
+                    
                     <h1 class="auth-form__title">{$LL.account.register.title()}</h1>
                     <label class="label-input">
                         <span class="label-input__title">{$LL.account.register.fields.email()}</span>

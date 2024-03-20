@@ -33,7 +33,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 
 	// replace html lang attribute with correct language
-	return resolve(event, { transformPageChunk: ({ html }) => html.replace('%lang%', locale) })
+	const response = await resolve(event, { transformPageChunk: ({ html }) => html.replace('%lang%', locale) })
+	response.headers.append('Access-Control-Allow-Origin', `*`);
+	return response;
 }
 
 const getPreferredLocale = ({ request }: RequestEvent) => {

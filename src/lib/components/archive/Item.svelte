@@ -6,7 +6,7 @@
     import { locale } from '$i18n/i18n-svelte';
     export let product;
 
-    $: image = product.image || product.image_source;
+    $: image = product.image || product.image_src;
     $: title = product.name || product.translation__name;
 </script>
 
