@@ -152,6 +152,17 @@
             margin-top: -1rem;
             order: 3;
         }
+    }
 
+    @media (max-width: 575px) {
+        .cart-wrapper {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .cart-footer {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
     }
 </style>
