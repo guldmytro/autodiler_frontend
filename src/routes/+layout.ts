@@ -9,12 +9,12 @@ export const load: LayoutLoad<{ locale: Locales }> = async ({ data: { locale }, 
 	let terms = [];
 	try {
 		terms = await fetch(`${apiUrl}category/dump/`).then(r => r.json());
+		let termsWithImage = terms.filter(item => item.data && item.data.image);
+		let termsWithoutImage = terms.filter(item => !item.data || !item.data.image || item?.data?.image === '');
+		terms = termsWithImage.concat(termsWithoutImage);
 	} catch(e) {
 		console.warn(e);
 	}
-	let termsWithImage = terms.filter(item => item.data && item.data.image);
-	let termsWithoutImage = terms.filter(item => !item.data || !item.data.image || item?.data?.image === '');
-	terms = termsWithImage.concat(termsWithoutImage);
 	
 	// load dictionary into memory
 	await loadLocaleAsync(locale)
