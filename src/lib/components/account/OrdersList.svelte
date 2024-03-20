@@ -7,23 +7,28 @@
     export let pagination;
 </script>
 
-<table class="orders">
-    <thead>
-        <tr>
-            <th>{$LL.account.orders.num()}</th>
-            <th>{$LL.account.orders.date()}</th>
-            <th>{$LL.account.orders.quantity()}</th>
-            <th>{$LL.account.orders.sum()}</th>
-            <th>{$LL.account.orders.status()}</th>
-        </tr>
-    </thead>
-    <tbody>
-        {#each orders as order}
-            <OrderListItem {order} />
-        {/each}
-    </tbody>
-</table>
-<Pagination {pagination} />
+{#if Array.isArray(orders) && orders.length}
+    <table class="orders">
+        <thead>
+            <tr>
+                <th>{$LL.account.orders.num()}</th>
+                <th>{$LL.account.orders.date()}</th>
+                <th>{$LL.account.orders.quantity()}</th>
+                <th>{$LL.account.orders.sum()}</th>
+                <th>{$LL.account.orders.status()}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each orders as order}
+                <OrderListItem {order} />
+            {/each}
+        </tbody>
+    </table>
+    <Pagination {pagination} />
+{:else}
+    <p>{$LL.account.orders.empty()}</p>
+{/if}
+
 
 <style>
     .orders {
