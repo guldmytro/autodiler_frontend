@@ -25,6 +25,7 @@
         color: inherit;
         text-decoration: none;
         font-size: 1.8rem;
+        font-weight: 500;
         padding: 0.3em 0;
     }
 </style>

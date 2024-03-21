@@ -60,7 +60,7 @@
                             </li>
                             
                             <li class="contacts-item__element contacts-item__schedule">
-                                Пн-Пт с 09:00 до 16:00
+                                {@html $LL.contacts.schedule()}
                             </li>
                         </ul>
                     </li>

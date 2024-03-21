@@ -23,6 +23,7 @@
     .header-nav__link {
         position: relative;
         font-size: 1.5rem;
+        font-weight: 500;
         white-space: nowrap;
         color: inherit;
         text-decoration: none;

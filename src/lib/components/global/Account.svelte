@@ -1,30 +1,54 @@
 <script>
+    import userIcon from '$lib/assets/img/user.png';
     import { locale } from "$i18n/i18n-svelte";
     import { page } from '$app/stores';
+    import LL from "$i18n/i18n-svelte";
+    export let mobile = false;
 </script>
 
 {#if $page.data.user}
-    <a href="/{$locale}/account/dashboard" class="header-button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <a href="/{$locale}/account/dashboard" class="account-link" class:mobile>
+        <img src={userIcon} alt="користувач" class="account-link__icon" width="80" height="92">
+        <span class="account-link__text">
+            {$LL.yourCabinet()}
+        </span>
     </a>
 {:else}
-    <a href="/{$locale}/account/login" class="header-button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <a href="/{$locale}/account/login" class="account-link" class:mobile>
+        <img src={userIcon} alt="користувач" class="account-link__icon" width="80" height="92">
+        <span class="account-link__text">
+            {$LL.enter()}
+        </span>
     </a>
 {/if}
 
 <style>
-    .header-button {
+    .account-link {
+        position: relative;
+        padding-left: calc(1.7rem + 0.5em);
+        font-size: 1.4rem;
         display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        column-gap: 0.5em;
+        color: var(--color-text);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .account-link__icon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.29;
+        width: 1.7rem;
+        height: auto;
     }
 
     @media (max-width: 991px) {
-        .header-button {
-            margin-right: 1.2rem;
+        .account-link:not(.mobile) {
+            display: none;
         }
     }
 

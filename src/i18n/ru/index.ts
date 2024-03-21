@@ -26,6 +26,10 @@ const ru = {
 	checkoutTitle: 'Оформление заказа',
 	recommenderTitle: 'С этим товаром покупают',
 	deliveryCost: 'По тарифам перевозчика',
+	secure: 'Гарантия безопасной сделки',
+	discounts: 'Акции',
+	yourCabinet: 'Ваш кабинет',
+	enter: 'Войти',
 	checkout: {
 		'reciever': 'Получатель',
 		'surname': 'Фамилия',
@@ -150,7 +154,8 @@ const ru = {
 		form: {
 			title: 'Заполните форму',
 			subtitle: 'И получите консультацию нашего менеджера',
-		}
+		},
+		schedule: 'Пн-пт с 08:00 до 18:00. <br> Сб-вс с 08:00 до 16:00'
 	},
 	faq: {
 		title: 'Поддержка клиентов',

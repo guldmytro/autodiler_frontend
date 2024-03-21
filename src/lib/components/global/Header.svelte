@@ -15,6 +15,8 @@
     import MenuBtnMobile from './MenuBtnMobile.svelte';
     import MobileWrapper from './MobileWrapper.svelte';
     import Bottom from './Bottom.svelte';
+    import Secure from './Secure.svelte';
+    import Discounts from './Discounts.svelte';
 </script>
 
 <div class="toper">
@@ -22,6 +24,7 @@
         <div class="toper__row">
             <Socials />
             <Phones />
+            <Secure />
             <LocaleSwitcher />
             <DownloadLink />
         </div>
@@ -40,8 +43,9 @@
                         fetchpriority="high">
                 </a>
                 <HeaderMenu />
+                <Discounts />
+                <Account />
                 <div class="header-controls">
-                    <Account />
                     <Wishlist />
                     <Cart />
                     <MenuBtnMobile />

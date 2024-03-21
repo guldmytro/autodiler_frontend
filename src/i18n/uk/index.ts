@@ -26,6 +26,10 @@ const uk = {
 	checkoutTitle: 'Оформлення замовлення',
 	recommenderTitle: 'З цим товаром купують',
 	deliveryCost: 'За тарифами перевізника',
+	secure: 'Гарантія безпечної угоди',
+	discounts: 'Акції',
+	yourCabinet: 'Ваш кабінет',
+	enter: 'Увійти',
 	checkout: {
 		'reciever': 'Отримувач',
 		'surname': 'Прізвище',
@@ -150,7 +154,8 @@ const uk = {
 		form: {
 			title: 'Заповніть форму',
 			subtitle: 'І отримайте консультацію нашого менеджера',
-		}
+		},
+		schedule: 'Пн-пт з 08:00 до 18:00. <br> Сб-нд з 08:00 до 16:00'
 	},
 	faq: {
 		title: 'Підтримка клієнтів',

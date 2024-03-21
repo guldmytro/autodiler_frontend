@@ -84,6 +84,7 @@
         color: inherit;
         text-decoration: none;
         transition: color 150ms;
+        font-weight: 500;
     }
 
     .footer-menu__link:hover {

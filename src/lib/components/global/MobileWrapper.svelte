@@ -4,6 +4,7 @@
     import Phones from "./Phones.svelte";
     import { mobileMenu } from "$lib/stores/menu";
     import { fly } from "svelte/transition";
+    import Account from "./Account.svelte";
 </script>
 
 
@@ -14,6 +15,8 @@
         <div class="container">
             <div class="mobile-row">
                 <HeaderMobileMenu />
+                <hr>
+                <Account mobile={true} />
                 <hr>
                 <Phones />
                 <hr>
