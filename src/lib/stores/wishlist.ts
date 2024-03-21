@@ -1,14 +1,14 @@
 import { writable } from "svelte/store";
 import { browser } from "$app/environment";
 
-async function getWishlist() {
+export async function getWishlist() {
     if (browser) {
         return await fetch('/api/wishlist').then(r => r.json());
     }
     return {};
 }
 
-export const wishlist = writable(await getWishlist());
+export const wishlist = writable(getWishlist());
 
 export async function addItemToWishlist(id: number) {
     if (browser) {

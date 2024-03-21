@@ -15,6 +15,7 @@
         display: none;
         border: none;
         background-color: transparent;
+        color: var(--color-text);
     }
 
     @media (max-width: 991px) {

@@ -8,9 +8,14 @@
 	import HeadHrefLangs from '$lib/HeadHrefLangs.svelte'
     import Notifications from '$lib/components/global/Notifications.svelte';
 	import { ProgressBar } from "@prgm/sveltekit-progress-bar";
-	import { notifications } from '$lib/stores/notifications';
-	
+	import { cart, getCart } from '$lib/stores/cart';
+	import { wishlist, getWishlist } from '$lib/stores/wishlist';
+	import { onMount } from 'svelte';
 
+	onMount(async() => {
+		$cart = await getCart();
+		$wishlist = await getWishlist();
+	});
 	beforeNavigate(() => {
 		$menu = false;
 		$mobileMenu = false;

@@ -10,7 +10,7 @@ export async function getCart() {
     return {};
 }
 
-export const cart = writable(await getCart());
+export const cart = writable(getCart());
 
 export async function addItemToCart(id: any, cnt: any, forceUpdate=false, title, price, image) {
     if (browser) {

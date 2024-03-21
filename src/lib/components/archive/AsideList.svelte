@@ -1,5 +1,4 @@
 <script>
-    // @ts-nocheck
 	import { PUBLIC_API_MEDIA } from '$env/static/public';
     import { onMount } from 'svelte';
 	import { locale } from '$i18n/i18n-svelte';
