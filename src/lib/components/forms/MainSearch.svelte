@@ -4,12 +4,16 @@
     import { locale } from '$i18n/i18n-svelte';
     import LL from "$i18n/i18n-svelte";
 
-    $: terms = $page.data?.terms.filter(term => {
+    let showAllCars = false;
+    let termsToShow = 10;
+    function filterTerms(term) {
         if (term.data.image && term.data.image !== '') {
             return true;
         }
         return false;
-    });
+    }
+    $: allTermsCnt = $page.data?.terms.filter(filterTerms).length;
+    $: terms = showAllCars ? $page.data?.terms.filter(filterTerms) : $page.data?.terms.filter(filterTerms).slice(0, termsToShow);
 
     $: count = currentCategory?.data?.quantity || currentModel?.data?.quantity || currentProducer?.data?.quantity;
     $: currentTerm = currentCategory?.id || currentModel?.id || currentProducer?.id;
@@ -61,6 +65,14 @@
                     </li>
                 {/each}
             </ul>
+            {#if !showAllCars && termsToShow < allTermsCnt}
+                <div class="all-box">
+                    <button type="button" class="all-brands-btn" on:click={() => showAllCars = true}>
+                        <span>{$LL.allBrands()}</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" class="order-btn__img s-8MHMtEqssRyI"><path d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z" fill="currentColor" class="s-8MHMtEqssRyI"></path></svg>
+                    </button>
+                </div>
+            {/if}
             <fieldset class="search-box__fieldset">
                     <label class="search-label">
                         <span class="search-label__text">{$LL.search.model.title()}</span>
@@ -162,6 +174,7 @@
     }
 
     .search-box {
+        width: 100%;
         background-color: #fff;
         box-shadow: var(--box-shadow-2);
         border-radius: 1rem;
@@ -242,13 +255,37 @@
         font-size: 1.5rem;
         white-space: nowrap;
     } 
+    
+    .all-box {
+        padding-top: 1rem;
+        text-align: center;
+    }
+
+    .all-brands-btn {
+        position: relative;
+        display: inline-flex;
+        padding: 0.6rem 5rem 0.6rem 2.5rem;
+        border: none;
+        border-radius: 10rem;
+        font-size: 1.5rem;
+        color: inherit;
+        background-color: #f1f1f1;
+    }
+
+    .all-brands-btn svg {
+        position: absolute;
+        top: 50%;
+        right: 2.5rem;
+        transform: translateY(-50%);
+
+    }
 
     .search-box__fieldset {
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         column-gap: 2rem;
-        padding: 4rem 2rem 5rem;
+        padding: 3rem 2rem 5rem;
         border: none;
         font-size: 1.5rem;
     }
