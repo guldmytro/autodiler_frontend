@@ -4,7 +4,7 @@
     import { locale } from '$i18n/i18n-svelte';
 </script>
 
-<a href="/{$locale}/product-cat/6" class="discount-link">
+<a href="/{$locale}/product-cat/aktsiia-878e1654" class="discount-link">
     <img src={percentIcon} alt="процент" class="discount-link__icon" width="32" height="32">
     <span class="discount-link__text">{$LL.discounts()}</span>
 </a>
