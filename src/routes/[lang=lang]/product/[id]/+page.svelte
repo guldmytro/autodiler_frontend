@@ -3,12 +3,15 @@
     import Info from '$lib/components/single/Info.svelte';
     import Layout from '$lib/components/single/Layout.svelte';
     import QuestionForm from '$lib/components/forms/QuestionForm.svelte';
+    import LL from '$i18n/i18n-svelte';
     export let data;
 </script>
 
 <svelte:head>
-	<title>{data.item.name} - Авто Ділер</title>
+	<title>{$LL.titlePattern({name: data.item.name})}</title>
+    <meta name="description" content="{$LL.descriptionPattern({name: data.item.name, price: data.item.price})}">
 </svelte:head>
+
 
 <Layout {data}>
     <div class="row">

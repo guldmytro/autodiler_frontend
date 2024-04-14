@@ -2,6 +2,10 @@ import type { BaseTranslation } from '../i18n-types'
 
 const uk = {
 	title: 'typesafe-i18n - Svelte Fall Summit {year:number}',
+	titlePattern: '{name:string} - Купити недорого в Україні',
+	descriptionPattern: '⭐️ {name:string} ⭐️ за ціною ✔️ {price:number} грн. ☝ 100% Оригінал ❗ Гарантія ✈️ Доставка',
+	termTitlePattern: 'Запчастини {name:string} - Купити з доставкою в Україні',
+	termDescriptionPattern: 'В наявності ⭐ Запчастини {name:string} ⭐ за доступною ціною від кращих виробників. ➡️ Оригінал та аналоги ✈️ Швидка доставка ❗ Гарантія',
 	welcome: 'Вітаємо {year:number}',
 	spectators: '{0} live spectator{{s}}',
 	summit: {

@@ -10,6 +10,7 @@
     import FilterButton from '$lib/components/archive/FilterButton.svelte';
     import { termsMenu } from '$lib/stores/menu';
     import { fly } from 'svelte/transition';
+    import LL from '$i18n/i18n-svelte';
 
     $: termsList = [
         ...data.term.parents.slice(0, 2),
@@ -24,7 +25,8 @@
 </script>
 
 <svelte:head>
-	<title>Каталог {title} - Авто Ділер</title>
+	<title>{$LL.termTitlePattern({name: title})}</title>
+    <meta name="description" content="{$LL.termDescriptionPattern({name: title})}">
 </svelte:head>
 
 
