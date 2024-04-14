@@ -44,6 +44,9 @@ export async function deleteItemFromCart(id: number) {
 
 export function inCart(id: number) {
     if (browser) {
+        if (!get(cart)['items']) {
+            return false;
+        }
         return get(cart)['items'].filter((item: { id: number; }) => item.id == id).length > 0
     }
     return false;

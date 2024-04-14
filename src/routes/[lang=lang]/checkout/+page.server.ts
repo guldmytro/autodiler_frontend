@@ -19,7 +19,7 @@ export const load: PageServerLoad = async ({fetch, cookies, locals: { LL, locale
     if (!ids || ids == '') {
         redirect(302, `/${locale}/cart`);
     }
-	const res = await fetch(`${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku`);
+	const res = await fetch(`${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku,slug`);
     let {results} = await res.json();
     if (!results.length) {
         redirect(302, `/${locale}/cart`);

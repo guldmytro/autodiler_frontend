@@ -7,10 +7,10 @@
 </script>
 
 <nav class="product-tabs">
-    <a href="/{$locale}/product/{product.id}" class="product-tabs__link"
+    <a href="/{$locale}/product/{product.slug}" class="product-tabs__link"
         class:product-tabs__link_active={!pageURL.includes('/params')}>Про товар</a>
     {#if Array.isArray(product.params) && product.params.length}
-        <a href="/{$locale}/product/{product.id}/params" class="product-tabs__link"
+        <a href="/{$locale}/product/{product.slug}/params" class="product-tabs__link"
             class:product-tabs__link_active={pageURL.includes('/params')}>Характеристики</a>
     {/if}
 </nav>

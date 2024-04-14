@@ -47,7 +47,7 @@
             <!-- svelte-ignore a11y-autofocus -->
             <label class="label-input">
                 <span class="label-input__title">Телефон <span class="required">*</span></span>
-                <input type="hidden" name="product_id" value={product.id}>
+                <input type="hidden" name="product_id" value={product.slug}>
                 <input type="tel" name="phone" class="input">
                 {#if errors?.phone === 'required'}
                     <p class="errors">{$LL.oneClick.errors.phone.required()}</p>

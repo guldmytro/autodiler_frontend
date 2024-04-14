@@ -37,18 +37,18 @@
             {#each crumbs as crumb, i }
                 <li class="breadcrumbs-group__item">
                     {#if $locale == 'ru'}
-                        <a class="breadcrumbs-group__link" href="/{$locale}/{extraPath}{crumb.id}">{crumb.name_ru}</a>    
+                        <a class="breadcrumbs-group__link" href="/{$locale}/{extraPath}{crumb.slug}">{crumb.name_ru}</a>    
                     {:else}
-                        <a class="breadcrumbs-group__link" href="/{$locale}/{extraPath}{crumb.id}">{crumb.name_ua}</a>
+                        <a class="breadcrumbs-group__link" href="/{$locale}/{extraPath}{crumb.slug}">{crumb.name_ua}</a>
                     {/if}
                     <span class="sep">-</span>
                 </li>
             {/each}
             {#if (items?.name_ua && items?.name_ru) && currentPage !== items?.name_ua && currentPage !== items?.name_ru}
                 {#if $locale == 'ru'}
-                    <a class="breadcrumbs-group__link" href="/{$locale}/{extraPath}{items.id}">{items.name_ru}</a>    
+                    <a class="breadcrumbs-group__link" href="/{$locale}/{extraPath}{items.slug}">{items.name_ru}</a>    
                 {:else}
-                    <a class="breadcrumbs-group__link" href="/{$locale}/{extraPath}{items.id}">{items.name_ua}</a>
+                    <a class="breadcrumbs-group__link" href="/{$locale}/{extraPath}{items.slug}">{items.name_ua}</a>
                 {/if}
                 <span class="sep">-</span>
             {/if}

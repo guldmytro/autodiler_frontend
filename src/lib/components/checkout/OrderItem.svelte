@@ -40,13 +40,13 @@
 </script>
 
 <li class="order-item">
-    <a href="/{$locale}/product/{item.product.id}" class="item-thumb">
+    <a href="/{$locale}/product/{item.product.slug}" class="item-thumb">
         <div class="img-wrapper">
             <img src={item.product.image} alt={item.product.name} class="item-thumb__img" loading="lazy">
         </div>
     </a>
     <div class="order-item__content">
-        <h3 class="item-title"><a href="/{$locale}/product/{item.product.id}">{item.product.name}</a></h3>
+        <h3 class="item-title"><a href="/{$locale}/product/{item.product.slug}">{item.product.name}</a></h3>
         <p class="order-item__price">{item.product.price} <span class="currency">грн.</span></p>
         <div class="content-row">
             <p class="quantity-controls">

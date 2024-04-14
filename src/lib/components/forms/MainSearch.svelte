@@ -16,7 +16,7 @@
     $: terms = showAllCars ? $page.data?.terms.filter(filterTerms) : $page.data?.terms.filter(filterTerms).slice(0, termsToShow);
 
     $: count = currentCategory?.data?.quantity || currentModel?.data?.quantity || currentProducer?.data?.quantity;
-    $: currentTerm = currentCategory?.id || currentModel?.id || currentProducer?.id;
+    $: currentTerm = currentCategory?.data?.slug || currentModel?.data?.slug || currentProducer?.data?.slug;
     $: currentLink = currentTerm ? `/${$locale}/product-cat/${currentTerm}` : null;
     $: key = $locale === 'uk' ? 'name_ua' : 'name_ru';
 
@@ -28,6 +28,7 @@
     let currentCategoryID = '';
 
     function setProducer(producer) {
+        console.log(producer);
         currentProducer = producer;
         currentModel = null;
         currentModelID = '';

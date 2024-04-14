@@ -22,7 +22,7 @@
 
     let productInCartExtra = false;
     $: productInCart = inCart(product.id) || productInCartExtra;
-    $: inWishlist = browser && $wishlist.ids.indexOf(product.id) !== -1;
+    $: inWishlist = browser  && $wishlist?.ids && $wishlist.ids.indexOf(product.id) !== -1;
     let wishlistDisabled = false;
     async function handleWishlist() {
         wishlistDisabled = true;

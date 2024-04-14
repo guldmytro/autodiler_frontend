@@ -16,7 +16,7 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, cookies, fe
                 return {user}
             }
             const ids = idArray.join(',');
-            let fetchUrl = `${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku&limit=${PUBLIC_PRODUCTS_PER_PAGE}`;
+            let fetchUrl = `${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku,slug&limit=${PUBLIC_PRODUCTS_PER_PAGE}`;
             if (offset) {
                 fetchUrl += `&offset=${offset}`;
             }

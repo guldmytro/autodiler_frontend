@@ -16,7 +16,7 @@
     }
 
     let wishlistDisabled = false;
-    $: inWishlist = browser && $wishlist.ids.indexOf(product.id) !== -1;
+    $: inWishlist = browser && $wishlist?.ids && $wishlist.ids.indexOf(product.id) !== -1;
     async function handleWishlist() {
         wishlistDisabled = true;
         if (inWishlist) {

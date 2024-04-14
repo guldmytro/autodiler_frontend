@@ -6,12 +6,12 @@
 
 <tr class="order-item">
     <td>
-        <a href="/{$locale}/product/{item.product.id}" class="order-item__thumb">
+        <a href="/{$locale}/product/{item.product.slug}" class="order-item__thumb">
             <img src={item.product.image} class="order-item__img" loading="lazy" alt={item.product.name}>
         </a>
     </td>
     <td data-label="Товар">
-        <a href="/{$locale}/product/{item.product.id}" class="order-item_link">
+        <a href="/{$locale}/product/{item.product.slug}" class="order-item_link">
             {item.product.name}
         </a>
     </td>
