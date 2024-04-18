@@ -29,7 +29,9 @@
 
 <svelte:head>
 	<HeadHrefLangs />
+	<meta name="robots" content="noindex">
 </svelte:head>
+
 <ProgressBar color="#5285cc" />
 <div class="content">
 	<Header />
