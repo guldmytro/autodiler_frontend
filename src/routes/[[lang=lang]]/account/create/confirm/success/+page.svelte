@@ -2,6 +2,8 @@
     import BreadCrumbs from "$lib/components/global/BreadCrumbs.svelte";
     import LL from "$i18n/i18n-svelte";
     import { locale } from "$i18n/i18n-svelte";
+
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 <svelte:head>
@@ -23,7 +25,7 @@
                         </g>
                     </svg>
                     <h1 class="auth-form__title">{$LL.account.success.title()}</h1>
-                    <p class="create create_left">{$LL.account.success.p()} <a href="/{$locale}/account/login">{$LL.account.success.p2()}</a></p>
+                    <p class="create create_left">{$LL.account.success.p()} <a href="/{localePrefix}account/login">{$LL.account.success.p2()}</a></p>
                 </div>
             </div>
         </div>

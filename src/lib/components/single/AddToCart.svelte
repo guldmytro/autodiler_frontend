@@ -23,6 +23,7 @@
     let productInCartExtra = false;
     $: productInCart = inCart(product.id) || productInCartExtra;
     $: inWishlist = browser  && $wishlist?.ids && $wishlist.ids.indexOf(product.id) !== -1;
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
     let wishlistDisabled = false;
     async function handleWishlist() {
         wishlistDisabled = true;
@@ -38,6 +39,7 @@
         await addItemToCart(product.id, count, false, product.name, product.price, product.image);
         productInCartExtra = true;
     }
+    
 </script>
 <div class="addtocart-controls">
     <div class="row">
@@ -55,7 +57,7 @@
     </div>
     <div class="row row_streched">
         {#if productInCart}
-            <a href="/{$locale}/cart" class="button">
+            <a href="/{localePrefix}cart" class="button">
                 <img src={iconCartIn} alt="корзина" width="24" height="24">
                 <span>У кошику</span>
             </a>

@@ -12,9 +12,13 @@ loadAllLocales()
 const L = i18n()
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const [, lang] = getPathnameWithoutBase(event.url).split('/')
-
-	// redirect to base locale if no locale slug was found
+	let [, lang] = getPathnameWithoutBase(event.url).split('/');
+	
+	if (!lang) {
+		lang = 'uk';
+	} 
+	
+	// redirect to base locale if no locale slug was found	
 	if (!lang) {
 		const locale = getPreferredLocale(event)
 		throw redirect(307, `${base}/${locale}`)

@@ -7,13 +7,15 @@
     export let form;
 
     let loading = false;
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
+    
 
     function create() {
         loading = true;
         return async ({result, update}) => {
             loading = false;
             if (result.type === 'success') {
-                goto(`/${$locale}/account/create/confirm`);
+                goto(`/${localePrefix}account/create/confirm`);
             } else {
                 await update();
             }

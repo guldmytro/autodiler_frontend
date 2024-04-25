@@ -8,9 +8,9 @@ export async function GET({fetch}) {
     products.forEach(product => {
         urls += `
             <url>
-                <loc>https://avtodiler.com.ua/uk/product/${product.slug}</loc>
+                <loc>https://avtodiler.com.ua/product/${product.slug}</loc>
                 <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product/${product.slug}" />
-                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/uk/product/${product.slug}" />
+                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product/${product.slug}" />
                 <lastmod>${product.updated}</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.9</priority>
@@ -18,7 +18,7 @@ export async function GET({fetch}) {
             <url>
                 <loc>https://avtodiler.com.ua/ru/product/${product.slug}</loc>
                 <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product/${product.slug}" />
-                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/uk/product/${product.slug}" />
+                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product/${product.slug}" />
                 <lastmod>${product.updated}</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.9</priority>
@@ -28,12 +28,11 @@ export async function GET({fetch}) {
     
     const terms = await fetch(`${apiUrl}categories-sitemap/`).then(r => r.json());
     terms.forEach(term => {
-        console.log('here')
         urls += `
             <url>
-                <loc>https://avtodiler.com.ua/uk/product-cat/${term.slug}</loc>
+                <loc>https://avtodiler.com.ua/product-cat/${term.slug}</loc>
                 <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product-cat/${term.slug}" />
-                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/uk/product-cat/${term.slug}" />
+                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product-cat/${term.slug}" />
                 <lastmod>${term.updated}</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.9</priority>
@@ -41,7 +40,7 @@ export async function GET({fetch}) {
             <url>
                 <loc>https://avtodiler.com.ua/ru/product/${term.slug}</loc>
                 <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product-cat/${term.slug}" />
-                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/uk/product-cat/${term.slug}" />
+                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product-cat/${term.slug}" />
                 <lastmod>${term.updated}</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.9</priority>

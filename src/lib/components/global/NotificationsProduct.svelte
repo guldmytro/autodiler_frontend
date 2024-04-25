@@ -25,6 +25,8 @@
     onMount(() => {
         startTimer();
     });
+
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 <li class="notifications-item"
@@ -46,7 +48,7 @@
                 <div class="notifications-item__quantity">
                     {$LL.notifications.cnt()} {notification.cnt}
                 </div>
-                <a href="/{$locale}/cart" class="notifications-item__link">{$LL.notifications.showCart()}</a>
+                <a href="/{localePrefix}cart" class="notifications-item__link">{$LL.notifications.showCart()}</a>
             </div>
         </div>
     </div>

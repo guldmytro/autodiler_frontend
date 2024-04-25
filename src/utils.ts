@@ -10,13 +10,29 @@ import { PUBLIC_API_URL } from '$env/static/public'
 
 // e.g. https://mywebsite.com/en/blog/article-1 => /de/blog/article-1
 export const replaceLocaleInUrl = (url: URL, locale: string, full = false): string => {
-	const [, , ...rest] = getPathnameWithoutBase(url).split('/')
-	const new_pathname = `/${[locale, ...rest].join('/')}`
-	if (!full) {
-		return `${new_pathname}${url.search}`
+	const path = url.pathname;
+	
+	// split pathname
+	let pathParts = path.split('/').filter(item => item !== '');
+	if (['uk', 'ru'].includes(pathParts[0])) {
+		pathParts = pathParts.slice(1);
 	}
+
+	if (locale !== 'uk') {
+		pathParts.unshift('ru');
+	}
+
+	const localizedPath = pathParts.join('/');
+
+
+	if (!full) {
+		return `/${localizedPath}${url.search}`
+	}
+	return `/${localizedPath}`;
+	
 	const newUrl = new URL(url.toString())
-	newUrl.pathname = base + new_pathname
+	newUrl.pathname = base + localizedPath
+	// console.log(newUrl.toString());
 	return newUrl.toString()
 }
 

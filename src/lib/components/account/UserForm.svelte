@@ -6,6 +6,7 @@
     import { goto, invalidateAll } from "$app/navigation";
     let loading = false;
     let errors = null;
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 
     export let profile;
 
@@ -35,7 +36,7 @@
                 });
             }
             if (result.status === 401) {
-                goto(`/${$locale}/account/dashboard`);
+                goto(`/${localePrefix}account/dashboard`);
             }
         }
     }

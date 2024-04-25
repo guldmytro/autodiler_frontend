@@ -12,12 +12,13 @@
         }
         return false;
     }
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
     $: allTermsCnt = $page.data?.terms.filter(filterTerms).length;
     $: terms = showAllCars ? $page.data?.terms.filter(filterTerms) : $page.data?.terms.filter(filterTerms).slice(0, termsToShow);
 
     $: count = currentCategory?.data?.quantity || currentModel?.data?.quantity || currentProducer?.data?.quantity;
     $: currentTerm = currentCategory?.data?.slug || currentModel?.data?.slug || currentProducer?.data?.slug;
-    $: currentLink = currentTerm ? `/${$locale}/product-cat/${currentTerm}` : null;
+    $: currentLink = currentTerm ? `/${localePrefix}product-cat/${currentTerm}` : null;
     $: key = $locale === 'uk' ? 'name_ua' : 'name_ru';
 
     let currentProducer = null;
@@ -28,7 +29,6 @@
     let currentCategoryID = '';
 
     function setProducer(producer) {
-        console.log(producer);
         currentProducer = producer;
         currentModel = null;
         currentModelID = '';

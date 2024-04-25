@@ -2,16 +2,17 @@
     import { locale } from "$i18n/i18n-svelte";
     import LL from "$i18n/i18n-svelte";
     export let item;
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 <tr class="order-item">
     <td>
-        <a href="/{$locale}/product/{item.product.slug}" class="order-item__thumb">
+        <a href="/{localePrefix}product/{item.product.slug}" class="order-item__thumb">
             <img src={item.product.image} class="order-item__img" loading="lazy" alt={item.product.name}>
         </a>
     </td>
     <td data-label="Товар">
-        <a href="/{$locale}/product/{item.product.slug}" class="order-item_link">
+        <a href="/{localePrefix}product/{item.product.slug}" class="order-item_link">
             {item.product.name}
         </a>
     </td>

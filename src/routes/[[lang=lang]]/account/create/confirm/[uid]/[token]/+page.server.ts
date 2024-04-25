@@ -18,7 +18,6 @@ export const load: PageServerLoad = async ({locals: { locale }, fetch, cookies, 
     });
     
     if (!activation.ok) {
-        console.log(await activation.json());
         throw redirect(302, `/${locale}/account/create/confirm/failed`);
     }
     throw redirect(302, `/${locale}/account/create/confirm/success`)

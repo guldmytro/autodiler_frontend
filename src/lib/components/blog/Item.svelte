@@ -4,22 +4,23 @@
     import { locale } from "$i18n/i18n-svelte";
     
     $: dateTime = new Date(post.created).toLocaleDateString('uk', {});
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 
 <li class="post-item">
-    <a href="/{$locale}/blog/{post.id}" class="post-item__thumb">
+    <a href="/{localePrefix}blog/{post.id}" class="post-item__thumb">
         <img src={post.thumbnail} alt={post.title} loading="lazy" class="post-item__image">
     </a>
     <div class="post-item__content">
         <time class="post-item__time">{dateTime}</time>
         <h3 class="post-item__title">
-            <a href=/{$locale}/blog/{post.id}>{post.title}</a>
+            <a href=/{localePrefix}blog/{post.id}>{post.title}</a>
         </h3>
         <div class="post-item__excerpt">
             {post.excerpt}
         </div>
-        <a href="/{$locale}/blog/{post.id}" class="post-item__more-link">{$LL.blog.more()}</a>
+        <a href="/{localePrefix}blog/{post.id}" class="post-item__more-link">{$LL.blog.more()}</a>
     </div>
 </li>
     

@@ -4,17 +4,19 @@
     import { page } from '$app/stores';
     import LL from "$i18n/i18n-svelte";
     export let mobile = false;
+
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 {#if $page.data.user}
-    <a href="/{$locale}/account/dashboard" class="account-link" class:mobile>
+    <a href="/{localePrefix}account/dashboard" class="account-link" class:mobile>
         <img src={userIcon} alt="користувач" class="account-link__icon" width="80" height="92">
         <span class="account-link__text">
             {$LL.yourCabinet()}
         </span>
     </a>
 {:else}
-    <a href="/{$locale}/account/login" class="account-link" class:mobile>
+    <a href="/{localePrefix}account/login" class="account-link" class:mobile>
         <img src={userIcon} alt="користувач" class="account-link__icon" width="80" height="92">
         <span class="account-link__text">
             {$LL.enter()}

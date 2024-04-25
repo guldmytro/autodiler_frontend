@@ -2,9 +2,11 @@
     import percentIcon from '$lib/assets/img/percent.png';
     import LL from '$i18n/i18n-svelte';
     import { locale } from '$i18n/i18n-svelte';
+
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
-<a href="/{$locale}/product-cat/aktsiia-878e1654" class="discount-link">
+<a href="/{localePrefix}product-cat/aktsiia-878e1654" class="discount-link">
     <img src={percentIcon} alt="процент" class="discount-link__icon" width="32" height="32">
     <span class="discount-link__text">{$LL.discounts()}</span>
 </a>

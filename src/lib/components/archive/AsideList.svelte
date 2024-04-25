@@ -26,14 +26,14 @@
     }
 
 	$: key = $locale === 'uk' ? 'name_ua' : 'name_ru';
-	
+	$: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 <ul class="list">
     {#each items as item, index (index)}
     <li class={`list__item list-item list__item_depth_${depth}`}>
         <div class="list-item__element" class:accent={termAncestorIds.includes(item.id)} class:current={currentCategory && currentCategory == item.id}>
-            <a href="/{$locale}/product-cat/{item.data.slug}" class="term-link">
+            <a href="/{localePrefix}product-cat/{item.data.slug}" class="term-link">
 				{#if item.data?.image}
 					<img src="{PUBLIC_API_MEDIA}{item.data.image}" loading="lazy" height="10" class="term-img" alt={item.data[key]}>
 				{/if}

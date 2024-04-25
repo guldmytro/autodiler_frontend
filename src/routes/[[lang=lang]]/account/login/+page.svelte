@@ -6,6 +6,7 @@
     import { addNotification, notifications } from "$lib/stores/notifications";
     import LL from "$i18n/i18n-svelte";
     export let form;
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 
     let loading = false;
 
@@ -22,9 +23,10 @@
                 } 
                 return await update();
             }
-            goto(`/${$locale}/account/dashboard`);
+            goto(`/${localePrefix}account/dashboard`);
         }
     }
+    
 </script>
 
 
@@ -60,7 +62,7 @@
                         </p>
                     </label>
                     <button type="submit" class="button" disabled={loading} class:button_loading={loading}>{$LL.login.form.submit()}</button>
-                    <p class="create">{$LL.login.form.createText()} <a href="/{$locale}/account/create">{$LL.login.form.createLink()}</a></p>
+                    <p class="create">{$LL.login.form.createText()} <a href="/{localePrefix}account/create">{$LL.login.form.createLink()}</a></p>
                 </div>
             </form>
         </div>

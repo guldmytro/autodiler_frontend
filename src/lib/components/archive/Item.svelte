@@ -8,14 +8,15 @@
 
     $: image = product.image || product.image_src;
     $: title = product.name || product.translation__name;
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 
-<a href="/{$locale}/product/{product.slug}" class="product-item__thumb">
+<a href="/{localePrefix}product/{product.slug}" class="product-item__thumb">
     <img src={image} alt={title} class="product-item__img">
 </a>
 <h2 class="product-item__title">
-    <a href="/{$locale}/product/{product.slug}" class="product-item__link" {title}>
+    <a href="/{localePrefix}product/{product.slug}" class="product-item__link" {title}>
         {title}
     </a>
 </h2>

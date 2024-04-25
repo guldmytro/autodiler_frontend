@@ -3,7 +3,7 @@
     import BreadCrumbs from "$lib/components/global/BreadCrumbs.svelte";
     import SectionHeader from "$lib/components/global/SectionHeader.svelte";
 
-    const crumbs = {'parents': [], 'id': 'cart', 'name_ua': 'Кошик', 'name_ru': 'Корзина'};
+    const crumbs = {'parents': [], 'slug': 'cart', 'name_ua': 'Кошик', 'name_ru': 'Корзина'};
 </script>
 
 

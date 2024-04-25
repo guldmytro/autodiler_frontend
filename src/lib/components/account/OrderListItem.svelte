@@ -4,10 +4,11 @@
     const count = order.items.reduce((a, item) => a + item.quantity, 0);
     const total = order.items.reduce((a, item) => a + item.quantity * item.price, 0);
     import LL from "$i18n/i18n-svelte";
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 <tr>
-    <td data-label={$LL.account.orders.num()}><a href="/{$locale}/account/dashboard/{order.id}">{order.id}</a></td>
+    <td data-label={$LL.account.orders.num()}><a href="/{localePrefix}account/dashboard/{order.id}">{order.id}</a></td>
     <td data-label={$LL.account.orders.date()}>{new Date(order.created).toLocaleDateString('uk', {})}</td>
     <td data-label={$LL.account.orders.quantity()}>{count}</td>
     <td data-label={$LL.account.orders.sum()}>{total} грн.</td>

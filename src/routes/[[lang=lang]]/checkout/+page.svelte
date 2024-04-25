@@ -7,10 +7,13 @@
     import { enhance } from "$app/forms";
     import { goto } from "$app/navigation";
     import { cart, getCart } from '$lib/stores/cart';
+    import { locale } from "$i18n/i18n-svelte";
 
-    const crumbs = {'parents': [], 'id': 'cart', 'name_ua': 'Кошик', 'name_ru': 'Корзина'};
+    const crumbs = {'parents': [], 'slug': 'cart', 'name_ua': 'Кошик', 'name_ru': 'Корзина'};
     export let data;
     export let form;
+
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 
     function create() {
         return async ({result, update}) => {
@@ -19,7 +22,7 @@
 
             }
             cart.set(await getCart())
-            goto('/uk/checkout/success');
+            goto(`/${localePrefix}checkout/success`);
         }
     }
 </script>

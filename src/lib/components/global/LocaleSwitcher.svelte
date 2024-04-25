@@ -7,6 +7,7 @@
 	import { locales } from '$i18n/i18n-util'
 	import { loadLocaleAsync } from '$i18n/i18n-util.async'
 	import { replaceLocaleInUrl } from '../../../utils';
+	import { goto } from '$app/navigation'
 
 	const langLabels = {
 		'uk': 'ua',
@@ -24,11 +25,16 @@
 
 		if (updateHistoryState) {
 			// update url to reflect locale changes
-			history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale))
+			// history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale))
+			goto(replaceLocaleInUrl($page.url, newLocale), {
+				replaceState: true,
+				state: {locale: newLocale},
+				invalidateAll: true
+			});
 		}
 
 		// run the `load` function again
-		invalidateAll()
+		// invalidateAll()
 	}
 
 	// update `lang` attribute
@@ -38,11 +44,12 @@
 	const handlePopStateEvent = async ({ state }: PopStateEvent) => switchLocale(state.locale, false)
 
 	// update locale when page store changes
-	$: if (browser) {
-		const lang = $page.params.lang as Locales
-		switchLocale(lang, false)
-		history.replaceState({ ...history.state, locale: lang }, '', replaceLocaleInUrl($page.url, lang))
-	}
+	// $: if (browser) {
+	// 	const lang = $page.params.lang as Locales
+	// 	console.log($page.params.lang);
+	// 	switchLocale(lang, false)
+	// 	// history.replaceState({ ...history.state, locale: lang }, '', replaceLocaleInUrl($page.url, lang))
+	// }
 </script>
 
 <svelte:window on:popstate={handlePopStateEvent} />
@@ -54,7 +61,7 @@
 				<span class="locale">RU</span>
 			</span>
 		{:else}
-			<a class="locales__item locales__item_link" href={replaceLocaleInUrl($page.url, 'ru')}>
+			<a class="locales__item locales__item_link" on:click|preventDefault={() => switchLocale('ru', true)} href={replaceLocaleInUrl($page.url, 'ru')}>
 				<span class="locale">RU</span>
 			</a>
 		{/if}
@@ -67,12 +74,11 @@
 				<span class="locale">UK</span>
 			</span>
 		{:else}
-			<a class="locales__item locales__item_link" href={replaceLocaleInUrl($page.url, 'uk')}>
+			<a class="locales__item locales__item_link" on:click|preventDefault={() => switchLocale('uk', true)} href={replaceLocaleInUrl($page.url, 'uk')}>
 				<span class="flag"></span>
 				<span class="locale">UK</span>
 			</a>
 		{/if}
-		
 	</li>
 </ul>
 
@@ -94,7 +100,7 @@
 		color: var(--color-text-invert);
 		text-decoration: none;
 	}
-	ul
+	
 	.flag {
 		position: relative;
 		display: block;

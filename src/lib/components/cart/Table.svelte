@@ -10,6 +10,8 @@
      $: total = cartItems.reduce((/** @type {number} */ accumulator, /** @type {{ cnt: number; product: { price: number; }; }} */ item) => {
         return accumulator + item.cnt * item.product.price
      }, 0);
+
+     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 <div class="cart-wrapper">
@@ -31,7 +33,7 @@
         </tbody>
     </table>
     <div class="cart-footer">
-        <a href="/{$locale}/shop" class="cart-footer__back">
+        <a href="/{localePrefix}shop" class="cart-footer__back">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 12H20M4 12L8 8M4 12L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -43,7 +45,7 @@
                 {total} <span class="currency">грн.</span>
             </span>
         </p>
-        <a href="/{$locale}/checkout" class="button button_secondary">{$LL.checkoutBtn()}</a>
+        <a href="/{localePrefix}checkout" class="button button_secondary">{$LL.checkoutBtn()}</a>
     </div>
 </div>
 

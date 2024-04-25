@@ -12,6 +12,11 @@
 	import { wishlist, getWishlist } from '$lib/stores/wishlist';
 	import { onMount } from 'svelte';
 
+	export let data;
+	// at the very top, set the locale before you access the store and before the actual rendering takes place
+	setLocale(data.locale)
+
+
 	onMount(async() => {
 		$cart = await getCart();
 		$wishlist = await getWishlist();
@@ -21,10 +26,6 @@
 		$mobileMenu = false;
 		$termsMenu = false;
 	});
-
-	export let data;
-	// at the very top, set the locale before you access the store and before the actual rendering takes place
-	setLocale(data.locale)
 </script>
 
 <svelte:head>

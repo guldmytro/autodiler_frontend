@@ -3,8 +3,9 @@
     import { wishlist } from '$lib/stores/wishlist';
 
     $: wishlistCount = $wishlist.cnt > 9 ? '9+' : $wishlist.cnt;
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
-<a class="header-button" href="/{$locale}/wishlist" aria-label="перейти в вибране">
+<a class="header-button" href="/{localePrefix}wishlist" aria-label="перейти в вибране">
     {#if $wishlist.cnt}
         <div class="header-button__cnt">{wishlistCount}</div>
     {/if}

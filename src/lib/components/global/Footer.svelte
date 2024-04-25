@@ -5,12 +5,14 @@
     import Socials from './Socials.svelte';
     import Phones from './Phones.svelte';
 
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
+    $: localePrefix2 = $locale === 'uk' ? '' : $locale;
 </script>
 
 <div class="footer">
     <div class="container">
         <div class="footer-row">
-            <a href="/{$locale}" class="logo">
+            <a href="/{localePrefix2}" class="logo">
                 <img src={logo} 
                     class="logo__img"
                     alt="логотип сайту" 
@@ -19,19 +21,19 @@
             </a>
             <ul class="footer-menu">
                 <li class="footer-menu__item">
-                    <a href="/{$locale}" class="footer-menu__link">{$LL.menu.main()}</a>
+                    <a href="/{localePrefix}" class="footer-menu__link">{$LL.menu.main()}</a>
                 </li>
                 <li class="footer-menu__item">
-                    <a href="/{$locale}/about" class="footer-menu__link">{$LL.menu.about()}</a>
+                    <a href="/{localePrefix}about" class="footer-menu__link">{$LL.menu.about()}</a>
                 </li>
                 <li class="footer-menu__item">
-                    <a href="/{$locale}/contacts" class="footer-menu__link">{$LL.menu.contacts()}</a>
+                    <a href="/{localePrefix}contacts" class="footer-menu__link">{$LL.menu.contacts()}</a>
                 </li>
                 <li class="footer-menu__item">
-                    <a href="/{$locale}/faq" class="footer-menu__link">{$LL.menu.support()}</a>
+                    <a href="/{localePrefix}faq" class="footer-menu__link">{$LL.menu.support()}</a>
                 </li>
                 <li class="footer-menu__item">
-                    <a href="/{$locale}/delivery" class="footer-menu__link">{$LL.menu.delivery()}</a>
+                    <a href="/{localePrefix}delivery" class="footer-menu__link">{$LL.menu.delivery()}</a>
                 </li>
             </ul>
             <div class="footer-contacts">

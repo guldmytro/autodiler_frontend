@@ -17,6 +17,8 @@
     import Bottom from './Bottom.svelte';
     import Secure from './Secure.svelte';
     import Discounts from './Discounts.svelte';
+
+    $: localePrefix = $locale === 'uk' ? '' : $locale;
 </script>
 
 <div class="toper">
@@ -35,7 +37,7 @@
     <div class="header-inner">
         <div class="container">
             <div class="header__row">
-                <a href="/{$locale}" class="logo">
+                <a href="/{localePrefix}" class="logo">
                     <img src={logo} 
                         class="logo__img"
                         alt="логотип сайту" 

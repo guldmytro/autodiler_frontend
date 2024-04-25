@@ -4,13 +4,14 @@
     import { page } from '$app/stores';
 
     $: currentPath = new URL($page.url).pathname;
+    $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 <nav class="mobile-nav">
-    <a href="/{$locale}/about" class="header-nav__link" class:current={currentPath.includes('/about')}>{$LL.menu.about()}</a>
-    <a href="/{$locale}/contacts" class="header-nav__link" class:current={currentPath.includes('/contacts')}>{$LL.menu.contacts()}</a>
-    <a href="/{$locale}/faq" class="header-nav__link" class:current={currentPath.includes('/faq')}>{$LL.menu.support()}</a>
-    <a href="/{$locale}/delivery" class="header-nav__link" class:current={currentPath.includes('/delivery')}>{$LL.menu.delivery()}</a>
+    <a href="/{localePrefix}about" class="header-nav__link" class:current={currentPath.includes('/about')}>{$LL.menu.about()}</a>
+    <a href="/{localePrefix}contacts" class="header-nav__link" class:current={currentPath.includes('/contacts')}>{$LL.menu.contacts()}</a>
+    <a href="/{localePrefix}faq" class="header-nav__link" class:current={currentPath.includes('/faq')}>{$LL.menu.support()}</a>
+    <a href="/{localePrefix}delivery" class="header-nav__link" class:current={currentPath.includes('/delivery')}>{$LL.menu.delivery()}</a>
 </nav>
 
 <style>
