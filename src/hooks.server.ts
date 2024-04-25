@@ -13,6 +13,21 @@ const L = i18n()
 
 export const handle: Handle = async ({ event, resolve }) => {
 	let [, lang] = getPathnameWithoutBase(event.url).split('/');
+	// console.log(event)
+	if (lang === 'uk') {
+		const path = event.url.pathname;
+		// split pathname
+		let pathParts = path.split('/').filter(item => item !== '');
+		if (['uk',].includes(pathParts[0])) {
+			pathParts = pathParts.slice(1);
+		}
+		const clearedPath = pathParts.join('/');
+		let newUrl = `${base}/${clearedPath}`
+		if (String(event.url.searchParams).length) {
+			newUrl += `?${event.url.searchParams}`
+		}
+		throw redirect(302, newUrl);
+	}
 	
 	if (!lang) {
 		lang = 'uk';
