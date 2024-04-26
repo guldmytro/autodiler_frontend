@@ -18,7 +18,7 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, para
         error(404);
     }
     
-    let fetchUrl = `${apiUrl}products/?envelope=true&omit=params,category,description,producer,country&category=${term.id}&limit=${PUBLIC_PRODUCTS_PER_PAGE}`;
+    let fetchUrl = `${apiUrl}products/?envelope=true&omit=params,category,description,producer,country,recommended_products&category=${term.id}&limit=${PUBLIC_PRODUCTS_PER_PAGE}`;
     
     if (offset) {
         fetchUrl += `&offset=${offset}`;

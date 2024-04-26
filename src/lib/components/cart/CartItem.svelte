@@ -44,13 +44,13 @@
 
 <tr class="cart-item" class:loading={loading}>
     <td class="cart-item__image">
-        <a class="cart-item-img" href="/{localePrefix}product/{cartItem.product.slug}">
+        <a class="cart-item-img" href="/{localePrefix}product-cat/{cartItem.term_slug}/{cartItem.product.slug}">
             <img src={cartItem.product.image} alt={cartItem.product.name}>
         </a>
     </td>
     <td class="cart-item__info item-info" data-label={$LL.product()}>
         <h2 class="item-info__title">
-            <a class="cart-item__link" href="/{localePrefix}product/{cartItem.product.slug}">
+            <a class="cart-item__link" href="/{localePrefix}product-cat/{cartItem.term_slug}/{cartItem.product.slug}">
                 {cartItem.product.name}
             </a>
         </h2>

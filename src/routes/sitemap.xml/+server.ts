@@ -8,17 +8,17 @@ export async function GET({fetch}) {
     products.forEach(product => {
         urls += `
             <url>
-                <loc>https://avtodiler.com.ua/product/${product.slug}</loc>
-                <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product/${product.slug}" />
-                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product/${product.slug}" />
+                <loc>https://avtodiler.com.ua/product-cat/${product.term_slug}/${product.slug}</loc>
+                <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product-cat/${product.term_slug}/${product.slug}" />
+                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product-cat/${product.term_slug}/${product.slug}" />
                 <lastmod>${product.updated}</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.9</priority>
             </url>
             <url>
-                <loc>https://avtodiler.com.ua/ru/product/${product.slug}</loc>
-                <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product/${product.slug}" />
-                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product/${product.slug}" />
+                <loc>https://avtodiler.com.ua/ru/product-cat/${product.term_slug}/${product.slug}</loc>
+                <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product-cat/${product.term_slug}/${product.slug}" />
+                <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product-cat/${product.term_slug}/${product.slug}" />
                 <lastmod>${product.updated}</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.9</priority>
@@ -38,7 +38,7 @@ export async function GET({fetch}) {
                 <priority>0.9</priority>
             </url>
             <url>
-                <loc>https://avtodiler.com.ua/ru/product/${term.slug}</loc>
+                <loc>https://avtodiler.com.ua/ru/product-cat/${term.slug}</loc>
                 <xhtml:link rel="alternate" hreflang="ru" href="https://avtodiler.com.ua/ru/product-cat/${term.slug}" />
                 <xhtml:link rel="alternate" hreflang="uk" href="https://avtodiler.com.ua/product-cat/${term.slug}" />
                 <lastmod>${term.updated}</lastmod>

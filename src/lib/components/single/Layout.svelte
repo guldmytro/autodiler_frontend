@@ -9,9 +9,6 @@
 
 <main class="product">
     <div class="container">
-        <div class="row row_fluid">
-            <Tabs product={data.item} />
-        </div>
         <slot />
     </div>
 </main>

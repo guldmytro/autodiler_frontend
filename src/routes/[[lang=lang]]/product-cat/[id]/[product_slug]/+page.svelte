@@ -12,7 +12,6 @@
     <meta name="description" content="{$LL.descriptionPattern({name: data.item.name, price: data.item.price})}">
 </svelte:head>
 
-
 <Layout {data}>
     <div class="row">
         <Gallery src={data.item.image} alt={data.item.alt} />

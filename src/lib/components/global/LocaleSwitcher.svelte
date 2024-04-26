@@ -25,16 +25,12 @@
 
 		if (updateHistoryState) {
 			// update url to reflect locale changes
-			// history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale))
-			goto(replaceLocaleInUrl($page.url, newLocale), {
-				replaceState: true,
-				state: {locale: newLocale},
-				invalidateAll: true
-			});
+			history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale))
+			// goto(replaceLocaleInUrl($page.url, newLocale));
 		}
 
 		// run the `load` function again
-		// invalidateAll()
+		invalidateAll();
 	}
 
 	// update `lang` attribute
@@ -61,7 +57,7 @@
 				<span class="locale">RU</span>
 			</span>
 		{:else}
-			<a class="locales__item locales__item_link" on:click|preventDefault={() => switchLocale('ru', true)} href={replaceLocaleInUrl($page.url, 'ru')}>
+			<a class="locales__item locales__item_link" data-sveltekit-reload href={replaceLocaleInUrl($page.url, 'ru')}>
 				<span class="locale">RU</span>
 			</a>
 		{/if}
@@ -74,7 +70,7 @@
 				<span class="locale">UK</span>
 			</span>
 		{:else}
-			<a class="locales__item locales__item_link" on:click|preventDefault={() => switchLocale('uk', true)} href={replaceLocaleInUrl($page.url, 'uk')}>
+			<a class="locales__item locales__item_link" data-sveltekit-reload href={replaceLocaleInUrl($page.url, 'uk')}>
 				<span class="flag"></span>
 				<span class="locale">UK</span>
 			</a>
