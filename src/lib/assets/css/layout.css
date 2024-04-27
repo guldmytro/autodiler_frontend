@@ -21,6 +21,7 @@ body {
     margin: 0 auto;
 }
 
+.section,
 section {
     padding: var(--padding-section) 0;
 }

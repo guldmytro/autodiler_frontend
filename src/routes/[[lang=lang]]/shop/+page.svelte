@@ -10,12 +10,25 @@
     import FilterButton from '$lib/components/archive/FilterButton.svelte';
     import { termsMenu } from '$lib/stores/menu';
     import { fly } from 'svelte/transition';
+    import { getMetaValue } from "$lib/utils";
+    import SeoContent from "$lib/components/global/SeoContent.svelte";
 
     export let data;
+
+    const extraTitle = getMetaValue(data?.meta, 'title_tag');
+    const extraDescription = getMetaValue(data?.meta, 'meta_description');
+    const extraContent = getMetaValue(data?.meta, 'content');
 </script>
 
 <svelte:head>
-	<title>Магазин - Авто Ділер</title>
+    {#if extraTitle}
+        <title>{extraTitle}</title>    
+    {:else}
+        <title>Магазин - Авто Ділер</title>
+    {/if}
+    {#if extraDescription}
+        <meta name="description" content=extraDescription>
+    {/if}
 </svelte:head>
 
 
@@ -44,6 +57,7 @@
         </div>        
     </div>
 </main>
+<SeoContent content={extraContent} />
 <QuestionForm />
 
 <style>

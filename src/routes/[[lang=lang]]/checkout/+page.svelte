@@ -9,6 +9,9 @@
     import { cart, getCart } from '$lib/stores/cart';
     import { locale } from "$i18n/i18n-svelte";
 
+    import { getMetaValue } from "$lib/utils";
+    import SeoContent from "$lib/components/global/SeoContent.svelte";
+
     const crumbs = {'parents': [], 'slug': 'cart', 'name_ua': 'Кошик', 'name_ru': 'Корзина'};
     export let data;
     export let form;
@@ -25,10 +28,21 @@
             goto(`/${localePrefix}checkout/success`);
         }
     }
+
+    const extraTitle = getMetaValue(data?.meta, 'title_tag');
+    const extraDescription = getMetaValue(data?.meta, 'meta_description');
+    const extraContent = getMetaValue(data?.meta, 'content');
 </script>
 
 <svelte:head>
-	<title>{$LL.checkoutTitle()} - Авто Ділер</title>
+    {#if extraTitle}
+        <title>{extraTitle}</title>    
+    {:else}
+        <title>{$LL.checkoutTitle()} - Авто Ділер</title>
+    {/if}
+    {#if extraDescription}
+        <meta name="description" content=extraDescription>
+    {/if}
 </svelte:head>
 
 <BreadCrumbs items={crumbs} currentPage={$LL.checkoutTitle()} />
@@ -44,6 +58,7 @@
         </form>
     </div>
 </main>
+<SeoContent content={extraContent} />
 
 <style>
     .checkout__row {

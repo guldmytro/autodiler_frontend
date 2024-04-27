@@ -1,7 +1,9 @@
 import type { PageServerLoad } from './$types'
-import { getUser } from '$lib/utils';
+import { getUser, getMeta } from '$lib/utils';
 
-export const load: PageServerLoad = async ({locals: { LL }, fetch, cookies }) => {
+
+export const load: PageServerLoad = async ({locals: { LL }, fetch, url, cookies }) => {
 	const user = await getUser(fetch, cookies);
-	return {user};
+	const meta = await getMeta(fetch, url);
+	return {user, meta};
 }

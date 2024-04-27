@@ -1,11 +1,13 @@
 // @ts-nocheck
 import { PUBLIC_API_URL, PUBLIC_PRODUCTS_PER_PAGE } from '$env/static/public';
 import type { PageServerLoad } from './$types';
-import { extractIds, getPageOffset } from '$lib/utils';
-import { getUser } from '$lib/utils';
+import { getPageOffset } from '$lib/utils';
+import { getUser, getMeta } from '$lib/utils';
+
 
 export const load: PageServerLoad = async ({ locals: { locale, LL }, cookies, fetch, params, url }) => {
     const user = await getUser(fetch, cookies);
+    const meta = await getMeta(fetch, url);
     const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
     const page = url.searchParams.get('page');
     const offset = getPageOffset(page, PUBLIC_PRODUCTS_PER_PAGE);
@@ -29,7 +31,8 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, cookies, fe
                     totalPages: products.total_pages,
                     next: products.next,
                     previous: products.previous
-                }
+                },
+                meta
             }
         }
     } catch(e) {

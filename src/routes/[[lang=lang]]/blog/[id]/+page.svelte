@@ -19,19 +19,4 @@
     .post {
         padding-bottom: var(--padding-section);
     }
-    
-    .post__content {
-        max-width: 90rem;
-        font-size: 1.6rem;
-        line-height: 1.4;
-    }
-
-    :global(.post__content > * + *) {
-        margin-top: 0.7em;
-    }
-
-    :global(.post__content ul),
-    :global(.post__content ol) {
-        list-style-position: inside;
-    }
 </style>

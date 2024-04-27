@@ -2,11 +2,12 @@ import { PUBLIC_API_URL } from '$env/static/public';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { PUBLIC_API_MEDIA } from '$env/static/public';
-import { getUser } from '$lib/utils';
+import { getUser, getMeta } from '$lib/utils';
 
-export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, params, cookies }) => {
+export const load: PageServerLoad = async ({ locals: { locale, LL }, url, fetch, params, cookies }) => {
     const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
     const user = await getUser(fetch, cookies);
+    const meta = await getMeta(fetch, url);
     try {
         const res = await fetch(`${apiUrl}posts/${params.id}/`);
         if (!res.ok) {
@@ -14,7 +15,7 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, para
         }
         const post = await res.json();
         post.body = String(post.body).replaceAll('/media/', PUBLIC_API_MEDIA);
-        return {post, user};
+        return {post, user, meta};
 
     } catch(e) {
         throw error(404, 'Not found');

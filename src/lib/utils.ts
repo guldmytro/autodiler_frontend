@@ -1,6 +1,8 @@
 // @ts-ignore
 // @ts-nocheck
 import { PUBLIC_API_URL } from "$env/static/public";
+import { PUBLIC_API_MEDIA } from '$env/static/public';
+
 export const getCartCount = (cart: { cnt: any }[]): number => {
     return cart.reduce((accumulator: number, item: { cnt: any }) => accumulator + item.cnt, 0);
 };
@@ -187,4 +189,32 @@ export async function getUser(fetch, cookies) {
 
 export function emailValidator(value) {
     return value && !!value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+}
+
+
+export async function getMeta(fetch, url) {
+    try {
+        const urlToSearch = String(url.href).endsWith('/') ? url.href.slice(0, -1) : url.href;
+        const apiUrl = PUBLIC_API_URL.replace('[lang]', 'uk');
+        const res = await fetch(`${apiUrl}seo/?link=${urlToSearch}`);
+        if (res.ok) {
+            return await res.json();
+        }
+        throw new Error('Bad request')
+    } catch(e) {
+        console.log(e);
+        return null;
+    }
+}
+
+export function getMetaValue(meta, key) {
+    if (!meta || !Array.isArray(meta) || !meta.length) {
+        return false;
+    }
+
+    if (key === 'content' && meta[0][key]) {
+        return String(meta[0][key]).replaceAll('/media/', PUBLIC_API_MEDIA);
+    }
+
+    return meta[0][key];
 }

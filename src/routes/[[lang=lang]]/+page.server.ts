@@ -1,10 +1,11 @@
 import type { PageServerLoad } from './$types'
-import { getUser } from '$lib/utils';
+import { getUser, getMeta } from '$lib/utils';
 import { PUBLIC_API_URL } from '$env/static/public';
 
 
-export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, cookies }) => {
+export const load: PageServerLoad = async ({locals: { LL, locale }, url, fetch, cookies }) => {
 	const user = await getUser(fetch, cookies);
+	const meta = await getMeta(fetch, url);
 	let posts = {}
 	try {
 		const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
@@ -13,5 +14,5 @@ export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, cooki
 	} catch(e) {
 		
 	}
-	return {user, posts};
+	return {user, posts, meta};
 }

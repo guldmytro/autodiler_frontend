@@ -1,0 +1,22 @@
+.post__content {
+    max-width: 90rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+
+.post__content li + li,
+.post__content * + * {
+    margin-top: 0.7em;
+}
+
+.post__content ul,
+.post__content ol {
+    list-style-position: inside;
+}
+
+.post__content img {
+    display: block;
+    width: 100%;
+}
+
+

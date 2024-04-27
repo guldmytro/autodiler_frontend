@@ -7,12 +7,13 @@ import { redirect } from '@sveltejs/kit';
 import { clearString } from '$lib/utils';
 import { fail } from '@sveltejs/kit';
 import { v4 as uuidv4 } from 'uuid';
-import { getUser } from '$lib/utils';
+import { getUser, getMeta } from '$lib/utils';
 import { requestWithToken } from '$lib/utils';
 
-export const load: PageServerLoad = async ({fetch, cookies, locals: { LL, locale } }) => {
+export const load: PageServerLoad = async ({fetch, cookies, url, locals: { LL, locale } }) => {
     const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
     const user = await getUser(fetch, cookies);
+    const meta = await getMeta(fetch, url);
     let cart = await fetch('/api/cart').then(r => r.json());
 
     const ids = cart.items.map((item: { id: any; }) => item.id).join(',');
@@ -36,6 +37,7 @@ export const load: PageServerLoad = async ({fetch, cookies, locals: { LL, locale
         user,
         cnt: cart.cnt,
         items: cartItems,
+        meta,
     }
     return {cart, user};
 }

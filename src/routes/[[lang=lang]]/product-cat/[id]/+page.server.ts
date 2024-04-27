@@ -3,10 +3,11 @@ import { PUBLIC_API_URL, PUBLIC_PRODUCTS_PER_PAGE } from '$env/static/public';
 import type { PageServerLoad } from './$types';
 import { getPageOffset } from '$lib/utils';
 import { error } from '@sveltejs/kit';
-import { getUser } from '$lib/utils';
+import { getUser, getMeta } from '$lib/utils';
 
 export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, params, url, cookies }) => {
     const user = await getUser(fetch, cookies);
+    const meta = await getMeta(fetch, url);
     const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
     const page = url.searchParams.get('page');
     const offset = getPageOffset(page, PUBLIC_PRODUCTS_PER_PAGE);
@@ -39,6 +40,7 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, para
             totalPages: resJson.total_pages,
             next: resJson.next,
             previous: resJson.previous
-        }
+        },
+        meta,
     };
 }

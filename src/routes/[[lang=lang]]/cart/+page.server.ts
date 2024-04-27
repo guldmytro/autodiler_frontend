@@ -1,9 +1,10 @@
 import { PUBLIC_API_URL } from '$env/static/public';
 import type { PageServerLoad } from './$types';
-import { getUser } from '$lib/utils';
+import { getUser, getMeta } from '$lib/utils';
 
-export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, params, cookies }) => {
+export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, url, params, cookies }) => {
     const user = await getUser(fetch, cookies);
+    const meta = await getMeta(fetch, url);
     let cart = await fetch('/api/cart').then(r => r.json());
     const ids = cart.items.map((item: { id: any; }) => item.id).join(',');
 
@@ -13,5 +14,5 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, para
     cart = cart.items.map((item: { id: any; }) => {
         return {...item, product: results.filter((product: { id: any; }) => product.id == item.id)[0]}
     });
-    return {cart, user};
+    return {cart, user, meta};
 }
