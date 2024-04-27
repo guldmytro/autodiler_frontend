@@ -11,6 +11,7 @@
     import { termsMenu } from '$lib/stores/menu';
     import { fly } from 'svelte/transition';
     import LL from '$i18n/i18n-svelte';
+    import { page } from '$app/stores';
 
     import { getMetaValue } from "$lib/utils";
     import SeoContent from "$lib/components/global/SeoContent.svelte";
@@ -41,7 +42,12 @@
         <meta name="description" content=extraDescription>
     {:else}
         <meta name="description" content="{$LL.termDescriptionPattern({name: title})}">
-    {/if}    
+    {/if}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Авто Ділер">
+    <meta property="og:title" content={$LL.termDescriptionPattern({name: title})}>
+    <meta property="og:url" content={$page.url.toString()}>
+    <meta property="og:image" content="https://www.avtodiler.com.ua/_app/immutable/assets/shop-2.xx4Bla7R.jpg">
 </svelte:head>
 
 

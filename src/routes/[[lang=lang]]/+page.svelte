@@ -9,6 +9,7 @@
     import Posts from "$lib/components/sections/Posts.svelte";
     import { getMetaValue } from "$lib/utils";
     import SeoContent from "$lib/components/global/SeoContent.svelte";
+    import { page } from "$app/stores";
 
 
     export let data;
@@ -27,6 +28,13 @@
     {#if extraDescription}
         <meta name="description" content={extraDescription}>
     {/if}
+    
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Авто Ділер">
+    <meta property="og:title" content={$LL.menu.main()}>
+    <meta property="og:description" content={$LL.ogDescription()}>
+    <meta property="og:url" content={$page.url.toString()}>
+    <meta property="og:image" content="https://www.avtodiler.com.ua/_app/immutable/assets/shop-2.xx4Bla7R.jpg">
 </svelte:head>
 
 <MainSearch />

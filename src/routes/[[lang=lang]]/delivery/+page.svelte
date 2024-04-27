@@ -8,6 +8,7 @@
     const extraTitle = getMetaValue(data?.meta, 'title_tag');
     const extraDescription = getMetaValue(data?.meta, 'meta_description');
     const extraContent = getMetaValue(data?.meta, 'content');
+    import { page } from '$app/stores';
 </script>
 
 <svelte:head>
@@ -19,6 +20,12 @@
     {#if extraDescription}
         <meta name="description" content={extraDescription}>
     {/if}
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Авто Ділер">
+    <meta property="og:title" content={$LL.delivery.title()}>
+    <meta property="og:description" content={$LL.ogDescription()}>
+    <meta property="og:url" content={$page.url.toString()}>
+    <meta property="og:image" content="https://www.avtodiler.com.ua/_app/immutable/assets/shop-2.xx4Bla7R.jpg">
 </svelte:head>
 
 <BreadCrumbs items={{}} currentPage={$LL.delivery.title()} />

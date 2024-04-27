@@ -1,6 +1,7 @@
 import type { BaseTranslation } from '../i18n-types'
 
 const uk = {
+	ogDescription: 'В наявності ⭐ Запчастини за доступною ціною від кращих виробників. ➡️ Оригінал та аналоги ✈️ Швидка доставка ❗ Гарантія',
 	title: 'typesafe-i18n - Svelte Fall Summit {year:number}',
 	titlePattern: '{name:string} - Купити недорого в Україні',
 	descriptionPattern: '⭐️ {name:string} ⭐️ за ціною ✔️ {price:number} грн. ☝ 100% Оригінал ❗ Гарантія ✈️ Доставка',

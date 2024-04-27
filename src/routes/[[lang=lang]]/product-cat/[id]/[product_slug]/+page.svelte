@@ -6,6 +6,7 @@
     import LL from '$i18n/i18n-svelte';
     import { getMetaValue } from "$lib/utils";
     import SeoContent from "$lib/components/global/SeoContent.svelte";
+    import { page } from '$app/stores';
 
     export let data;
 
@@ -24,6 +25,17 @@
         <meta name="description" content=extraDescription>
     {:else}
         <meta name="description" content="{$LL.descriptionPattern({name: data.item.name, price: data.item.price})}">
+    {/if}
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Авто Ділер">
+    <meta property="og:title" content={$LL.descriptionPattern({name: data.item.name, price: data.item.price})}>
+    <meta property="og:url" content={$page.url.toString()}>
+    <meta property="og:image" content={data.item.image}>
+    {#if data?.item?.description}
+        <meta property="og:description" content={data?.item?.description}>
+    {:else}
+        <meta property="og:description" content={data?.item?.name}>
     {/if}
 </svelte:head>
 
