@@ -11,6 +11,7 @@
 	import { cart, getCart } from '$lib/stores/cart';
 	import { wishlist, getWishlist } from '$lib/stores/wishlist';
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	export let data;
 	// at the very top, set the locale before you access the store and before the actual rendering takes place
@@ -31,6 +32,7 @@
 <svelte:head>
 	<HeadHrefLangs />
 	<meta name="robots" content="noindex">
+	<link rel="canonical" href={$page.url.toString()}>
 </svelte:head>
 
 <ProgressBar color="#5285cc" />

@@ -25,12 +25,16 @@
 
 		if (updateHistoryState) {
 			// update url to reflect locale changes
-			history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale))
-			// goto(replaceLocaleInUrl($page.url, newLocale));
+			// history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale))
+			goto(replaceLocaleInUrl($page.url, newLocale), {
+				replaceState: true,
+				state: {locale: newLocale},
+				invalidateAll: true
+			});
 		}
 
 		// run the `load` function again
-		invalidateAll();
+		// invalidateAll()
 	}
 
 	// update `lang` attribute
