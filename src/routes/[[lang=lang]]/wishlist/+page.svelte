@@ -26,7 +26,7 @@
         <meta name="description" content={extraDescription}>
     {/if}
 
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="Авто Ділер">
     <meta property="og:title" content={$LL.wishlist.main()}>
     <meta property="og:description" content={$LL.ogDescription()}>
