@@ -40,14 +40,17 @@
     {/if}
     {#if extraDescription}
         <meta name="description" content={extraDescription}>
+        <meta property="og:description" content={extraDescription}>
     {:else}
         <meta name="description" content="{$LL.termDescriptionPattern({name: title})}">
+        <meta property="og:description" content={$LL.termDescriptionPattern({name: title})}>
     {/if}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Авто Ділер">
     <meta property="og:title" content={$LL.termDescriptionPattern({name: title})}>
     <meta property="og:url" content={$page.url.toString()}>
     <meta property="og:image" content="https://www.avtodiler.com.ua/_app/immutable/assets/shop-2.xx4Bla7R.jpg">
+    
 </svelte:head>
 
 
