@@ -194,16 +194,15 @@ export function emailValidator(value) {
 
 export async function getMeta(fetch, url) {
     try {
-        const urlToSearch = String(url.href).endsWith('/') ? url.href.slice(0, -1) : url.href;
+        let urlToSearch = String(url.href).endsWith('/') ? url.href.slice(0, -1) : url.href;
+        urlToSearch = urlToSearch.replace('https://www.', 'https://')
         const apiUrl = PUBLIC_API_URL.replace('[lang]', 'uk');
         const res = await fetch(`${apiUrl}seo/?link=${urlToSearch}`);
         if (res.ok) {
-            return [{'info': 'Good request for url' + `${apiUrl}seo/?link=${urlToSearch}`}]
             return await res.json();
         }
         throw new Error('Bad request')
     } catch(e) {
-        console.log(e);
         return [{'info': 'Bad request for url' + `${apiUrl}seo/?link=${urlToSearch}`}];
     }
 }
