@@ -17,7 +17,6 @@
     const extraTitle = getMetaValue(data?.meta, 'title_tag');
     const extraDescription = getMetaValue(data?.meta, 'meta_description');
     const extraContent = getMetaValue(data?.meta, 'content');
-    console.log(data?.meta);
 </script>
 
 <svelte:head>
