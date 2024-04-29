@@ -198,6 +198,7 @@ export async function getMeta(fetch, url) {
         const apiUrl = PUBLIC_API_URL.replace('[lang]', 'uk');
         const res = await fetch(`${apiUrl}seo/?link=${urlToSearch}`);
         if (res.ok) {
+            return [{'info': 'Good request for url' + `${apiUrl}seo/?link=${urlToSearch}`}]
             return await res.json();
         }
         throw new Error('Bad request')
