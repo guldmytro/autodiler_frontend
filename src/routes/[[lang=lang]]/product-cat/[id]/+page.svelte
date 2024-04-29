@@ -39,7 +39,7 @@
         <title>{$LL.termTitlePattern({name: title})}</title>
     {/if}
     {#if extraDescription}
-        <meta name="description" content=extraDescription>
+        <meta name="description" content={extraDescription}>
     {:else}
         <meta name="description" content="{$LL.termDescriptionPattern({name: title})}">
     {/if}

@@ -22,7 +22,7 @@
         <title>{$LL.titlePattern({name: data.item.name})}</title>
     {/if}
     {#if extraDescription}
-        <meta name="description" content=extraDescription>
+        <meta name="description" content={extraDescription}>
     {:else}
         <meta name="description" content="{$LL.descriptionPattern({name: data.item.name, price: data.item.price})}">
     {/if}

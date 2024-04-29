@@ -18,7 +18,7 @@
         <title>{$LL.faq.title()} - Авто Ділер</title>
     {/if}
     {#if extraDescription}
-        <meta name="description" content=extraDescription>
+        <meta name="description" content={extraDescription}>
     {/if}
 
     <meta property="og:type" content="website">

@@ -41,7 +41,7 @@
         <title>{$LL.checkoutTitle()} - Авто Ділер</title>
     {/if}
     {#if extraDescription}
-        <meta name="description" content=extraDescription>
+        <meta name="description" content={extraDescription}>
     {/if}
 </svelte:head>
 

@@ -29,7 +29,7 @@
         <title>Магазин - Авто Ділер</title>
     {/if}
     {#if extraDescription}
-        <meta name="description" content=extraDescription>
+        <meta name="description" content={extraDescription}>
     {/if}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Авто Ділер">
