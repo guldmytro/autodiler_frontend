@@ -203,7 +203,7 @@ export async function getMeta(fetch, url) {
         throw new Error('Bad request')
     } catch(e) {
         console.log(e);
-        return null;
+        return [{'info': 'Bad request for url' + `${apiUrl}seo/?link=${urlToSearch}`}];
     }
 }
 
