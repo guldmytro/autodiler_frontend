@@ -6,8 +6,8 @@
     import { page } from '$app/stores';
     export let data;
 
-    const extraTitle = getMetaValue(data?.meta, 'title_tag');
-    const extraDescription = getMetaValue(data?.meta, 'meta_description');
+    $: extraTitle = getMetaValue(data?.meta, 'title_tag');
+    $: extraDescription = getMetaValue(data?.meta, 'meta_description') || false;
     $: extraContent = getMetaValue(data?.meta, 'content') || false;
 </script>
 

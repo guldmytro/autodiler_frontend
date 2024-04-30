@@ -28,7 +28,7 @@
     $: titleToShow = getMetaValue(data?.meta, 'title_tag') || $LL.termTitlePattern({name: title});
     export let data;
 
-    const extraDescription = getMetaValue(data?.meta, 'meta_description');
+    $: extraDescription = getMetaValue(data?.meta, 'meta_description') || false;
     $: extraContent = getMetaValue(data?.meta, 'content') || false;
 </script>
 

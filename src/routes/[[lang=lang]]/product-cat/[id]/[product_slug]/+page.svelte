@@ -11,7 +11,7 @@
     export let data;
     
     $: titleToShow = getMetaValue(data?.meta, 'title_tag') || $LL.titlePattern({name: data.item.name});
-    const extraDescription = getMetaValue(data?.meta, 'meta_description');
+    $: extraDescription = getMetaValue(data?.meta, 'meta_description') || false;
     $: extraContent = getMetaValue(data?.meta, 'content') || false;
 </script>
 
