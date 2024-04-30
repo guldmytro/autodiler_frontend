@@ -8,7 +8,7 @@
 
     const extraTitle = getMetaValue(data?.meta, 'title_tag');
     const extraDescription = getMetaValue(data?.meta, 'meta_description');
-    const extraContent = getMetaValue(data?.meta, 'content');
+    $: extraContent = getMetaValue(data?.meta, 'content') || false;
 </script>
 
 <svelte:head>

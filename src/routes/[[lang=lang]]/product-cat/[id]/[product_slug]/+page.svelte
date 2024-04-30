@@ -12,7 +12,7 @@
     
     $: titleToShow = getMetaValue(data?.meta, 'title_tag') || $LL.titlePattern({name: data.item.name});
     const extraDescription = getMetaValue(data?.meta, 'meta_description');
-    const extraContent = getMetaValue(data?.meta, 'content');
+    $: extraContent = getMetaValue(data?.meta, 'content') || false;
 </script>
 
 <svelte:head>
