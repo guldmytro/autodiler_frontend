@@ -25,19 +25,15 @@
     ];
     $: key = $locale === 'uk' ? 'name_ua' : 'name_ru';
     $: title = termsList.map(item => item[key]).join('. ');
+    $: titleToShow = getMetaValue(data?.meta, 'title_tag') || $LL.termTitlePattern({name: title});
     export let data;
 
-    const extraTitle = getMetaValue(data?.meta, 'title_tag');
     const extraDescription = getMetaValue(data?.meta, 'meta_description');
     const extraContent = getMetaValue(data?.meta, 'content');
 </script>
 
 <svelte:head>
-    {#if extraTitle}
-        <title>{extraTitle}</title>    
-    {:else}
-        <title>{$LL.termTitlePattern({name: title})}</title>
-    {/if}
+    <title>{titleToShow}dada</title>
     {#if extraDescription}
         <meta name="description" content={extraDescription}>
         <meta property="og:description" content={extraDescription}>

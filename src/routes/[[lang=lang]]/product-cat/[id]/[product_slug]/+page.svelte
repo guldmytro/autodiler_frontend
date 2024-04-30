@@ -9,18 +9,14 @@
     import { page } from '$app/stores';
 
     export let data;
-
-    const extraTitle = getMetaValue(data?.meta, 'title_tag');
+    
+    $: titleToShow = getMetaValue(data?.meta, 'title_tag') || $LL.titlePattern({name: data.item.name});
     const extraDescription = getMetaValue(data?.meta, 'meta_description');
     const extraContent = getMetaValue(data?.meta, 'content');
 </script>
 
 <svelte:head>
-    {#if extraTitle}
-        <title>{extraTitle}</title>    
-    {:else}
-        <title>{$LL.titlePattern({name: data.item.name})}</title>
-    {/if}
+    <title>{titleToShow}</title>
     {#if extraDescription}
         <meta name="description" content={extraDescription}>
     {:else}
