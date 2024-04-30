@@ -33,7 +33,7 @@
 </script>
 
 <svelte:head>
-    <title>{titleToShow}dada</title>
+    <title>{titleToShow}</title>
     {#if extraDescription}
         <meta name="description" content={extraDescription}>
         <meta property="og:description" content={extraDescription}>
