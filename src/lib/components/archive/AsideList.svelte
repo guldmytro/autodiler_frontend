@@ -71,6 +71,7 @@
 		position: relative;
 		display: flex;
 		width: 100%;
+		font-weight: 500;
 	}
 
 	.list-item__element::after {
@@ -91,6 +92,7 @@
 		line-height: 3.9rem;
 		font-size: 1.4rem;
 		padding-right: 1.5rem;
+		
 	}
 
 	.list-item__element a span {
@@ -102,7 +104,7 @@
 
 	.list__item_depth_0 > .list-item__element a,
 	.list__item_depth_1 > .list-item__element a {
-		text-transform: uppercase;
+		text-transform: capitalize;
 		display: flex;
 		flex-flow: row nowrap;
 		align-items: center;
@@ -139,7 +141,7 @@
 	}
 
 	.list-item:has(.current) > .list-item__element {
-		font-weight: 700;
+		font-weight: 800;
 	}
 
 	.accent, .current {

@@ -6,7 +6,7 @@
 </script>
 
 <div class="one-click-wrapper">
-    <button class="button button_bordered" type="button" on:click={() => activeOneClickBuy.set(product.id)}>
+    <button class="button button_one-click" type="button" on:click={() => activeOneClickBuy.set(product.id)}>
         <span>{$LL.addToCartOneClick()}</span>
     </button>
     <OneClickBuy {product} />
@@ -14,10 +14,25 @@
 
 <style>
     .one-click-wrapper {
+        display: flex;
+        align-items: center;
         position: relative;
     }
 
-    .one-click-wrapper .button_bordered {
-        height: 100%;
+    .button_one-click {
+        padding: 0.4em 0.85em;
     }
+
+    :global(.product-info .button_one-click) {
+        background-color: transparent;
+        color: var(--color-primary);
+        padding: 0.8em 2em 0.9em;
+        height: 100%;
+        font-weight: 600;
+    }
+
+    :global(.product-info .button_one-click:hover) {
+        background-color: var(--color-primary-hover-2);
+    } 
+
 </style>
