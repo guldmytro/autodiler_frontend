@@ -1,6 +1,6 @@
 <script>
     import { locale } from '$i18n/i18n-svelte';
-    import logo from '$lib/assets/img/logo-footer.png';
+    import logo from '$lib/assets/img/logo-footer.svg';
     import LL from '$i18n/i18n-svelte';
     import Socials from './Socials.svelte';
     import Phones from './Phones.svelte';
@@ -16,7 +16,7 @@
                 <img src={logo} 
                     class="logo__img"
                     alt="логотип сайту" 
-                    width="184" height="129" 
+                    width="211.7" height="149.1"
                     loading="lazy">
             </a>
             <ul class="footer-menu">
@@ -55,7 +55,6 @@
     .footer-row {
         display: flex;
         flex-flow: row nowrap;
-        
         justify-content: space-between;
         column-gap: 10rem;
     }

@@ -117,12 +117,8 @@
 
     .questions-form {
         padding-top: 16rem;
-    }
-
-    .questions-form {
         display: flex;
         flex-flow: column nowrap;
-        row-gap: 3rem;
         width: 100%;
     }
 

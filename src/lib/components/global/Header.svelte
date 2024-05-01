@@ -1,7 +1,8 @@
 <script>
     // @ts-nocheck
     import { locale } from '$i18n/i18n-svelte';
-    import logo from '$lib/assets/img/logo.png';
+    import logo from '$lib/assets/img/logo-header.svg';
+    import logoMobile from '$lib/assets/img/logo-header_mobile.svg';
     
     import LocaleSwitcher from '$lib/components/global/LocaleSwitcher.svelte';
     import Cart from './Cart.svelte';
@@ -39,10 +40,15 @@
             <div class="header__row">
                 <a href="/{localePrefix}" class="logo">
                     <img src={logo} 
-                        class="logo__img"
+                        class="logo__img logo__img_desktop"
                         alt="логотип сайту" 
-                        width="248" height="76" 
+                        width="324" height="98.5" 
                         fetchpriority="high">
+                    <img src={logoMobile} 
+                        class="logo__img logo__img_mobile"
+                        alt="логотип сайту" 
+                        width="121.6" height="98.5" 
+                        fetchpriority="high">                        
                 </a>
                 <HeaderMenu />
                 <Discounts />
@@ -103,14 +109,28 @@
     }
 
     .logo__img {
-        max-height: 100%;
+        height: 100%;
         width: auto;
+    }
+
+    .logo__img_mobile {
+        display: none;
     }
 
     .header-controls {
         display: flex;
         flex-flow: row nowrap;
         column-gap: 0.5rem;
+    }
+
+    @media (max-width: 991px) {
+        .logo__img_desktop {
+            display: none;
+        }
+        
+        .logo__img_mobile {
+            display: block;
+        }
     }
 
     @media (max-width: 575px) {
