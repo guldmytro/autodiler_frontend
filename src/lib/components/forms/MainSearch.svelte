@@ -368,7 +368,7 @@
             display: block;
             width: 100%;
             height: 17rem;
-            background: url('$lib/assets/img/bg-search.jpg') no-repeat center / cover;
+            background: url('$lib/assets/img/bg-search_mobile.jpg') no-repeat center / cover;
             
         }
 
