@@ -28,7 +28,7 @@
     }
 </script>
 
-<div class="contact-form-wrapper">
+<div class="contact-form-wrapper" id="contacts">
     <form class="contact-form" method="post" action="/api/sendmail"
         use:enhance={send}>
         <div class="contact-form-header">

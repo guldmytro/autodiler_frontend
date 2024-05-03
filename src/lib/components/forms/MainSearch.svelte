@@ -107,7 +107,17 @@
                             </select>
                         </div>
                     </label>
-                    <a href={currentLink} class="search-result-link" class:disabled={!currentLink}>{$LL.search.show()} {#if count}({count}){/if}</a>
+                    <div class="search-result-link">
+                        <a href={currentLink} class="search-result-link__m" class:disabled={!currentLink}>{$LL.search.show()} {#if count}({count}){/if}</a>
+                        <a href="#contacts" class="search-result-link__abs">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.5562 12.9062L16.1007 13.359C16.1007 13.359 15.0181 14.4355 12.0631 11.4972C9.10812 8.55901 10.1907 7.48257 10.1907 7.48257L10.4775 7.19738C11.1841 6.49484 11.2507 5.36691 10.6342 4.54348L9.37326 2.85908C8.61028 1.83992 7.13596 1.70529 6.26145 2.57483L4.69185 4.13552C4.25823 4.56668 3.96765 5.12559 4.00289 5.74561C4.09304 7.33182 4.81071 10.7447 8.81536 14.7266C13.0621 18.9492 17.0468 19.117 18.6763 18.9651C19.1917 18.9171 19.6399 18.6546 20.0011 18.2954L21.4217 16.883C22.3806 15.9295 22.1102 14.2949 20.8833 13.628L18.9728 12.5894C18.1672 12.1515 17.1858 12.2801 16.5562 12.9062Z" fill="currentColor"/>
+                            </svg>
+                            <span>
+                                {$LL.feadback.callToAction()}
+                            </span>
+                        </a>
+                    </div>
             </fieldset>
         </div>
     </div>
@@ -238,8 +248,8 @@
     }
 
     .search-link__img {
-        width: 9rem;
-        height: 4.5rem;
+        width: 6.5rem;
+        height: 4rem;
         object-fit: contain;
         filter: var(--filter-color-text);
         transition: filter 150ms;
@@ -303,18 +313,49 @@
     }
 
     .search-result-link {
+        position: relative;
         flex: 0 0 20%;
         align-self: flex-end;
+        font-weight: 400;
+        transition: opacity 150ms, background-color 150ms;
+    }
+
+    .search-result-link__m {
+        display: block;
+        text-align: center;
+        padding: 0 1em;
+        color: inherit;
+        text-decoration: none;
         height: 4rem;
         line-height: 3.8rem;
-        text-decoration: none;
         background-color: var(--color-primary);
         color: var(--color-text-invert);
         border-radius: 1rem;
-        padding: 0 1em;
-        font-weight: 400;
-        text-align: center;
-        transition: opacity 150ms, background-color 150ms;
+    }
+
+    .search-result-link__abs {
+        position: absolute;
+        top: calc(100% + 1rem);
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        text-decoration: none;
+        color: #4CBB17;
+        font-size: 0.95em;
+        display: flex;
+        align-items: center;
+        column-gap: 0.4rem;
+        flex-flow: row nowrap;
+        margin-right: -9999px;
+        font-weight: 500;
+    }
+
+    .search-result-link__abs svg {
+        position: relative;
+        top: 1px;
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
     }
 
     .search-label {
@@ -327,7 +368,7 @@
     
     @media (max-width: 991px) {
         .search-cats__item {
-            flex: 0 0 25%;
+            flex: 0 0 33.33333333%;
         }
 
         .search-link__img {
@@ -338,16 +379,20 @@
         .search-label {
             flex: 1 0 25%;
         }
+
+        .search-box__fieldset {
+            flex-flow: column nowrap;
+            row-gap: 1rem;
+        }
+
+        .search-result-link {
+            width: 100%;
+        }
     }
 
     @media (max-width: 767px) {
         .search-cats__item {
             flex: 0 0 50%;
-        }
-
-        .search-box__fieldset {
-            flex-flow: column nowrap;
-            row-gap: 1rem;
         }
 
         .search-result-link {

@@ -179,7 +179,7 @@
     @media (max-width: 991px) {
         .questions-form__fieldset {
             flex-flow: column nowrap;
-            row-gap: 1rem;
+            row-gap: 2.4rem;
         }
 
         .questions-form__fieldset input {
