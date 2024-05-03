@@ -17,14 +17,14 @@
         flex-flow: row nowrap;
         align-items: center;
         border: none;
-        background-color: transparent;
         font-size: 1.8rem;
-        column-gap: 1.2rem;
+        column-gap: 0.8rem;
         z-index: 20;
-        background-color: #fff;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        color: inherit;
+        padding: 1rem 2.4rem 1rem 15px;
+        border-radius: 0 10rem 10rem 0;
+        color: #fff;
+        background-color: var(--color-secondary);
+        font-weight: 600;
     }
 
     .terms-btn__icon {
@@ -34,6 +34,12 @@
     @media (max-width: 1199px) {
         .terms-btn {
             display: flex;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .terms-btn {
+            margin-left: -15px;
         }
     }
 </style>
