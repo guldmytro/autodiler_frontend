@@ -53,6 +53,7 @@
                 <HeaderMenu />
                 <Discounts />
                 <Account />
+                <Bottom />
                 <div class="header-controls">
                     <Wishlist />
                     <Cart />
@@ -65,7 +66,7 @@
     <MobileWrapper />
 </header>
 
-<Bottom />
+
 
 <style>
     .toper {
@@ -101,6 +102,7 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
+        column-gap: 1.5rem;
     }
 
     .logo {
