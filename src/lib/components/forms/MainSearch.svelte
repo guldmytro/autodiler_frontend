@@ -7,7 +7,7 @@
     let showAllCars = false;
     let termsToShow = 10;
     function filterTerms(term) {
-        if (term.data.image && term.data.image !== '') {
+        if (term.data.is_car_brand && term.data.image !== '') {
             return true;
         }
         return false;

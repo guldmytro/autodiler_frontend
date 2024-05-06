@@ -9,8 +9,8 @@ export const load: LayoutLoad<{ locale: Locales }> = async ({ data: { locale }, 
 	let terms = [];
 	try {
 		terms = await fetch(`${apiUrl}category/dump/`).then(r => r.json());
-		let termsWithImage = terms.filter(item => item.data && item.data.image);
-		let termsWithoutImage = terms.filter(item => !item.data || !item.data.image || item?.data?.image === '');
+		let termsWithImage = terms.filter(item => item.data && item.data.is_car_brand);
+		let termsWithoutImage = terms.filter(item => !item.data || !item.data.is_car_brand || item?.data?.is_car_brand === '');
 		terms = termsWithImage.concat(termsWithoutImage);
 	} catch(e) {
 		console.warn(e);
