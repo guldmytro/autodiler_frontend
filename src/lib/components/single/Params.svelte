@@ -2,7 +2,7 @@
     export let params;
 </script>
 
-{#if params}
+{#if Array.isArray(params) && params.length}
     <div class="params-box">
         <h2 class="params-box__title">Характеристики</h2>
         <table class="params">
