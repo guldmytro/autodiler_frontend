@@ -327,7 +327,12 @@ const uk = {
 				minLength: 'Пароль повинен бути не коротше 8 символів'
 			}
 		}
-	}
+	},
+	shopsHeaders: 'Цей товар Ви можете замовити в магазинах:',
+	shopAddressLabel: 'Адреса',
+	shops: [
+		{address: 'м. Харків, вул. Москалівська, 36', link: 'https://www.google.com/maps/place/%D0%90%D0%B2%D1%82%D0%BE+%D0%94%D1%96%D0%BB%D0%B5%D1%80/@49.9788601,36.2182591,16z/data=!4m14!1m7!3m6!1s0x4127a11bbc49d315:0x941f4b48e90c4a5f!2z0JDQstGC0L4g0JTRltC70LXRgA!8m2!3d49.9794114!4d36.2219821!16s%2Fg%2F11vq6lnbgp!3m5!1s0x4127a11bbc49d315:0x941f4b48e90c4a5f!8m2!3d49.9794114!4d36.2219821!16s%2Fg%2F11vq6lnbgp?entry=ttu'},
+	]
 } satisfies BaseTranslation
 
 export default uk

@@ -8,6 +8,7 @@
     import SeoContent from "$lib/components/global/SeoContent.svelte";
     import { page } from '$app/stores';
     import Params from '$lib/components/single/Params.svelte';
+    import BuyPlaces from '$lib/components/single/BuyPlaces.svelte';
 
     export let data;
     
@@ -42,6 +43,7 @@
         <Info product={data.item} />
     </div>
     <div class="row row_fluid">
+        <BuyPlaces />
         <Params params={data?.item?.params} />
     </div>
 </Layout>

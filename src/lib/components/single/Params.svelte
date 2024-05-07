@@ -1,10 +1,10 @@
 <script>
+    import Box from "./Box.svelte";
     export let params;
 </script>
 
 {#if Array.isArray(params) && params.length}
-    <div class="params-box">
-        <h2 class="params-box__title">Характеристики</h2>
+    <Box title="Характеристики">
         <table class="params">
             <tbody>
                 {#each params as param}
@@ -22,20 +22,10 @@
                 {/each}
             </tbody>
         </table>  
-    </div>
+    </Box>
 {/if}
 
 <style>
-    .params-box {
-        padding: 3rem 2rem;
-        box-shadow: var(--box-shadow);
-    }
-
-    .params-box__title {
-        font-size: 1.8rem;
-        margin-bottom: 1em;
-    }
-
     .params {
         width: 100%;
         text-align: left;
