@@ -16,9 +16,15 @@
 <RecommendedProducts products={data?.item?.recommended_products} />
 
 <style>
-    .product .container {
+    .container {
         display: flex;
         flex-flow: column nowrap;
-        row-gap: 2rem;
+        row-gap: 4rem;
+    }
+
+    @media (max-width: 575px) {
+        .container {
+            row-gap: 30px;
+        }
     }
 </style>

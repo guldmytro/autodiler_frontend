@@ -7,6 +7,7 @@
     import { getMetaValue } from "$lib/utils";
     import SeoContent from "$lib/components/global/SeoContent.svelte";
     import { page } from '$app/stores';
+    import Params from '$lib/components/single/Params.svelte';
 
     export let data;
     
@@ -40,6 +41,9 @@
         <Gallery src={data.item.image} alt={data.item.alt} />
         <Info product={data.item} />
     </div>
+    <div class="row row_fluid">
+        <Params params={data?.item?.params} />
+    </div>
 </Layout>
 
 <QuestionForm />
@@ -51,6 +55,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 3rem;
         align-items: start;
+    }
+
+    .row_fluid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
     @media (max-width: 991px) {
