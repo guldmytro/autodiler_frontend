@@ -8,7 +8,6 @@
     import Cart from './Cart.svelte';
     import Wishlist from './Wishlist.svelte';
     import Menu from './Menu.svelte';
-    import HeaderMenu from './HeaderMenu.svelte';
     import DownloadLink from './DownloadLink.svelte';
     import Socials from './Socials.svelte';
     import Phones from './Phones.svelte';
@@ -18,6 +17,7 @@
     import Bottom from './Bottom.svelte';
     import Secure from './Secure.svelte';
     import Discounts from './Discounts.svelte';
+    import HeaderSearch from './HeaderSearch.svelte';
 
     $: localePrefix = $locale === 'uk' ? '' : $locale;
 </script>
@@ -50,7 +50,7 @@
                         width="121.6" height="98.5" 
                         fetchpriority="high">                        
                 </a>
-                <HeaderMenu />
+                <HeaderSearch />
                 <Discounts />
                 <Account />
                 <Bottom />

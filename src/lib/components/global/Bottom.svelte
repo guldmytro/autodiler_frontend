@@ -2,11 +2,17 @@
     import LL from "$i18n/i18n-svelte";
     import { locale } from '$i18n/i18n-svelte';
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
-    $: localePrefix2 = $locale === 'uk' ? '' : $locale;
+    import { searchMenu, mobileMenu } from "$lib/stores/menu";
 </script>
 
 <div class="bottom">
     <nav class="bottom-nav">
+        <button type="button" class="bottom-link" on:click={() => {$searchMenu = !$searchMenu; $mobileMenu = false;}}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-form__icon">
+                <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="botton-link__text">{$LL.headerSearch.button()}</span>
+        </button>
         <a href="/{localePrefix}shop" class="bottom-link">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M20 6L3 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -56,24 +62,35 @@
             align-items: center;
             color: var(--color-primary);
             text-decoration: none;
+            background-color: transparent;
+            border: none;
         }
 
         .botton-link__text {
             color: var(--color-text);
             font-size: 1.2rem;
         }
-    }
 
-    @media (max-width: 575px) {
+        .bottom-nav {
+            justify-content: space-around;
+            column-gap: 2rem;
+        }
+
         .bottom {
             flex-grow: 1;
             margin: unset;
             padding-right: 2rem;
             padding-left: 2rem;
         }
+    }
+
+    @media (max-width: 575px) {
+        .bottom {
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+        }
         .bottom-nav {
-            justify-content: space-around;
-            column-gap: 2rem;
+            column-gap: 1rem;
         }
     }
 </style>

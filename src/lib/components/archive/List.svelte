@@ -7,9 +7,10 @@
     import { termsMenu } from "$lib/stores/menu";
     export let products;
     export let pagination;
+    import LL from "$i18n/i18n-svelte";
 </script>
 
-{#if products}
+{#if Array.isArray(products) && products.length}
     <div class="products-box" class:disabled={$termsMenu}>
         <ul class="products-group">
             {#each products as product (product.id)}
@@ -20,6 +21,8 @@
         </ul>
         <Pagination {pagination} />
     </div>
+{:else}
+    <p>{$LL.emptyProducts()}</p>
 {/if}
 
 <style>

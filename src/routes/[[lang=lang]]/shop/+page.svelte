@@ -14,12 +14,12 @@
     import SeoContent from "$lib/components/global/SeoContent.svelte";
     import LL from '$i18n/i18n-svelte';
     import { page } from '$app/stores';
-
     export let data;
 
     $: extraTitle = getMetaValue(data?.meta, 'title_tag');
     $: extraDescription = getMetaValue(data?.meta, 'meta_description') || false;
     $: extraContent = getMetaValue(data?.meta, 'content') || false;
+    $: title = data.s ? $LL.searchResultTitle({s: data.s}) : 'Магазин';
 </script>
 
 <svelte:head>
@@ -43,7 +43,7 @@
 <BreadCrumbs items={{}} extraPath="product-cat/" currentPage='Магазин' />
 <main class="products">
     <div class="container">
-        <SectionHeader title="Магазин" />
+        <SectionHeader {title} />
         <div class="row-products">
             <div class="row-products__content">
                 <div class="row-products__header">
@@ -57,7 +57,9 @@
                             </div>
                         {/if}
                     </div>
-                    <OrderSelect />
+                    {#if !data.s}
+                        <OrderSelect />
+                    {/if}
                 </div>
                 <List products={data.products} pagination={data.pagination} />
             </div>

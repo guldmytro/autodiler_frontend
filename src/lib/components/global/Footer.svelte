@@ -119,12 +119,6 @@
     }
 
     @media (max-width: 991px) {
-        .footer-menu {
-            display: none;
-        }
-    }
-
-    @media (max-width: 575px) {
         .footer {
             padding-bottom: calc(var(--padding-section) + 4rem);
         }
@@ -138,6 +132,12 @@
         .footer-contacts {
             align-items: center;
             margin-right: auto;
+        }
+
+        .footer-menu {
+            width: 100%;
+            max-height: unset;
+            align-items: center;
         }
     }
 </style>

@@ -1,8 +1,8 @@
 <script>
-    import { mobileMenu } from "$lib/stores/menu";
+    import { mobileMenu, searchMenu } from "$lib/stores/menu";
 </script>
 
-<button type="button" class="header-mobile-btn" class:active={$mobileMenu} on:click={() => $mobileMenu = !$mobileMenu}>
+<button type="button" class="header-mobile-btn" class:active={$mobileMenu} on:click={() => {$mobileMenu = !$mobileMenu; $searchMenu = false} }>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 6C2.25 5.58579 2.58579 5.25 3 5.25H21C21.4142 5.25 21.75 5.58579 21.75 6C21.75 6.41421 21.4142 6.75 21 6.75H3C2.58579 6.75 2.25 6.41421 2.25 6Z" fill="currentColor"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.25 12C8.25 11.5858 8.58579 11.25 9 11.25L21 11.25C21.4142 11.25 21.75 11.5858 21.75 12C21.75 12.4142 21.4142 12.75 21 12.75L9 12.75C8.58579 12.75 8.25 12.4142 8.25 12Z" fill="currentColor"/>

@@ -10,6 +10,7 @@
 
     
     $: ordering = new URL($page.url).searchParams.get('ordering') || false;
+    $: s = new URL($page.url).searchParams.get('s') || false;
     $: nextPage = pagination.next ? pagination.currentPage + 1 : false;
     $: previousPage = pagination.previous ? pagination.currentPage - 1 : false;
     $: pages = generatePagination(pagination.currentPage, pagination.totalPages);
@@ -17,10 +18,13 @@
     /**
      * @param {number} page
      */
-    function getPagiLink(page, ordering=null) {
+    function getPagiLink(page, ordering=null, s) {
         let link = `?page=${page}`;
         if (ordering) {
             link += `&ordering=${ordering}`;
+        }
+        if (s) {
+            link += `&s=${s}`;
         }
         return link;
     }
@@ -29,7 +33,7 @@
 {#if pages && pages.length > 1}
     <nav class="pagination">
         {#if previousPage}
-            <a class="pagination__item pagination__item_link" href={getPagiLink(previousPage, ordering)}>
+            <a class="pagination__item pagination__item_link" href={getPagiLink(previousPage, ordering, s)}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M4 12H20M4 12L8 8M4 12L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -41,11 +45,11 @@
             {:else if page == pagination.currentPage}
                 <span class="pagination__item pagination__item_text">{page}</span>
             {:else}
-                <a class="pagination__item pagination__item_link" href={getPagiLink(page, ordering)}>{page}</a>
+                <a class="pagination__item pagination__item_link" href={getPagiLink(page, ordering, s)}>{page}</a>
             {/if}
         {/each}
         {#if nextPage}
-            <a class="pagination__item pagination__item_link" href={getPagiLink(nextPage, ordering)}>
+            <a class="pagination__item pagination__item_link" href={getPagiLink(nextPage, ordering, s)}>
                 <svg width="24" height="24" viewBox="0 0 24 24" class="right" fill="none">
                     <path d="M4 12H20M4 12L8 8M4 12L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>

@@ -7,7 +7,7 @@
 
 {#if title}
     <div class="section-header">
-        <h1 class="section-header__title">{title}</h1>
+        <h1 class="section-header__title">{@html title}</h1>
     </div>
 {/if}
 

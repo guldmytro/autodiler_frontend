@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { beforeNavigate } from '$app/navigation';
-	import { menu, mobileMenu, termsMenu } from '$lib/stores/menu';
+	import { menu, mobileMenu, termsMenu, searchMenu } from '$lib/stores/menu';
 	import '$lib/assets/css/all.css';
 	import LL, { setLocale } from '$i18n/i18n-svelte'
 	import Header from '$lib/components/global/Header.svelte'
@@ -26,6 +26,7 @@
 		$menu = false;
 		$mobileMenu = false;
 		$termsMenu = false;
+		$searchMenu = false;
 	});
 </script>
 

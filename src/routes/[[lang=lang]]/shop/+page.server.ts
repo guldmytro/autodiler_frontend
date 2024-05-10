@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, url,
     const page = url.searchParams.get('page');
     const offset = getPageOffset(page, PUBLIC_PRODUCTS_PER_PAGE);
     const ordering = url.searchParams.get('ordering');
-    
+    const s = url.searchParams.get('s') ? String(url.searchParams.get('s')).trim() : false;
     let fetchUrl = `${apiUrl}products/?envelope=true&omit=params,category,description,producer,country&limit=${PUBLIC_PRODUCTS_PER_PAGE}`;
     
     if (offset) {
@@ -21,6 +21,10 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, url,
 
     if (ordering) {
         fetchUrl += `&ordering=${ordering}`;
+    }
+
+    if (s) {
+        fetchUrl += `&s=${s}`;
     }
 
     const res = await fetch(fetchUrl);
@@ -34,6 +38,7 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, url,
             next: resJson.next,
             previous: resJson.previous
         },
-        meta
+        meta,
+        s
     };
 }
