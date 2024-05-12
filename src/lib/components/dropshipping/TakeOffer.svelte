@@ -113,7 +113,7 @@
                 {/if}
             </div>
 
-            <button type="submit" class="button take-offer__submit">{$LL.ds.takeOffer.submit()}</button>
+            <button type="submit" disabled={loading} class="button take-offer__submit">{$LL.ds.takeOffer.submit()}</button>
         </fieldset>
     </form>
 {/if}
