@@ -12,6 +12,7 @@
     <a href="/{localePrefix}contacts" class="header-nav__link" class:current={currentPath.includes('/contacts')}>{$LL.menu.contacts()}</a>
     <a href="/{localePrefix}faq" class="header-nav__link" class:current={currentPath.includes('/faq')}>{$LL.menu.support()}</a>
     <a href="/{localePrefix}delivery" class="header-nav__link" class:current={currentPath.includes('/delivery')}>{$LL.menu.delivery()}</a>
+    <a href="/{localePrefix}dropshipping" class="header-nav__link" class:current={currentPath.includes('/dropshipping')}>{$LL.menu.dropshipping()}</a>
 </nav>
 
 <style>
