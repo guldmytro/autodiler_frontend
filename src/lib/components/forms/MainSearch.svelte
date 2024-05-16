@@ -3,6 +3,8 @@
     import { page } from "$app/stores";
     import { locale } from '$i18n/i18n-svelte';
     import LL from "$i18n/i18n-svelte";
+    import bgDesktop from '$lib/assets/img/bg-search.jpg';
+    import bgMobile from '$lib/assets/img/bg-search_mobile.jpg';
 
     let showAllCars = false;
     let termsToShow = 10;
@@ -49,6 +51,8 @@
 
 
 <main class="search">
+    <img src={bgDesktop} alt="спідометр" fetchprioty="high" class="bg bg_desktop" width="1920" height="755">
+    <img src={bgMobile} alt="спідометр" fetchprioty="high" class="bg bg_mobile" width="720" height="283">
     <div class="container">
         <div class="search__header">
             <h1 class="search__title">{$LL.search.title()}</h1>
@@ -127,8 +131,24 @@
     .search {
         position: relative;
         padding: 16rem 0 0;
-        background: url("$lib/assets/img/bg-search.jpg") no-repeat center / cover;
+        /* background: url("$lib/assets/img/bg-search.jpg") no-repeat center / cover; */
         isolation: isolate;
+    }
+
+    .bg {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        object-fit: cover;
+    }
+
+    .bg_mobile {
+        display: none;
     }
     
     .search::after {
@@ -406,15 +426,13 @@
             background: none;
         }
 
-        .search::before {
-            top: 0;
-            position: absolute;
-            content: '';
+        .bg_desktop {
+            display: none;
+        }
+
+        .bg_mobile {
             display: block;
-            width: 100%;
             height: 17rem;
-            background: url('$lib/assets/img/bg-search_mobile.jpg') no-repeat center / cover;
-            
         }
 
         .search .container {
