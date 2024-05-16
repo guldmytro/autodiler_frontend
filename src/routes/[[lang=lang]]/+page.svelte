@@ -10,7 +10,7 @@
     import { getMetaValue } from "$lib/utils";
     import SeoContent from "$lib/components/global/SeoContent.svelte";
     import { page } from "$app/stores";
-
+    import bgMobile from '$lib/assets/img/bg-search_mobile.jpg';
 
     export let data;
 
@@ -21,10 +21,11 @@
 
 <svelte:head>
     {#if extraTitle}
-        <title>{extraTitle}</title>    
+    <title>{extraTitle}</title>    
     {:else}
-	    <title>{$LL.menu.main()} - Авто Ділер</title>
+    <title>{$LL.menu.main()} - Авто Ділер</title>
     {/if}
+    <link rel="preload" as="image" href={bgMobile}>
     {#if extraDescription}
         <meta name="description" content={extraDescription}>
         <meta property="og:description" content={extraDescription}>
