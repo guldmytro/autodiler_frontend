@@ -11,9 +11,9 @@
         </a>
     </li>
     <li class="contacts-item__element">
-        <a href="tel:+380971687802" class="contacts-item__link contacts-link">
+        <a href="tel:+380507673980" class="contacts-item__link contacts-link">
             <img src={iconKr} alt="київстар" width="64" height="64" class="contacts-link__img">
-            +38 (097) 168-78-02
+            +38 (050) 767-39-80
         </a>
     </li>
 </ul>
