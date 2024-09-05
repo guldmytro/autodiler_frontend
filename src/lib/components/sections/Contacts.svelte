@@ -25,7 +25,7 @@
                         </div>
                         <ul class="contacts-item__list">
                             <li class="contacts-item__element">
-                                <a href="tel:+380936253410">+38 (093) 625-34-10</a>
+                                <a href="tel:+380507673980">+38 (050) 767-39-80</a>
                             </li>
                             <li class="contacts-item__element">
                                 <a href="tel:+380971687802">+38 (097) 168-78-02</a>

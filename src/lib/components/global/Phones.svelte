@@ -1,19 +1,20 @@
 <script>
     import iconKr from '$lib/assets/img/icon-kr.png';
     import iconLc from '$lib/assets/img/icon-lc.svg';
+    import iconVf from '$lib/assets/img/icon-vf.svg';
 </script>
 
 <ul class="contacts-item__list">
     <li class="contacts-item__element">
-        <a href="tel:+380936253410" class="contacts-item__link contacts-link">
-            <img src={iconLc} alt="лайфсел" width="64" height="64" class="contacts-link__img">
-            +38 (093) 625-34-10
+        <a href="tel:+380507673980" class="contacts-item__link contacts-link">
+            <img src={iconVf} alt="лайфсел" width="64" height="64" class="contacts-link__img">
+            +38 (050) 767-39-80
         </a>
     </li>
     <li class="contacts-item__element">
-        <a href="tel:+380507673980" class="contacts-item__link contacts-link">
+        <a href="tel:+380971687802" class="contacts-item__link contacts-link">
             <img src={iconKr} alt="київстар" width="64" height="64" class="contacts-link__img">
-            +38 (050) 767-39-80
+            +38 (097) 168-78-02
         </a>
     </li>
 </ul>
