@@ -32,7 +32,6 @@
 
 <svelte:head>
 	<HeadHrefLangs />
-	<meta name="robots" content="noindex">
 	<link rel="canonical" href={$page.url.toString()}>
 </svelte:head>
 
