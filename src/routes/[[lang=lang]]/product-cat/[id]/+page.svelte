@@ -30,6 +30,24 @@
 
     $: extraDescription = getMetaValue(data?.meta, 'meta_description') || false;
     $: extraContent = getMetaValue(data?.meta, 'content') || false;
+
+
+    const schema = {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": `${data.term.name_ua}`,
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "17"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "500.00",
+            "priceCurrency": "UAH",
+            "availability": "https://schema.org/InStock"
+          }
+        };
 </script>
 
 <svelte:head>
@@ -46,24 +64,13 @@
     <meta property="og:title" content={$LL.termDescriptionPattern({name: title})}>
     <meta property="og:url" content={$page.url.toString()}>
     <meta property="og:image" content="https://www.avtodiler.com.ua/_app/immutable/assets/shop-2.xx4Bla7R.jpg">
-    <script type="application/ld+json">
-        {`
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "ВАЗ",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "17"
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": "500.00",
-            "priceCurrency": "UAH",
-            "availability": "https://schema.org/InStock"
-          }
-        `}
-    </script>
+    {@html 
+        `
+        <script type="application/ld+json">
+            ${JSON.stringify(schema)}
+        </script>
+        `
+    }
 </svelte:head>
 
 
