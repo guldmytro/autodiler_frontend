@@ -46,7 +46,24 @@
     <meta property="og:title" content={$LL.termDescriptionPattern({name: title})}>
     <meta property="og:url" content={$page.url.toString()}>
     <meta property="og:image" content="https://www.avtodiler.com.ua/_app/immutable/assets/shop-2.xx4Bla7R.jpg">
-    
+    <script type="application/ld+json">
+        {`
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "ВАЗ",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "17"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "500.00",
+            "priceCurrency": "UAH",
+            "availability": "https://schema.org/InStock"
+          }
+        `}
+    </script>
 </svelte:head>
 
 
