@@ -12,8 +12,15 @@ loadAllLocales()
 const L = i18n()
 
 export const handle: Handle = async ({ event, resolve }) => {
+	const host = event.url.host;
+
+	// Redirect if the host starts with "www."
+	if (host.startsWith('www.')) {
+		const nonWwwHost = host.slice(4); // remove "www."
+		throw redirect(301,`${event.url.protocol}//${nonWwwHost}${event.url.pathname}${event.url.search}`);
+	}
+
 	let [, lang] = getPathnameWithoutBase(event.url).split('/');
-	// console.log(event)
 	if (lang === 'uk') {
 		const path = event.url.pathname;
 		// split pathname
