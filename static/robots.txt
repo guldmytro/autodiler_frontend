@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /account/
+Disallow: /ru/account/
+
+Disallow: /*?s=
+Disallow: /*?page=
+Disallow: /*?page=*s=
+Disallow: /*?s=*page=
+Disallow: /*?ordering=
+Disallow: /*?page=*ordering=
+Disallow: /*?ordering=*page=
+
+Disallow: /product-cat/
+Disallow: /ru/product-cat/
+
+Allow: /product-cat/*/*
+Allow: /ru/product-cat/*/*
+
+Sitemap: https://avtodiler.com.ua/sitemap.xml
