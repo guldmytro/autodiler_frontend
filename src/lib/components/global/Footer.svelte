@@ -38,6 +38,9 @@
                 <li class="footer-menu__item">
                     <a href="/{localePrefix}dropshipping" class="footer-menu__link">{$LL.menu.dropshipping()}</a>
                 </li>
+                <li class="footer-menu__item">
+                    <a href="/{localePrefix}blog" class="footer-menu__link">{$LL.menu.blog()}</a>
+                </li>
             </ul>
             <div class="footer-contacts">
                 <Phones />

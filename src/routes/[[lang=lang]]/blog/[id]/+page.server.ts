@@ -21,3 +21,4 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, url, fetch,
         throw error(404, 'Not found');
     }
 }
+

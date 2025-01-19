@@ -213,6 +213,8 @@ const ru = {
 		cart: 'Корзина',
 		wishlist: 'Избранное',
 		dropshipping: 'Дропшиппинг',
+		blog: 'Полезные материалы',
+		empty: 'Нету записей'
 	},
 	downloadLink: 'Скачать прайс-лист',
 	working: 'Сейчас работаем',

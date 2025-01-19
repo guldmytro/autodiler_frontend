@@ -1,0 +1,94 @@
+.text-content {
+    font-size: 1.6rem;
+}
+
+.text-content h1,
+.text-content h2,
+.text-content h3,
+.text-content h4,
+.text-content h5,
+.text-content h6 {
+    margin: .8em 0 0.3em;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.text-content h1 {    
+    font-size: var(--fz-h1);
+}
+
+.text-content h2 {    
+    font-size: var(--fz-h2);
+}
+
+.text-content h3 {    
+    font-size: var(--fz-h3);
+}
+
+.text-content h4 {    
+    font-size: var(--fz-h4);
+}
+
+.text-content h5 {    
+    font-size: var(--fz-h5);
+}
+
+.text-content h6 {    
+    font-size: var(--fz-h6);
+}
+
+.text-content p {
+    margin: 1.85em 0;
+    font-weight: 300;
+    font-size: var(--fz-p);
+    line-height: 1.2;
+}
+
+.text-content img {
+    margin: 5em 0;
+    height: auto !important;
+}
+
+.text-content table {
+    width: 100%;
+    margin-top: -1rem;
+    border-collapse: collapse;
+}
+
+.text-content table th,
+.text-content table td {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-text);
+}
+
+.text-content table th {
+    padding-right: 15px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.text-content table td {
+    text-align: right;
+    padding-left: 15px;
+    white-space: balance;
+}
+
+.text-content > *:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 575px) {
+    .privacy-row_pt {
+        padding-top: 2.5em;
+    }
+    .text-content img {
+        margin: 4em 0;
+    }
+}
+@media (max-width: 430px) {
+    .text-content table th,
+    .text-content table td {
+        padding: 2rem 0;
+    }
+}

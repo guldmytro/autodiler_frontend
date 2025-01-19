@@ -213,6 +213,8 @@ const uk = {
 		cart: 'Кошик',
 		wishlist: 'Вибране',
 		dropshipping: 'Дропшипінг',
+		blog: 'Корисні матеріали',
+		empty: 'Немає записів'
 	},
 	downloadLink: 'Скачати прайс-лист',
 	working: 'Зараз працюємо',
