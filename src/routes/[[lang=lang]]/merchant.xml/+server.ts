@@ -11,8 +11,8 @@ function cleanText(str:string) {
         .replace(/'/g, "&apos;");  // Видаляємо всі HTML-теги
 }
 
-export async function GET({fetch}) {
-    const apiUrl = PUBLIC_API_URL.replace('[lang]', 'uk');
+export async function GET({locals: { locale }, fetch}) {
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
     let urls = '';
     const products = await fetch(`${apiUrl}products-merchant/`).then(r => r.json());
     products.forEach(product => {
