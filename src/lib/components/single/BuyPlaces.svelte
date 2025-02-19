@@ -9,6 +9,14 @@
             <em class="shop-item__uptitle">Магазин №1</em>
             <strong class="shop-item__address">{$LL.shopAddressLabel()}: <a class="shop-item__link" href={$LL.shops[0].link()} target="_blank">{$LL.shops[0].address()}</a></strong>
         </li>
+        <li class="shop-item">
+            <em class="shop-item__uptitle">Магазин №2</em>
+            <strong class="shop-item__address">{$LL.shopAddressLabel()}: <a class="shop-item__link" href={$LL.shops[1].link()} target="_blank">{$LL.shops[1].address()}</a></strong>
+        </li>
+        <li class="shop-item">
+            <em class="shop-item__uptitle">Магазин №3</em>
+            <strong class="shop-item__address">{$LL.shopAddressLabel()}: <a class="shop-item__link" href={$LL.shops[2].link()} target="_blank">{$LL.shops[2].address()}</a></strong>
+        </li>
     </ul>
 </Box>
 
