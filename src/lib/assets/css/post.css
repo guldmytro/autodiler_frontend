@@ -21,6 +21,7 @@
 
 .post__content img[src*="telegram"] {
     width: 20px;
+    display: inline-block;
 }
 
 
