@@ -21,6 +21,11 @@
 </Box>
 
 <style>
+    .shops {
+        display: grid;
+        row-gap: 24px;
+    }
+
     .shop-item {
         display: flex;
         flex-flow: column nowrap;
