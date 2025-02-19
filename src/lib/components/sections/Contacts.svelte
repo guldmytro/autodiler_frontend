@@ -56,7 +56,7 @@
                         </div>            
                         <ul class="contacts-item__list">
                             <li class="contacts-item__element">
-                                г. Харьков, пер. Степной, 43
+                                м. Харків пр. Степний
                             </li>
                             
                             <li class="contacts-item__element contacts-item__schedule">
