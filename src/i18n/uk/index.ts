@@ -341,7 +341,7 @@ const uk = {
 	shops: [
 		{address: 'м. Харків, вул. Москалівська, 36', link: 'https://www.google.com/maps/place/%D0%90%D0%B2%D1%82%D0%BE+%D0%94%D1%96%D0%BB%D0%B5%D1%80/@49.9788601,36.2182591,16z/data=!4m14!1m7!3m6!1s0x4127a11bbc49d315:0x941f4b48e90c4a5f!2z0JDQstGC0L4g0JTRltC70LXRgA!8m2!3d49.9794114!4d36.2219821!16s%2Fg%2F11vq6lnbgp!3m5!1s0x4127a11bbc49d315:0x941f4b48e90c4a5f!8m2!3d49.9794114!4d36.2219821!16s%2Fg%2F11vq6lnbgp?entry=ttu'},
 		{address: 'м. Мерефа, вул. Дніпровська, 131 ', link: 'https://www.google.com/maps/place/Dnipro-M/@49.8186517,36.0613506,15.17z/data=!4m6!3m5!1s0x4127a1e21929a889:0x3b9cce1ad7063ab!8m2!3d49.8184162!4d36.0638425!16s%2Fg%2F11q7zzn0d8?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D'},
-		{address: 'м. Балаклія, вул. Центральна, 2а', link: '/'},
+		{address: 'м. Балаклія, вул. Центральна, 2а', link: 'https://www.google.com/maps/place/%D0%90%D0%B2%D1%82%D0%BE%D0%9C%D0%B5%D0%B3%D0%B0%D0%BF%D0%BE%D0%BB%D1%96%D1%81/@49.4538952,36.8470652,16z/data=!4m6!3m5!1s0x41275386155b5edb:0x21650eaf1bbf57d7!8m2!3d49.4536248!4d36.8495177!16s%2Fg%2F11h84lx75b?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D'},
 	],
 	emptyProducts: "По Вашому запиту товарів не знайдено",
 	searchResultTitle: 'Результати пошуку "<em>{s:string}</em>"',
