@@ -8,7 +8,7 @@
 .text-content h4,
 .text-content h5,
 .text-content h6 {
-    margin: .8em 0 0.3em;
+    margin: 1.2em 0 .8em;
     font-weight: 800;
     line-height: 1;
 }
@@ -38,8 +38,7 @@
 }
 
 .text-content p {
-    margin: 1.85em 0;
-    font-weight: 300;
+    margin: 1em 0;
     font-size: var(--fz-p);
     line-height: 1.2;
 }
@@ -76,6 +75,15 @@
 
 .text-content > *:last-child {
     margin-bottom: 0;
+}
+
+.text-content {
+    & ul {
+        list-style-position: inside;
+    }
+    & ol {
+        list-style-position: inside;
+    }
 }
 
 @media (max-width: 575px) {

@@ -41,6 +41,12 @@
                 <li class="footer-menu__item">
                     <a href="/{localePrefix}blog" class="footer-menu__link">{$LL.menu.blog()}</a>
                 </li>
+                <li class="footer-menu__item">
+                    <a href="/{localePrefix}privacy-policy" class="footer-menu__link">{$LL.menu.privacyPolicy()}</a>
+                </li>
+                <li class="footer-menu__item">
+                    <a href="/{localePrefix}returns-exchanges" class="footer-menu__link">{$LL.menu.returnsExchanges()}</a>
+                </li>
             </ul>
             <div class="footer-contacts">
                 <Phones />

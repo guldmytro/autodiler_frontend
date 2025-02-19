@@ -214,7 +214,9 @@ const ru = {
 		wishlist: 'Избранное',
 		dropshipping: 'Дропшиппинг',
 		blog: 'Полезные материалы',
-		empty: 'Нету записей'
+		empty: 'Нету записей',
+		privacyPolicy: 'Политика конфиденциальности',
+		returnsExchanges: 'Обмен и возврат',
 	},
 	downloadLink: 'Скачать прайс-лист',
 	working: 'Сейчас работаем',

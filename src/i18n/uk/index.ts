@@ -214,7 +214,9 @@ const uk = {
 		wishlist: 'Вибране',
 		dropshipping: 'Дропшипінг',
 		blog: 'Корисні матеріали',
-		empty: 'Немає записів'
+		empty: 'Немає записів',
+		privacyPolicy: 'Політика конфіденційності',
+		returnsExchanges: 'Обмін і повернення',
 	},
 	downloadLink: 'Скачати прайс-лист',
 	working: 'Зараз працюємо',
