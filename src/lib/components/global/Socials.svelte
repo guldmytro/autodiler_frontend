@@ -1,17 +1,11 @@
 <script>
-    import iconWhatsap from '$lib/assets/img/icon-wa.png';
     import iconTelegram from '$lib/assets/img/icon-tg.png';
     import iconViber from '$lib/assets/img/icon-vb.png';
 </script>
 
 <ul class="socials">
     <li class="socials-item">
-        <a href="/" class="socials-item__link">
-            <img src={iconWhatsap} alt="ватсап">
-        </a>
-    </li>
-    <li class="socials-item">
-        <a href="/" class="socials-item__link">
+        <a href="https://t.me/AvtoDiler_ua" class="socials-item__link">
             <img src={iconTelegram} alt="телеграм">
         </a>
     </li>
