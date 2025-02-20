@@ -57,10 +57,4 @@
     .params tr:nth-child(odd) td {
         background-color: #f5f5f5;
     }
-
-    @media (max-width: 575px) {
-        .params-box {
-            padding: 25px 15px;
-        }
-    }
 </style>
