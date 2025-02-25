@@ -56,7 +56,7 @@
                         </div>            
                         <ul class="contacts-item__list">
                             <li class="contacts-item__element">
-                                м. Харків пр. Степний
+                                м. Харків, вул. Москалівська, 36
                             </li>
                             
                             <li class="contacts-item__element contacts-item__schedule">
