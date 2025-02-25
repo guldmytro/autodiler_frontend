@@ -217,6 +217,7 @@ const uk = {
 		empty: 'Немає записів',
 		privacyPolicy: 'Політика конфіденційності',
 		returnsExchanges: 'Обмін і повернення',
+		termsOfService: 'Публічна оферта',
 	},
 	downloadLink: 'Скачати прайс-лист',
 	working: 'Зараз працюємо',

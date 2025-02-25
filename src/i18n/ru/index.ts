@@ -217,6 +217,7 @@ const ru = {
 		empty: 'Нету записей',
 		privacyPolicy: 'Политика конфиденциальности',
 		returnsExchanges: 'Обмен и возврат',
+		termsOfService: 'Публичное предложение',
 	},
 	downloadLink: 'Скачать прайс-лист',
 	working: 'Сейчас работаем',

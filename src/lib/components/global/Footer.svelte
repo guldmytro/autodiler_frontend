@@ -47,6 +47,9 @@
                 <li class="footer-menu__item">
                     <a href="/{localePrefix}returns-exchanges" class="footer-menu__link">{$LL.menu.returnsExchanges()}</a>
                 </li>
+                <li class="footer-menu__item">
+                    <a href="/{localePrefix}terms-of-service" class="footer-menu__link">{$LL.menu.termsOfService()}</a>
+                </li>
             </ul>
             <div class="footer-contacts">
                 <Phones />
@@ -85,7 +88,7 @@
         display: flex;
         flex-flow: column wrap;
         justify-items: center;
-        max-height: 11rem;
+        max-height: 14rem;
         list-style: none;
         font-size: 1.4rem;
         column-gap: 5rem;
