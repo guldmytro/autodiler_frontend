@@ -1,10 +1,8 @@
 <script>
-    import { locale } from "$i18n/i18n-svelte";
-    import { PUBLIC_API_MEDIA } from "$env/static/public";
     import LL from "$i18n/i18n-svelte";
 </script>
 
-<a href="{PUBLIC_API_MEDIA}/export/export_{$locale}.csv" download="true" class="download-link">
+<a href="https://api.avtodiler.com.ua/media/output/2025/02/25/export-products-25-02-25_15-34-09.xlsx" download="true" class="download-link">
     <svg height="16" width="16" version="1.1"  
 	 viewBox="0 0 512 512"  xml:space="preserve">
         <g>
