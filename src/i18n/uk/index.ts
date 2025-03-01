@@ -411,7 +411,8 @@ const uk = {
 			subtitle: 'Заповніть форму і отримайте вигідну пропозицію для вашого бізнесу',
 			submit: 'Отримати прайс',
 		}
-	}
+	},
+	outOfStock: 'Немає в наявності'
 } satisfies BaseTranslation
 
 export default uk

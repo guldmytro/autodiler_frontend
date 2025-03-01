@@ -411,7 +411,8 @@ const ru = {
 			subtitle: 'Заполните форму и получите выгодное предложение для вашего бизнеса',
 			submit: 'Получить прайс',
 		}
-	}
+	},
+	outOfStock: 'Нет в наличии'
 } satisfies BaseTranslation
 
 export default ru

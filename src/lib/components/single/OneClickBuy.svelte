@@ -12,7 +12,7 @@
         </button>
         <OneClickBuy {product} />
     {:else}
-        <span>Немає в наявності</span>  
+        <span>{$LL.outOfStock()}</span>  
     {/if}
 </div>
 
