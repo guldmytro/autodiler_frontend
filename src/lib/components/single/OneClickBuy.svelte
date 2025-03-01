@@ -6,10 +6,14 @@
 </script>
 
 <div class="one-click-wrapper">
-    <button class="button button_one-click" type="button" on:click={() => activeOneClickBuy.set(product.id)}>
-        <span>{$LL.addToCartOneClick()}</span>
-    </button>
-    <OneClickBuy {product} />
+    {#if product.quantity > 0}    
+        <button class="button button_one-click" type="button" on:click={() => activeOneClickBuy.set(product.id)}>
+            <span>{$LL.addToCartOneClick()}</span>
+        </button>
+        <OneClickBuy {product} />
+    {:else}
+        <span>Немає в наявності</span>  
+    {/if}
 </div>
 
 <style>

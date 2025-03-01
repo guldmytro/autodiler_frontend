@@ -1,8 +1,10 @@
 import { json } from '@sveltejs/kit'
 import type { RequestHandler } from './$types'
 import { getCartCount } from '$lib/utils'
+import { PUBLIC_API_URL } from '$env/static/public'
 
 export const POST: RequestHandler = async ({request, cookies}) => {
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', 'uk');
     const { id, cnt, forceUpdate } = await request.json();
     let cookiecart: string  = cookies.get('cart')!;
     
@@ -14,6 +16,9 @@ export const POST: RequestHandler = async ({request, cookies}) => {
         cart = [];
     }
     
+    const productInDB = await fetch(`${apiUrl}products/?envelope=true&id=${id}&fields=id,quantity`).then(r => r.json());
+    const dbQuantity = productInDB.results[0].quantity;
+
     const inCart = cart.filter(item => item.id == id).length > 0;
     if (!cookiecart || !inCart) {
         cart.push({
@@ -26,12 +31,12 @@ export const POST: RequestHandler = async ({request, cookies}) => {
                 if (forceUpdate) {
                     return {
                         id: item.id,
-                        cnt: cnt
+                        cnt: Math.min(cnt, dbQuantity)
                     };
                 }
                 return {
                     id: item.id,
-                    cnt: item.cnt + cnt
+                    cnt: Math.min(item.cnt + cnt, dbQuantity)
                 };
             }
             return item;

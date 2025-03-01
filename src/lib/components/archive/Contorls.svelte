@@ -45,7 +45,7 @@
                 <path d="M11 10.8L12.1429 12L15 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
-    {:else}
+    {:else if product.quantity > 0}
         <button type="button" class="add-to-cart" on:click={handleAddToCart}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="currentColor" stroke-width="1.5"/>

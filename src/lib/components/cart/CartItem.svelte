@@ -5,6 +5,7 @@
     import type { Product } from "../single/product";
     import LL from '$i18n/i18n-svelte';
     export let cartItem: Product;
+    import { onMount } from 'svelte';
 
     let quantity = cartItem.cnt;
     let timer: number | null | undefined = null;
@@ -40,6 +41,13 @@
     }
 
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
+
+    onMount(() => {
+        if (quantity > cartItem.product.quantity) {
+            quantity = cartItem.product.quantity;
+            changeQuantity();
+        }
+    })
 </script>
 
 <tr class="cart-item" class:loading={loading}>
@@ -63,7 +71,8 @@
         <p class="quantity-controls">
             <button class="btn-cnt btn-cnt_minus" type="button" aria-label="Зменшити кількість" on:click={decrease}></button>
             <input class="cnt-input" type="text" inputmode="numeric" bind:value={quantity} disabled>
-            <button class="btn-cnt btn-cnt_plus" type="button" aria-label="Збільшити кількість" on:click={increase}></button>
+            <button class="btn-cnt btn-cnt_plus" type="button" aria-label="Збільшити кількість" on:click={increase}
+            disabled={cartItem.product.quantity <= quantity}></button>
         </p>
     </td>
     <td class="cart-item__total" data-label={$LL.total()}>

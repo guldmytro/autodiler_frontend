@@ -47,13 +47,15 @@
             <span class="value">{product.price}</span>
             <span class="currency">грн.</span>
         </p>
-        <p class="quantity-controls" class:hidden={productInCart}>
-            <button class="btn-cnt btn-cnt_minus" type="button" aria-label="Зменшити кількість"
-                on:click={decrement} disabled={count < 2}></button>
-            <input class="cnt-input" type="text" inputmode="numeric" bind:value={count} disabled>
-            <button class="btn-cnt btn-cnt_plus" type="button" aria-label="Збільшити кількість"
-                on:click={increment}></button>
-        </p>
+        {#if product.quantity > 0}    
+            <p class="quantity-controls" class:hidden={productInCart}>
+                <button class="btn-cnt btn-cnt_minus" type="button" aria-label="Зменшити кількість"
+                    on:click={decrement} disabled={count < 2}></button>
+                <input class="cnt-input" type="text" inputmode="numeric" bind:value={count} disabled>
+                <button class="btn-cnt btn-cnt_plus" type="button" aria-label="Збільшити кількість"
+                    on:click={increment} disabled={product.quantity <= count}></button>
+            </p>
+        {/if}
     </div>
     <div class="row row_streched">
         {#if productInCart}
@@ -62,7 +64,7 @@
                 <span>У кошику</span>
             </a>
         {:else}
-            <button class="button" type="button" on:click={handleAddToCart}>
+            <button class="button" type="button" disabled={product.quantity < 1} on:click={handleAddToCart}>
                 <img width="24" height="24" src={iconCart} alt="корзина">
                 <span>{$LL.addToCart()}</span>
             </button>
@@ -84,7 +86,10 @@
         flex-flow: column nowrap;
         row-gap: 1.2rem;
     }
-
+    button:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
     .row {
         display: flex;
         flex-flow: row nowrap;
