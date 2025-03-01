@@ -40,5 +40,9 @@
         :global(.toper .download-link) {
             display: none;
         }
+        .download-link {
+            height: 36px;
+            align-items: center;
+        }
     }
 </style>

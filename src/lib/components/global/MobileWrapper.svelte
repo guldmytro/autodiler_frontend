@@ -5,6 +5,7 @@
     import { mobileMenu } from "$lib/stores/menu";
     import { fly } from "svelte/transition";
     import Account from "./Account.svelte";
+    import DownloadLink from "./DownloadLink.svelte";
 </script>
 
 
@@ -17,6 +18,8 @@
                 <HeaderMobileMenu />
                 <hr>
                 <Account mobile={true} />
+                <hr>
+                <DownloadLink />
                 <hr>
                 <Phones />
                 <hr>
