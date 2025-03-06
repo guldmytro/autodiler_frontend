@@ -7,9 +7,7 @@
 
 
 <BreadCrumbs items={crumbs} currentPage="Оплата замовлення" />
-<svelte:head>
-    <script src="https://static.liqpay.ua/libjs/sdk_button.js"></script>
-</svelte:head>
+
 <main class="pay">
     <div class="container">
         <div class="pay-row">
