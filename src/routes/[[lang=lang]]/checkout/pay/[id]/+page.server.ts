@@ -38,7 +38,7 @@ export const load: PageServerLoad = async ({fetch, params, url, locals: { LL, lo
     html = html.replace(
         /<script.*?<\/script>\s*<sdk-button.*?<\/sdk-button>/s,
         `<button type="submit" class="lp-submit">
-            <img src="https://static.liqpay.ua/buttons/logo-white.svg" />
+            <img width="24" height="28" src="https://static.liqpay.ua/buttons/logo-white.svg" />
             <span>Сплатити <strong>${order.total_cost} грн.</strong><span />
         </button>`
     );
