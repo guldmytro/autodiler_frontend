@@ -35,6 +35,13 @@ export const load: PageServerLoad = async ({fetch, params, url, locals: { LL, lo
             "delivery_emails": ["avtoodiler@gmail.com", "lebed@image-avto.com.ua"]
         }
         });
+    html = html.replace(
+        /<script.*?<\/script>\s*<sdk-button.*?<\/sdk-button>/s,
+        `<button type="submit" class="lp-submit">
+            <img src="https://static.liqpay.ua/buttons/logo-white.svg" />
+            <span>Сплатити <strong>${order.total_cost} грн.</strong><span />
+        </button>`
+    );
     return {
         LiqPayForm : html,
         order

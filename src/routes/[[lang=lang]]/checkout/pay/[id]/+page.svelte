@@ -46,4 +46,29 @@
     .total {
         margin-bottom: 1.4em;
     }
+
+    :global(.lp-submit) {
+        display: flex;
+        flex-flow: row nowrap;
+        column-gap: 1rem;
+        background: #fff;
+        cursor: pointer;
+        border: none !important;
+        text-align: center !important;
+        padding: 10px 24px !important;
+        color: #fff;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.12);
+        font-size: 16px !important;
+        line-height: 1.75 !important;
+        font-weight: 600 !important;
+        font-family: 'Open Sans', sans-serif;
+        cursor: pointer !important;
+        border-radius: 8px !important;
+        background: #77CC5D !important;
+        text-transform: uppercase;     
+    }
+
+    :global(.lp-submit:hover) {
+        opacity: 0.8;
+    }
 </style>
