@@ -149,7 +149,7 @@
         align-items: flex-end;
     }
 
-    @media (max-width: 991px) {
+    @media (max-width: 1199px) {
         .footer {
             padding-bottom: calc(var(--padding-section) + 4rem);
         }
@@ -168,6 +168,9 @@
         .footer-menu {
             width: 100%;
             max-height: unset;
+            align-items: center;
+        }
+        .methods {
             align-items: center;
         }
     }
