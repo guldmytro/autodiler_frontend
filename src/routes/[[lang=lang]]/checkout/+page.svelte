@@ -18,11 +18,14 @@
 
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 
+    let loading = false;
+
     function create() {
+        loading = true;
         return async ({result, update}) => {
             if (result.type === 'failure') {
+                loading = false;
                 return await update();
-
             }
             cart.set(await getCart())
             goto(`/${localePrefix}checkout/${result.data.targetURL}`);
@@ -54,7 +57,7 @@
         </div>
         <form method="post" action="?/create" class="checkout-form checkout__row" use:enhance={create}>
             <ClientInfo {form} user={data.user} />
-            <Order cart={data.cart} />
+            <Order cart={data.cart} {loading} />
         </form>
     </div>
 </main>

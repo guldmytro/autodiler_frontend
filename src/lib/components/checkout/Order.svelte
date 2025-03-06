@@ -5,6 +5,7 @@
     import LL from "$i18n/i18n-svelte";
     import { pluralize } from "$lib/utils";
     export let cart;
+    export let loading;
 </script>
 
 <div class="orders">
@@ -35,7 +36,7 @@
                 </tbody>
             </table>
         </div>
-         <button type="submit" class="orders-total__button button">{$LL.checkout.createOrder()}</button>
+         <button type="submit" class="orders-total__button button" disabled={loading}>{$LL.checkout.createOrder()}</button>
          <p class="orders-total__agree">{$LL.checkout.notification()}</p>
     </div>
 </div>
@@ -106,6 +107,36 @@
         text-align: center;
         font-size: 1.4rem;
         opacity: 0.8;
+    }
+
+    :disabled {
+        position: relative;
+        opacity: 1;
+        color: transparent;
+    }
+
+    :disabled::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-top-color: rgba(255, 255, 255, 0.8);
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        translate: -50% -50%;
+        animation: spin .5s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            rotate: 0deg;
+        }
+        to {
+            rotate: 360deg;
+        }
     }
 
     @media (max-width: 575px) {
