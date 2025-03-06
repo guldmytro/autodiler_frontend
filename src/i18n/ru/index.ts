@@ -412,7 +412,9 @@ const ru = {
 			submit: 'Получить прайс',
 		}
 	},
-	outOfStock: 'Нет в наличии'
+	outOfStock: 'Нет в наличии',
+	paymentsAllowed: 'Принимаем к оплате',
+	pay: 'Оплатить сейчас',
 } satisfies BaseTranslation
 
 export default ru

@@ -4,6 +4,7 @@
     import LL from '$i18n/i18n-svelte';
     import Socials from './Socials.svelte';
     import Phones from './Phones.svelte';
+    import VisaMasterCard from '$lib/assets/img/visa-mastercard.webp';
 
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
     $: localePrefix2 = $locale === 'uk' ? '' : $locale;
@@ -55,6 +56,12 @@
                 <Phones />
                 <p class="working-status">{$LL.working()}</p>
                 <Socials />
+                <p class="methods">
+                    <span>{$LL.paymentsAllowed()}</span>
+                    <a href="https://www.liqpay.ua/uk" target="_blank" aria-label="лікпей">
+                        <img src={VisaMasterCard} alt="віза і мастеркард" width="88" height="20" loading="lazy">
+                    </a>
+                </p>
             </div>
         </div>
     </div>
@@ -131,6 +138,15 @@
         height: 4px;
         background-color: #50C878;
         border-radius: 50%;
+    }
+
+    .methods {
+        margin-top: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        font-size: 14px;
+        row-gap: 8px;
+        align-items: flex-end;
     }
 
     @media (max-width: 991px) {

@@ -412,7 +412,9 @@ const uk = {
 			submit: 'Отримати прайс',
 		}
 	},
-	outOfStock: 'Немає в наявності'
+	outOfStock: 'Немає в наявності',
+	paymentsAllowed: 'Приймаємо до оплати',
+	pay: 'Оплатити зараз',
 } satisfies BaseTranslation
 
 export default uk

@@ -90,7 +90,7 @@
                 <span class="pseudo-radio"></span>
                 <span class="radio-label">
                     <img class="payment-logo" src={LiqPayLogo} width="500" height="104" alt="лікпей" loading="lazy">
-                    Оплатити зараз
+                    {$LL.pay()}
                 </span>
             </label>
         </div>
