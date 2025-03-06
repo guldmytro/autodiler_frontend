@@ -25,7 +25,7 @@
 
             }
             cart.set(await getCart())
-            goto(`/${localePrefix}checkout/success`);
+            goto(`/${localePrefix}checkout/${result.data.targetURL}`);
         }
     }
 

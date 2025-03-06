@@ -59,7 +59,7 @@ export const actions = {
             delivery: clearString(formData.get('delivery')),
             city: clearString(formData.get('city')),
             nova_office: clearString(formData.get('nova_office')),
-            payment: clearString(formData.get('payment')),
+            payment_method: clearString(formData.get('payment_method')),
             comment: clearString(formData.get('comment')),
         };    
 
@@ -162,6 +162,7 @@ export const actions = {
                     throw new Error({'message': 'Bad request'})
                 });
             }
+
             data.success = true;
             cookies.set('cart', JSON.stringify([]), {
                 path: '/',
@@ -169,7 +170,13 @@ export const actions = {
                 sameSite: 'lax',
                 httpOnly: true
             })
-            return res;
+            if (clearString(formData.get('payment_method')) !== 'ol') {
+                data.targetURL = 'success';
+            } else {
+                data.targetURL = 'pay/' + res.id;
+            }
+            console.log(data)
+            return data;
         } catch(e) {
             console.log(e);
             data.errors.serverError = true;

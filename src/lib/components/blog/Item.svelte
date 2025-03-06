@@ -60,7 +60,7 @@
     .post-item__title {
         font-size: 1.7rem;
         display: -webkit-box;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }

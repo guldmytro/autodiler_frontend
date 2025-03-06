@@ -3,6 +3,7 @@
     import LL from "$i18n/i18n-svelte";
     import CityDropdown from "./CityDropdown.svelte";
     import PostOfficeDropDown from "./PostOfficeDropDown.svelte";
+    import LiqPayLogo from '$lib/assets/img/liqpay-white.svg';
     export let form;
     export let user;
 
@@ -75,11 +76,24 @@
     </fieldset>
     <fieldset class="checkout-form__fieldset fieldset">
         <div class="fieldset__legend">{$LL.checkout.payment()}</div>
-        <label class="label-radio">
-            <input type="radio" class="radio" name="payment" value="od" checked>
-            <span class="pseudo-radio"></span>
-            <span class="radio-label">{$LL.checkout.paymentAfter()}</span>
-        </label>
+        <div class="radio-box">
+            <label class="label-radio">
+                <input type="radio" class="radio" name="payment_method" value="od" checked>
+                <span class="pseudo-radio"></span>
+                <span class="radio-label">{$LL.checkout.paymentAfter()}</span>
+            </label>
+        </div>
+
+        <div class="radio-box">
+            <label class="label-radio">
+                <input type="radio" class="radio" name="payment_method" value="ol">
+                <span class="pseudo-radio"></span>
+                <span class="radio-label">
+                    <img class="payment-logo" src={LiqPayLogo} width="500" height="104" alt="лікпей" loading="lazy">
+                    Оплатити зараз
+                </span>
+            </label>
+        </div>
     </fieldset>
     <fieldset class="checkout-form__fieldset fieldset">
         <div class="fieldset__legend">{$LL.checkout.comment()}</div>
@@ -110,5 +124,13 @@
     .fieldset__legend {
         display: block;
         font-weight: 700;
+    }
+
+    .payment-logo {
+        display: block;
+        height: 20px;
+        width: auto;
+        position: relative;
+        top: 1px;
     }
 </style>
