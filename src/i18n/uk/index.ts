@@ -43,7 +43,7 @@ const uk = {
 		'phone': 'Телефон',
 		'email': 'E-mail',
 		'delivery': 'Доставка',
-		'novaDelivery': 'Нова пошта',
+		'novaDelivery': 'Самовивіз із Нової Пошти',
 		'city': 'Населений пункт',
 		'cityPlaceholder': 'Виберіть населений пункт',
 		'cityPlaceholder2': 'Введіть назву населеного пункту',
@@ -261,7 +261,7 @@ const uk = {
 		cl: 'Скасоване'
 	},
 	orderDelivery: {
-		nd: 'Нова пошта',
+		nd: 'Самовивіз із Нової Пошта',
 		pu: 'Самовивіз',
 	},
 	account: {

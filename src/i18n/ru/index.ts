@@ -43,7 +43,7 @@ const ru = {
 		'phone': 'Телефон',
 		'email': 'E-mail',
 		'delivery': 'Доставка',
-		'novaDelivery': 'Новая почта',
+		'novaDelivery': 'Самовывоз из Новой Почты',
 		'city': 'Населенный пункт',
 		'cityPlaceholder': 'Выберите населенный пункт',
 		'cityPlaceholder2': 'Введите название населенного пункта',
@@ -261,7 +261,7 @@ const ru = {
 		cl: 'Отменен'
 	},
 	orderDelivery: {
-		nd: 'Новая почта',
+		nd: 'Самовывоз из Новой Почты',
 		pu: 'Самовывоз',
 	},
 	account: {
