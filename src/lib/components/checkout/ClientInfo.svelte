@@ -2,7 +2,9 @@
     // @ts-nocheck
     import LL from "$i18n/i18n-svelte";
     import CityDropdown from "./CityDropdown.svelte";
+    import CityDropdown2 from "./novadelivery2/CityDropdown2.svelte";
     import PostOfficeDropDown from "./PostOfficeDropDown.svelte";
+    import StreetDropDown from "./novadelivery2/StreetDropDown.svelte";
     import LiqPayLogo from '$lib/assets/img/liqpay-white.svg';
     export let form;
     export let user;
@@ -61,7 +63,19 @@
                 </span>
             </label>
             <CityDropdown on:setNovaCity={setNovaCity} {form} />
-            <PostOfficeDropDown />
+            <PostOfficeDropDown {form} />
+        </div>
+        <div class="radio-box">
+            <label class="label-radio">
+                <input type="radio" class="radio" name="delivery" value="xd">
+                <span class="pseudo-radio"></span>
+                <span class="radio-label">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><g fill="red"><path d="m23.8 11.5-4.4-4.8c-.1-.1-.2-.2-.3-.2-.1 0-.1.1-.1.3v10.3c0 .2 0 .3.1.4.1 0 .2 0 .3-.1l4.4-4.9c.3-.3.3-.7 0-1zM13.9 18v-4H10v4H7s-1 0 0 1.5c0 0 4 4.5 5 4.5s5-4.5 5-4.5c1-1.4 0-1.4 0-1.4l-3.1-.1zM13.9 6v4H10V6H7S6 6 7 4.5c0 0 4-4.5 5-4.5s5 4.5 5 4.5c1 1.4 0 1.4 0 1.4l-3.1.1zM4.5 6.6.2 11.5c-.2.3-.2.7 0 .9l4.3 4.9c.1.1.2.1.3.1.1 0 .1-.1.1-.3V6.8c0-.2 0-.3-.1-.3 0 0-.1 0-.3.1z"></path></g></svg>
+                    <span>{$LL.checkout.novaDelivery2()}</span>
+                </span>
+            </label>
+            <CityDropdown2 on:setNovaCity={setNovaCity} {form} />
+            <StreetDropDown {form} />
         </div>
         <div class="radio-box">
             <label class="label-radio">

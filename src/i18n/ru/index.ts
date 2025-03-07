@@ -44,6 +44,7 @@ const ru = {
 		'email': 'E-mail',
 		'delivery': 'Доставка',
 		'novaDelivery': 'Самовывоз из Новой Почты',
+		'novaDelivery2': 'Курьером Новой Почты',
 		'city': 'Населенный пункт',
 		'cityPlaceholder': 'Выберите населенный пункт',
 		'cityPlaceholder2': 'Введите название населенного пункта',

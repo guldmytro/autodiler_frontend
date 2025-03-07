@@ -51,14 +51,21 @@ export const actions = {
             errors: {}
         }
 		const formData = await request.formData();
+        const delivery = clearString(formData.get('delivery'));
+        const city = delivery === 'nd' ? 
+                    clearString(formData.get('city')) : delivery === 'xd' ? clearString(formData.get('city2')) : '';
+        const nova_office = delivery === 'nd' ? 
+                    clearString(formData.get('nova_office')) : '';
+        const address = delivery === 'xd' ? clearString(formData.get('address')) : '';
         const jsonData = {
             first_name: clearString(formData.get('first_name')),
             last_name: clearString(formData.get('last_name')),
             phone: clearString(formData.get('phone')),
             email: clearString(formData.get('email')),
-            delivery: clearString(formData.get('delivery')),
-            city: clearString(formData.get('city')),
-            nova_office: clearString(formData.get('nova_office')),
+            delivery,
+            city,
+            nova_office,
+            address,
             payment_method: clearString(formData.get('payment_method')),
             comment: clearString(formData.get('comment')),
         };    
@@ -89,6 +96,14 @@ export const actions = {
 
         if (jsonData.delivery === 'nd' && !jsonData.nova_office) {
             data.errors.nova_office = 'required';
+        }
+
+        if (jsonData.delivery === 'xd' && !jsonData.city) {
+            data.errors.city2 = 'required';
+        }
+
+        if (jsonData.delivery === 'xd' && !jsonData.address) {
+            data.errors.address = 'required';
         }
 
         if (Object.keys(data.errors).length) {

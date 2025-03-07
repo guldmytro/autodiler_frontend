@@ -44,6 +44,7 @@ const uk = {
 		'email': 'E-mail',
 		'delivery': 'Доставка',
 		'novaDelivery': 'Самовивіз із Нової Пошти',
+		'novaDelivery2': 'Кур\'єром Нової Пошти',
 		'city': 'Населений пункт',
 		'cityPlaceholder': 'Виберіть населений пункт',
 		'cityPlaceholder2': 'Введіть назву населеного пункту',

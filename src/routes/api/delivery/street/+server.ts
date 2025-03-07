@@ -3,7 +3,9 @@ import { json } from '@sveltejs/kit'
 import type { RequestHandler } from './$types'
 
 export const POST: RequestHandler = async ({fetch, request}) => {
-    const { searchQuery } = await request.json();
+    let { queryString, cityRef } = await request.json();
+    
+    
     const res = await fetch(PRIVATE_NOVA_POSHTA_API_URL, {
         method: 'POST',
         headers: {
@@ -12,13 +14,14 @@ export const POST: RequestHandler = async ({fetch, request}) => {
         body: JSON.stringify({
             "apiKey": PRIVATE_NOVA_POSHTA_API_KEY,
             "modelName": "AddressGeneral",
-            "calledMethod": "searchSettlements",
+            "calledMethod": "searchSettlementStreets",
             "methodProperties": {
-                "CityName": searchQuery,
-                "Limit": "20",
-                "Page": "1"
+                "StreetName": "Хрещатик",
+                "SettlementRef": "00000000-0000-0000-0000-000000000000",
+                "Limit": "50",
             }
         })
     }).then(r => r.json());
-	return json(res);
+    console.log(res)
+    return json(res);
 }
