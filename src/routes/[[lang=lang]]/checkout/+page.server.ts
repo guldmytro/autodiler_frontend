@@ -193,6 +193,7 @@ export const actions = {
             console.log(data)
             return data;
         } catch(e) {
+            consile.log('here');
             console.log(e);
             data.errors.serverError = true;
             return fail(400, data);
