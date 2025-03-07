@@ -193,7 +193,8 @@ export const actions = {
             console.log(data)
             return data;
         } catch(e) {
-            consile.log('here');
+            console.log('here');
+            console.log(JSON.stringify(e));
             console.log(e);
             data.errors.serverError = true;
             return fail(400, data);
