@@ -43,7 +43,9 @@
         <Info product={data.item} />
     </div>
     <div class="row row_fluid">
-        <BuyPlaces />
+        <div class="places">
+            <BuyPlaces />
+        </div>
         <Params params={data?.item?.params} />
     </div>
 </Layout>
@@ -63,9 +65,16 @@
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
+    .places {
+        display: none;
+    }
+
     @media (max-width: 991px) {
         .row {
             grid-template-columns: minmax(0, 1fr);
+        }
+        .places {
+            display: block;
         }
     }
 </style>

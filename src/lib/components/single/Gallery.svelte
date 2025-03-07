@@ -1,38 +1,43 @@
 <script lang="ts">
     export let src: string;
     export let alt: string;
+    import BuyPlaces from "./BuyPlaces.svelte";
 </script>
 
-<div class="img-wrapper">
-    {#if src}
-        <img {src} {alt} fetchpriority="high" />
-    {/if}
+<div class="left">
+    <div class="img-wrapper">
+        {#if src}
+            <img {src} {alt} fetchpriority="high" />
+        {/if}
+    </div>
+    <div class="places">
+        <BuyPlaces />
+    </div>
 </div>
 
 <style>
-    .img-wrapper {
+    .left {
+        width: 100%;
         position: sticky;
         top: var(--offset-header);
-        width: 100%;
-        height: 0;
-        padding-top: 65%;
     }
     
     img {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
+        aspect-ratio: 100 / 65;
         object-fit: contain;
-        background-color: #fff;
+        background-color:fff;
         border-radius: 1rem;
+        margin-bottom: 30px;
     }
 
     @media (max-width: 991px) {
-        .img-wrapper {
+        .left{
             position: relative;
             top: unset;
+        }
+        .places {
+            display: none;
         }
     }
 </style>

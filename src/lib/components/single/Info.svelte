@@ -4,6 +4,8 @@
     import Sku from './Sku.svelte';
     import AddToCart from './AddToCart.svelte';
     import Description from './Description.svelte';
+    import Delivery from '../sections/Delivery.svelte';
+    import DeliveryText from '../sections/DeliveryText.svelte';
     export let product: Product;
 </script>
 
@@ -12,6 +14,7 @@
     <Sku sku={product.sku} />
     <AddToCart {product} />
     <Description description={product?.description} />
+    <DeliveryText />
 </div>
 
 <style>
@@ -21,5 +24,8 @@
         display: grid;
         grid-template-columns: minmax(0, 1fr);
         row-gap: 2.8rem;
+    }
+    :global(.product-info main.delivery) {
+        
     }
 </style>
