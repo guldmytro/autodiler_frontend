@@ -162,6 +162,11 @@ export const actions = {
                         'Content-Type': 'application/json;charset=utf-8'
                     },
                     body: JSON.stringify(jsonData)
+                }).then(r => {
+                    if (r.ok) {
+                        return r.json();
+                    }
+                    throw new Error('Bad request');
                 });
             } else {
                 res = await fetch(`${apiUrl}orders/`, {
@@ -174,7 +179,7 @@ export const actions = {
                     if (r.ok) {
                         return r.json();
                     }
-                    throw new Error({'message': 'Bad request'})
+                    throw new Error('Bad request');
                 });
             }
 
@@ -193,6 +198,7 @@ export const actions = {
             console.log(data)
             return data;
         } catch(e) {
+            // i have an error here... what can be wrong?
             console.log('here');
             console.log(JSON.stringify(e));
             console.log(e);
