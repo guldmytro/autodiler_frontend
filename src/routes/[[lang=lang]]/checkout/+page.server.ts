@@ -195,13 +195,9 @@ export const actions = {
             } else {
                 data.targetURL = 'pay/' + res.id;
             }
-            console.log(data)
             return data;
         } catch(e) {
-            // i have an error here... what can be wrong?
-            console.log('here');
-            console.log(JSON.stringify(e));
-            console.log(e);
+            console.error(e);
             data.errors.serverError = true;
             return fail(400, data);
         }      

@@ -22,6 +22,5 @@ export const POST: RequestHandler = async ({fetch, request}) => {
             }
         })
     }).then(r => r.json());
-    console.log(res)
     return json(res);
 }
