@@ -6,6 +6,7 @@
     import PostOfficeDropDown from "./PostOfficeDropDown.svelte";
     import StreetDropDown from "./novadelivery2/StreetDropDown.svelte";
     import LiqPayLogo from '$lib/assets/img/liqpay-white.svg';
+    import MonobankLogo from '$lib/assets/img/monobank_logo.svg';
     export let form;
     export let user;
 
@@ -108,6 +109,16 @@
                 </span>
             </label>
         </div>
+        <!-- <div class="radio-box">
+            <label class="label-radio">
+                <input type="radio" class="radio" name="payment_method" value="mb">
+                <span class="pseudo-radio"></span>
+                <span class="radio-label">
+                    <img class="payment-logo" src={MonobankLogo} width="1366" height="613" alt="монобанк" loading="lazy">
+                    <span style="translate: 0 -2px">{$LL.pay()}</span>
+                </span>
+            </label>
+        </div> -->
     </fieldset>
     <fieldset class="checkout-form__fieldset fieldset">
         <div class="fieldset__legend">{$LL.checkout.comment()}</div>
