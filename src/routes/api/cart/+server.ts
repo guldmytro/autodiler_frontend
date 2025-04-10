@@ -46,7 +46,7 @@ export const POST: RequestHandler = async ({request, cookies}) => {
 
     cookies.set('cart', JSON.stringify(cart), {
         path: '/',
-        maxAge: 31536000,
+        maxAge: 604800,
         sameSite: 'lax',
         httpOnly: true
     });
@@ -81,7 +81,7 @@ export const DELETE: RequestHandler = async ({request, cookies }) => {
 
     cookies.set('cart', JSON.stringify(cart), {
         path: '/',
-        maxAge: 31536000,
+        maxAge: 604800,
         sameSite: 'lax',
         httpOnly: true
     });
