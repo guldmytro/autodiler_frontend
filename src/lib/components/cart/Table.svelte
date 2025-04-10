@@ -28,7 +28,9 @@
         </thead>
         <tbody>
             {#each cartItems as cartItem, i}
-                <CartItem {cartItem} />
+                {#if cartItem?.product}
+                    <CartItem {cartItem} />
+                {/if}
             {/each}
         </tbody>
     </table>
