@@ -5,6 +5,7 @@
     import Contorls from "./Contorls.svelte";
     import { locale } from '$i18n/i18n-svelte';
     export let product;
+    import NoImage from '$lib/assets/img/no_image-350x350.png';
 
     $: image = product.image || product.image_src;
     $: title = product.name || product.translation__name;
@@ -13,7 +14,11 @@
 
 
 <a href="/{localePrefix}product-cat/{product.term_slug}/{product.slug}" class="product-item__thumb">
-    <img src={image} alt={title} class="product-item__img">
+    {#if image}
+        <img src={image} alt={title} class="product-item__img" />
+    {:else}
+        <img src={NoImage} alt="шестерня" class="product-item__img" />
+    {/if}
 </a>
 <h2 class="product-item__title">
     <a href="/{localePrefix}product-cat/{product.term_slug}/{product.slug}" class="product-item__link" {title}>

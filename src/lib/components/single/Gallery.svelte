@@ -1,13 +1,16 @@
 <script lang="ts">
     export let src: string;
     export let alt: string;
+    import NoImage from '$lib/assets/img/no_image-350x350.png';
     import BuyPlaces from "./BuyPlaces.svelte";
 </script>
 
 <div class="left">
     <div class="img-wrapper">
         {#if src}
-            <img {src} {alt} fetchpriority="high" />
+            <img {src} {alt} />
+        {:else}
+            <img src={NoImage} alt="шестерня" />
         {/if}
     </div>
     <div class="places">
