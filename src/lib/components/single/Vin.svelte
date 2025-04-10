@@ -8,6 +8,9 @@
 {/if}
 
 <style>
+    h3 {
+        margin-bottom: 0.2em;
+    }
     .vin {
         font-size: 16px;
     }
