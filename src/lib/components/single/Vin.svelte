@@ -3,7 +3,7 @@
 </script>
 
 {#if vin}
-    <h3>Vin:</h3>
+    <h3>Vin-код:</h3>
     <p class="vin">{vin}</p>
 {/if}
 
