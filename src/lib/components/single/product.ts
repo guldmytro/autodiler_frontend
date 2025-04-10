@@ -20,6 +20,7 @@ export interface Product {
     };
     producer: string;
     country: string;
+    vin: string | null;
     params: {
         name: string;
         units: string;

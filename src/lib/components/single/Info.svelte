@@ -4,8 +4,8 @@
     import Sku from './Sku.svelte';
     import AddToCart from './AddToCart.svelte';
     import Description from './Description.svelte';
-    import Delivery from '../sections/Delivery.svelte';
     import DeliveryText from '../sections/DeliveryText.svelte';
+    import Vin from './Vin.svelte';
     export let product: Product;
 </script>
 
@@ -13,6 +13,7 @@
     <Title title={product.name} />
     <Sku sku={product.sku} />
     <AddToCart {product} />
+    <Vin vin={product.vin} />
     <Description description={product?.description} />
     <DeliveryText />
 </div>
