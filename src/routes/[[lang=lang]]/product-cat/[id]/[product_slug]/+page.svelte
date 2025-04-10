@@ -38,6 +38,7 @@
 </svelte:head>
 
 <Layout {data}>
+    <pre>{JSON.stringify(data.item, null, 2)}</pre>
     <div class="row">
         <Gallery src={data.item.image} alt={data.item.alt} />
         <Info product={data.item} />
