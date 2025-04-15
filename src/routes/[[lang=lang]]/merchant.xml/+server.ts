@@ -19,7 +19,7 @@ export async function GET({locals: { locale }, fetch}) {
         urls += `
             <item>
                 <g:id>${product.id}</g:id>
-                <g:title>${product.name}</g:title>
+                <g:title>${cleanText(product.name)}</g:title>
                 <g:description>${cleanText(product.description)}</g:description>
                 <g:link>https://avtodiler.com.ua/product-cat/${product.term_slug}/${product.slug}</g:link>
                 <g:image_link>${product.image || product.image_src}</g:image_link>
