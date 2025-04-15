@@ -31,6 +31,7 @@
 
 <ul class="list">
     {#each items as item, index (index)}
+	{#if item?.data?.quantity > 0 }
     <li class={`list__item list-item list__item_depth_${depth}`}>
         <div class="list-item__element" class:accent={termAncestorIds.includes(item.id)} class:current={currentCategory && currentCategory == item.id}>
             <a href="/{localePrefix}product-cat/{item.data.slug}" class="term-link">
@@ -38,10 +39,7 @@
 					<img src="{PUBLIC_API_MEDIA}{item.data.image}" loading="lazy" height="10" class="term-img" alt={item.data[key]}>
 				{/if}
 				<span>
-					{item.data[key]} 
-					{#if item?.data?.quantity > 0 }
-						({item.data.quantity})
-					{/if}
+					{item.data[key]} ({item.data.quantity})
 				</span>
 			</a>
             {#if item.children}
@@ -54,6 +52,7 @@
         <svelte:self items={item.children} let:item depth={depth + 1}></svelte:self>
         {/if}
     </li>
+	{/if}
     {/each}
 </ul>
 
