@@ -5,6 +5,7 @@
     import Socials from '../global/Socials.svelte';
     import ContactForm from '../forms/ContactForm.svelte';
     import LL from '$i18n/i18n-svelte';
+    import { locale } from "$i18n/i18n-svelte";
 </script>
 
 <section class="contacts">
@@ -56,7 +57,11 @@
                         </div>            
                         <ul class="contacts-item__list">
                             <li class="contacts-item__element">
-                                м. Харків, вул. Москалівська, 36
+                                {#if $locale === 'uk'}
+                                    м. Харків, вул. Москалівська, 36
+                                {:else}
+                                    г. Харьков, ул. Москалевская, 36
+                                {/if}
                             </li>
                             
                             <li class="contacts-item__element contacts-item__schedule">
