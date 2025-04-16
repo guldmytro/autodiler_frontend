@@ -352,7 +352,7 @@ const uk = {
 	headerSearch: {
 		button: 'Пошук',
 		submit: 'Знайти',
-		placeholder: 'Я шукаю...'
+		placeholder: 'Пошук по VIN, номеру товару, виробнику, назві...'
 	},
 	ds: {
 		takeOffer: {
@@ -416,6 +416,7 @@ const uk = {
 	outOfStock: 'Немає в наявності',
 	paymentsAllowed: 'Приймаємо до оплати',
 	pay: 'Оплатити зараз',
+	producer: 'Виробник',
 } satisfies BaseTranslation
 
 export default uk

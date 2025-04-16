@@ -352,7 +352,7 @@ const ru = {
 	headerSearch: {
 		button: 'Поиск',
 		submit: 'Найти',
-		placeholder: 'Я ищу...'
+		placeholder: 'Поиск по VIN, номеру товара, производителю, наименованию...'
 	},
 	ds: {
 		takeOffer: {
@@ -416,6 +416,7 @@ const ru = {
 	outOfStock: 'Нет в наличии',
 	paymentsAllowed: 'Принимаем к оплате',
 	pay: 'Оплатить сейчас',
+	producer: 'Производитель',
 } satisfies BaseTranslation
 
 export default ru
