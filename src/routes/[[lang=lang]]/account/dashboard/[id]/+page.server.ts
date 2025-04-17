@@ -4,7 +4,7 @@ import { error, redirect } from '@sveltejs/kit';
 import { PUBLIC_API_URL } from '$env/static/public';
 
 
-export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, params, cookies, params }) => {
+export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, params, cookies }) => {
 	const lang = params?.lang || 'uk';
 	const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
 	const user = await getUser(fetch, cookies);
