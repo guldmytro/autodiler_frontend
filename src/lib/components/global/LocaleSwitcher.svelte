@@ -54,8 +54,6 @@
 	$: lang = $page?.params?.lang || 'uk';
 </script>
 
-{JSON.stringify($page.params)}
-
 <ul class="locales toper__locales">
 	<li class="locale">
 		{#if 'ru' === lang }
