@@ -47,7 +47,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 
 	// if slug is not a locale, use base locale (e.g. api endpoints)
-	const locale = isLocale(lang) ? (lang as Locales) : getPreferredLocale(event)
+	const locale = lang as Locales;
 	console.log(locale);
 	const LL = L[locale]
 
