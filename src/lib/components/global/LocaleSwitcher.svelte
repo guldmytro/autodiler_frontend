@@ -8,7 +8,6 @@
 	import { loadLocaleAsync } from '$i18n/i18n-util.async'
 	import { replaceLocaleInUrl } from '../../../utils';
 	import { goto } from '$app/navigation'
-    import { json } from '@sveltejs/kit';
 
 	const langLabels = {
 		'uk': 'ua',
