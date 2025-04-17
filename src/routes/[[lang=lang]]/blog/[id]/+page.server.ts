@@ -5,7 +5,8 @@ import { PUBLIC_API_MEDIA } from '$env/static/public';
 import { getUser, getMeta } from '$lib/utils';
 
 export const load: PageServerLoad = async ({ locals: { locale, LL }, url, fetch, params, cookies }) => {
-    const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+    const lang = params?.lang || 'uk';
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
     const user = await getUser(fetch, cookies);
     const meta = await getMeta(fetch, url);
     try {

@@ -8,16 +8,18 @@ import { redirect } from '@sveltejs/kit';
 
 
 
-export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, cookies }) => {
+export const load: PageServerLoad = async ({locals: { LL, locale }, params, fetch, cookies }) => {
+    const lang = params?.lang || 'uk';
 	const user = await getUser(fetch, cookies);
 	if (user) {
-		throw redirect(303, `/${locale}/account/dashboard`);
+		throw redirect(303, `/${lang}/account/dashboard`);
 	}
 	return {user};
 }
 
 export const actions = {
-    login: async ({request, cookies, fetch, locals: { LL, locale }}) => {
+    login: async ({request, cookies, fetch, params, locals: { LL, locale }}) => {
+        const lang = params?.lang || 'uk';
         const formData = await request.formData();
         const data = {
             success: false,
@@ -42,7 +44,7 @@ export const actions = {
 
         // try to login
         try {
-            const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+            const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
             const tokens = await fetch(`${apiUrl}token/`, {
                 method: 'POST',
                 headers: {

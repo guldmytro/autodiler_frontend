@@ -7,7 +7,8 @@ import { error } from "@sveltejs/kit";
 
 
 export const load: PageServerLoad = async ({fetch, params, url, locals: { LL, locale } }) => {
-    const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+    const lang = params?.lang || 'uk';
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
     const order = await fetch(`${apiUrl}orders/${params.id}/`).then(r => r.json());
     if (order.payment_method !== 'ol' || order.paid) {
         error(404, { message: 'Not found' });
@@ -29,7 +30,7 @@ export const load: PageServerLoad = async ({fetch, params, url, locals: { LL, lo
         'description'    : 'Оплата замовлення ' + order.id,
         'order_id'       : order.id,
         'version'        : '3',
-        'result_url'     : 'https://avtodiler.com.ua/'+ locale +'/checkout/success',
+        'result_url'     : 'https://avtodiler.com.ua/'+ lang +'/checkout/success',
         'server_url'     : 'https://api.avtodiler.com.ua/payment/webhook/',
         'rro_info'       : {
             "delivery_emails": ["avtoodiler@gmail.com", "lebed@image-avto.com.ua"]

@@ -4,12 +4,13 @@ import { PUBLIC_API_URL, PUBLIC_PRODUCTS_PER_PAGE } from '$env/static/public';
 import { getPageOffset } from '$lib/utils';
 
 
-export const load: PageServerLoad = async ({locals: { LL, locale }, url, fetch, cookies }) => {
+export const load: PageServerLoad = async ({locals: { LL, locale }, params, url, fetch, cookies }) => {
+    const lang = params?.lang || 'uk';
 	const user = await getUser(fetch, cookies);
 	const meta = await getMeta(fetch, url);
     const page = url.searchParams.get('page');
     const offset = getPageOffset(page, PUBLIC_PRODUCTS_PER_PAGE);
-    const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
     let fetchUrl = `${apiUrl}posts/?limit=${PUBLIC_PRODUCTS_PER_PAGE}&envelope=true&fields=id,title,excerpt,created,thumbnail`;
     if (offset) {
         fetchUrl += `&offset=${offset}`;

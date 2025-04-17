@@ -10,20 +10,21 @@ import { v4 as uuidv4 } from 'uuid';
 import { getUser, getMeta } from '$lib/utils';
 import { requestWithToken } from '$lib/utils';
 
-export const load: PageServerLoad = async ({fetch, cookies, url, locals: { LL, locale } }) => {
-    const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+export const load: PageServerLoad = async ({fetch, cookies, url, params, locals: { LL, locale } }) => {
+    const lang = params?.lang || 'uk';
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
     const user = await getUser(fetch, cookies);
     const meta = await getMeta(fetch, url);
     let cart = await fetch('/api/cart').then(r => r.json());
 
     const ids = cart.items.map((item: { id: any; }) => item.id).join(',');
     if (!ids || ids == '') {
-        redirect(302, `/${locale}/cart`);
+        redirect(302, `/${lang}/cart`);
     }
 	const res = await fetch(`${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku,slug`);
     let {results} = await res.json();
     if (!results.length) {
-        redirect(302, `/${locale}/cart`);
+        redirect(302, `/${lang}/cart`);
     }
 
     let cartItems = cart.items.map((item: { id: any; }) => {
@@ -44,8 +45,9 @@ export const load: PageServerLoad = async ({fetch, cookies, url, locals: { LL, l
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	create: async ({request, cookies, fetch, locals: { LL, locale }}) => {
-        const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+	create: async ({request, cookies, params, fetch, locals: { LL, locale }}) => {
+        const lang = params?.lang || 'uk';
+        const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
         const data = {
             success: false,
             errors: {}

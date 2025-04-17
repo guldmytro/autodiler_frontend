@@ -4,8 +4,9 @@ import { loadLocaleAsync } from '$i18n/i18n-util.async'
 import { i18nObject } from '$i18n/i18n-util.js'
 import { PUBLIC_API_URL } from '$env/static/public';
 
-export const load: LayoutLoad<{ locale: Locales }> = async ({ data: { locale }, fetch }) => {
-	const apiUrl = PUBLIC_API_URL.replace('[lang]', 'uk');
+export const load: LayoutLoad<{ locale: Locales }> = async ({ data: { locale }, params, fetch }) => {
+	const lang = params?.lang || 'uk';
+	const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
 	let terms = [];
 	try {
 		terms = await fetch(`${apiUrl}category/dump/`).then(r => r.json());

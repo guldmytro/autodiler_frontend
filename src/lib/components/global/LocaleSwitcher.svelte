@@ -50,13 +50,15 @@
 	// 	switchLocale(lang, false)
 	// 	// history.replaceState({ ...history.state, locale: lang }, '', replaceLocaleInUrl($page.url, lang))
 	// }
+
+	$: lang = $page?.params?.lang || 'uk';
 </script>
 
 <svelte:window on:popstate={handlePopStateEvent} />
 
 <ul class="locales toper__locales">
 	<li class="locale">
-		{#if 'ru' === $locale }
+		{#if 'ru' === lang }
 			<span class="locales__item locales__item_text">
 				<span class="locale">RU</span>
 			</span>
@@ -68,7 +70,7 @@
 	</li>
 	<li><div class="sep"></div></li>
 	<li class="locale">
-		{#if 'uk' === $locale }
+		{#if 'uk' === lang }
 			<span class="locales__item locales__item_text">
 				<span class="flag"></span>
 				<span class="locale">UK</span>

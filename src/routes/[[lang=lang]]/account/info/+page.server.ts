@@ -5,11 +5,13 @@ import { PUBLIC_API_URL } from '$env/static/public';
 import { clearString } from '$lib/utils';
 
 
-export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, cookies }) => {
-	const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, params, cookies }) => {
+    const lang = params?.lang || 'uk';
+
+	const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
 	const user = await getUser(fetch, cookies);
 	if (!user) {
-		throw redirect(303, `/${locale}/account/login`);
+		throw redirect(303, `/${lang}/account/login`);
 	}
 
     const profile = await requestWithToken(`${apiUrl}profiles/me/`, fetch, cookies);
@@ -22,8 +24,9 @@ export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, cooki
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	update: async ({request, cookies, fetch, locals: { LL, locale }}) => {
-        const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+	update: async ({request, cookies, fetch, params, locals: { LL, locale }}) => {
+        const lang = params?.lang || 'uk';
+        const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
         const data = {
             success: false,
             errors: {}

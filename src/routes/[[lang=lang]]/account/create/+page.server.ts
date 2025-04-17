@@ -6,7 +6,8 @@ import { emailValidator } from '$lib/utils';
 import { PUBLIC_API_URL } from '$env/static/public';
 
 
-export const load: PageServerLoad = async ({locals: { locale }, fetch, cookies }) => {
+export const load: PageServerLoad = async ({locals: { locale }, fetch, params, cookies }) => {
+	const lang = params?.lang || 'uk';
 	const user = await getUser(fetch, cookies);
 	if (user) {
 		throw redirect(303, `/${locale}/account/dashboard`);
@@ -15,7 +16,8 @@ export const load: PageServerLoad = async ({locals: { locale }, fetch, cookies }
 }
 
 export const actions = {
-	create: async ({request, locals: { locale }}) => {
+	create: async ({request, params, locals: { locale }}) => {
+		const lang = params?.lang || 'uk';
 		const formData = await request.formData();
 		const data = {
             success: false,
@@ -45,7 +47,7 @@ export const actions = {
 		}
 
 		try {
-			const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+			const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
 			const res = await fetch(`${apiUrl}auth/users/`, {
 				method: 'POST',
 				headers: {

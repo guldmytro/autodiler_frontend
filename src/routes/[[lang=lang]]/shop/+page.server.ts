@@ -5,10 +5,11 @@ import { getPageOffset } from '$lib/utils';
 import { getUser, getMeta } from '$lib/utils';
 
 
-export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, url, cookies }) => {
+export const load: PageServerLoad = async ({ locals: { locale, LL }, params, fetch, url, cookies }) => {
     const user = await getUser(fetch, cookies);
     const meta = await getMeta(fetch, url);
-    const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+    const lang = params?.lang || 'uk';
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
     const page = url.searchParams.get('page');
     const offset = getPageOffset(page, PUBLIC_PRODUCTS_PER_PAGE);
     const ordering = url.searchParams.get('ordering');

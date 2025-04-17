@@ -6,9 +6,10 @@ import { getUser, getMeta } from '$lib/utils';
 
 
 export const load: PageServerLoad = async ({ locals: { locale, LL }, cookies, fetch, params, url }) => {
+    const lang = params?.lang || 'uk';
     const user = await getUser(fetch, cookies);
     const meta = await getMeta(fetch, url);
-    const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
     const page = url.searchParams.get('page');
     const offset = getPageOffset(page, PUBLIC_PRODUCTS_PER_PAGE);
     try {

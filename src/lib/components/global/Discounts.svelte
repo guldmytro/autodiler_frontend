@@ -12,7 +12,7 @@
 </a> -->
 
 <style>
-    .discount-link {
+    /* .discount-link {
         position: relative;
         padding-left: calc(1.8rem + 0.5em);
         font-size: 1.4rem;
@@ -37,5 +37,5 @@
         .discount-link {
             display: none;
         }
-    }
+    } */
 </style>

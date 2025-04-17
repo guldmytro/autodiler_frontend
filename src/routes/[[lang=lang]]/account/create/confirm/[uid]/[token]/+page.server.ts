@@ -4,7 +4,9 @@ import { PUBLIC_API_URL } from '$env/static/public';
 
 
 export const load: PageServerLoad = async ({locals: { locale }, fetch, cookies, params }) => {
-    const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+    const lang = params?.lang || 'uk';
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
+
     const payload = {
         "uid": params.uid,
         "token": params.token
@@ -18,7 +20,7 @@ export const load: PageServerLoad = async ({locals: { locale }, fetch, cookies, 
     });
     
     if (!activation.ok) {
-        throw redirect(302, `/${locale}/account/create/confirm/failed`);
+        throw redirect(302, `/${lang}/account/create/confirm/failed`);
     }
-    throw redirect(302, `/${locale}/account/create/confirm/success`)
+    throw redirect(302, `/${lang}/account/create/confirm/success`)
 }

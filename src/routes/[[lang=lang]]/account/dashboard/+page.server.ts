@@ -5,11 +5,13 @@ import { PUBLIC_API_URL } from '$env/static/public';
 import { getPageOffset } from '$lib/utils';
 import { PUBLIC_PRODUCTS_PER_PAGE } from '$env/static/public';
 
-export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, cookies, url }) => {
-	const apiUrl = PUBLIC_API_URL.replace('[lang]', locale);
+export const load: PageServerLoad = async ({locals: { LL, locale }, fetch, params, cookies, url }) => {
+	const lang = params?.lang || 'uk';
+
+	const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
 	const user = await getUser(fetch, cookies);
 	if (!user) {
-		throw redirect(303, `/${locale}/account/login`);
+		throw redirect(303, `/${lang}/account/login`);
 	}
 
 	const page = url.searchParams.get('page');
