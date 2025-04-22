@@ -182,9 +182,11 @@
         line-height: 128%;
         max-width: 702px;
         margin-bottom: 0.6em;
+        font-weight: 700;
     }
 
     strong {
+        font-weight: 700;
         color: var(--color-primary);
     }
 
