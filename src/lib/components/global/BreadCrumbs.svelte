@@ -100,10 +100,4 @@
     .breadcrumbs-group__link:hover {
         color: var(--color-text);
     }
-
-    @media (max-width: 991px) {
-        .breadcrumbs {
-            padding-top: calc(var(--padding-section) / 1.6);
-        }
-    }
 </style>

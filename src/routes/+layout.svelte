@@ -26,7 +26,7 @@
 		$menu = false;
 		$mobileMenu = false;
 		$termsMenu = false;
-		$searchMenu = false;
+		// $searchMenu = false;
 	});
 </script>
 
