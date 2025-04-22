@@ -17,6 +17,11 @@
         align-items: center;
         column-gap: 1rem;
         font-size: 1.4rem;
+        color: var(--color-secondary);
+    }
+
+    .secure:hover {
+        text-decoration: underline;
     }
 
     .secure__icon {
@@ -25,12 +30,17 @@
     }
     
     .secure__text {
-        color: var(--color-secondary);
+        color: inherit;
     }
 
     @media (max-width: 1199px) {
         .secure {
             display: none;
+        }
+
+        :global(.mobile-row .secure) {
+            display: flex;
+            color: inherit;
         }
     }
 </style>

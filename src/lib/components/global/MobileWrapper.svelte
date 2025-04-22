@@ -6,6 +6,7 @@
     import { fly } from "svelte/transition";
     import Account from "./Account.svelte";
     import DownloadLink from "./DownloadLink.svelte";
+    import Secure from "./Secure.svelte";
 </script>
 
 
@@ -18,6 +19,8 @@
                 <HeaderMobileMenu />
                 <hr>
                 <Account mobile={true} />
+                <hr>
+                <Secure />
                 <hr>
                 <DownloadLink />
                 <hr>
