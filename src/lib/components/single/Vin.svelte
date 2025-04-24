@@ -1,10 +1,15 @@
 <script lang="ts">
     export let vin: string | null;
+    import { page } from "$app/stores";
 </script>
 
 {#if vin}
     <div>
-        <h3>Крос-номер:</h3>
+        {#if $page.data.locale === 'uk'}
+            <h3>Номер запчастини:</h3>
+        {:else}
+            <h3>Номер запчасти:</h3>
+        {/if}
         <p class="vin">{vin}</p>
     </div>
 {/if}
