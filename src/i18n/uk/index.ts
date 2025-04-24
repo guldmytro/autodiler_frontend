@@ -352,7 +352,7 @@ const uk = {
 	headerSearch: {
 		button: 'Пошук',
 		submit: 'Знайти',
-		placeholder: 'Пошук по VIN, номеру товару, виробнику, назві...'
+		placeholder: 'Пошук по крос-номеру, номеру товару, виробнику, назві...'
 	},
 	ds: {
 		takeOffer: {

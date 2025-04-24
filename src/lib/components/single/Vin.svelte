@@ -4,7 +4,7 @@
 
 {#if vin}
     <div>
-        <h3>Vin-код:</h3>
+        <h3>Крос-номер:</h3>
         <p class="vin">{vin}</p>
     </div>
 {/if}
