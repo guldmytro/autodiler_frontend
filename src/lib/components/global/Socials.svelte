@@ -1,17 +1,23 @@
 <script>
     import iconTelegram from '$lib/assets/img/icon-tg.png';
     import iconViber from '$lib/assets/img/icon-vb.png';
+    import iconWa from '$lib/assets/img/icon-wa.png';
 </script>
 
 <ul class="socials">
     <li class="socials-item">
-        <a href="https://t.me/AvtoDiler_ua" class="socials-item__link">
+        <a href="https://t.me/PavelAUTODEALER" class="socials-item__link">
             <img src={iconTelegram} alt="телеграм">
         </a>
     </li>
     <li class="socials-item">
-        <a href="viber://chat?number=+380971687802" class="socials-item__link">
+        <a href="viber://chat?number=+380990791764" class="socials-item__link">
             <img src={iconViber} alt="вайбер">
+        </a>
+    </li>
+    <li class="socials-item">
+        <a href="https://wa.me/380990791764" class="socials-item__link">
+            <img src={iconWa} alt="ватсап">
         </a>
     </li>
 </ul>

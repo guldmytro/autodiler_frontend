@@ -6,15 +6,15 @@
 
 <ul class="contacts-item__list">
     <li class="contacts-item__element">
-        <a href="tel:+380507673980" class="contacts-item__link contacts-link">
+        <a href="tel:+380990791764" class="contacts-item__link contacts-link">
             <img src={iconVf} alt="лайфсел" width="64" height="64" class="contacts-link__img">
-            +38 (050) 767-39-80
+            +38 (099) 079-17-64
         </a>
     </li>
     <li class="contacts-item__element">
-        <a href="tel:+380971687802" class="contacts-item__link contacts-link">
+        <a href="tel:+380960046045" class="contacts-item__link contacts-link">
             <img src={iconKr} alt="київстар" width="64" height="64" class="contacts-link__img">
-            +38 (097) 168-78-02
+            +38 (096) 004-60-45
         </a>
     </li>
 </ul>
