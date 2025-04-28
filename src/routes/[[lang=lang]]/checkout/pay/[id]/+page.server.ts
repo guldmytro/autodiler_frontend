@@ -33,7 +33,7 @@ export const load: PageServerLoad = async ({fetch, params, url, locals: { LL, lo
         'result_url'     : 'https://avtodiler.com.ua/'+ lang +'/checkout/success',
         'server_url'     : 'https://api.avtodiler.com.ua/payment/webhook/',
         'rro_info'       : {
-            "delivery_emails": ["avtoodiler@gmail.com", "lebed@image-avto.com.ua"]
+            "delivery_emails": ["avtoodiler@gmail.com"]
         }
         });
     html = html.replace(

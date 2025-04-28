@@ -43,7 +43,7 @@
                         </div>
                         <ul class="contacts-item__list">
                             <li class="contacts-item__element">
-                                <a href="mailto:lebed@image-avto.com.ua">lebed@image-avto.com.ua</a>
+                                <a href="mailto:avtoodiler@gmail.com">avtoodiler@gmail.com</a>
                             </li>
                         </ul>
                     </li>
