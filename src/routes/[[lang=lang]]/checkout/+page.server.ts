@@ -31,7 +31,7 @@ export const load: PageServerLoad = async ({fetch, cookies, url, params, locals:
         return {...item, product: results.filter((product: { id: any; }) => product.id == item.id)[0]}
     });
     const total = cartItems.reduce((accumulator: number, item: { cnt: number; product: { price: number; }; }) => {
-        return accumulator + item.cnt * item.product.price;
+        return accumulator + item.cnt * item.product?.price;
     }, 0);
     cart = {
         total,
@@ -143,7 +143,7 @@ export const actions = {
             return {
                 product: item.id,
                 quantity: item.cnt,
-                price: results.filter((product: { id: any; }) => product.id == item.id)[0].price
+                price: results.filter((product: { id: any; }) => product.id == item.id)[0]?.price
             }
         });
         

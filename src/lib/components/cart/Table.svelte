@@ -8,7 +8,7 @@
      export let cartItems;
      
      $: total = cartItems.reduce((/** @type {number} */ accumulator, /** @type {{ cnt: number; product: { price: number; }; }} */ item) => {
-        return accumulator + item.cnt * item.product.price
+        return accumulator + item.cnt * item?.product?.price
      }, 0);
 
      $: localePrefix = $locale === 'uk' ? '' : $locale + '/';

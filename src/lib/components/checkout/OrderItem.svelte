@@ -40,29 +40,30 @@
 
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
-
-<li class="order-item">
-    <a href="/{localePrefix}product-cat/{item.term_slug}/{item.product.slug}" class="item-thumb">
-        <div class="img-wrapper">
-            <img src={item.product.image} alt={item.product.name} class="item-thumb__img" loading="lazy">
-        </div>
-    </a>
-    <div class="order-item__content">
-        <h3 class="item-title"><a href="/{localePrefix}product-cat/{item.term_slug}/{item.product.slug}">{item.product.name}</a></h3>
-        <p class="order-item__price">{item.product.price} <span class="currency">грн.</span> ({quantity} шт.)</p>
-        {#if false}
-            <div class="content-row">
-                <p class="quantity-controls">
-                    <button class="btn-cnt btn-cnt_minus" type="button" aria-label="Зменшити кількість" on:click={decrease}></button>
-                    <input class="cnt-input" type="text" bind:value={quantity} inputmode="numeric" disabled>
-                    <button class="btn-cnt btn-cnt_plus" type="button" aria-label="Збільшити кількість" on:click={increase}></button>
-                </p>
-                <p class="order-item__sum">{item.cnt * item.product.price} <span class="currency">грн.</span></p>
-                <button type="button" class="order-item__delete" on:click={deleteItem}>Видалити</button>
+{#if item?.product}
+    <li class="order-item">
+        <a href="/{localePrefix}product-cat/{item.term_slug}/{item.product.slug}" class="item-thumb">
+            <div class="img-wrapper">
+                <img src={item.product.image} alt={item.product.name} class="item-thumb__img" loading="lazy">
             </div>
-        {/if}
-    </div>
-</li>
+        </a>
+        <div class="order-item__content">
+            <h3 class="item-title"><a href="/{localePrefix}product-cat/{item.term_slug}/{item.product.slug}">{item.product.name}</a></h3>
+            <p class="order-item__price">{item.product.price} <span class="currency">грн.</span> ({quantity} шт.)</p>
+            {#if false}
+                <div class="content-row">
+                    <p class="quantity-controls">
+                        <button class="btn-cnt btn-cnt_minus" type="button" aria-label="Зменшити кількість" on:click={decrease}></button>
+                        <input class="cnt-input" type="text" bind:value={quantity} inputmode="numeric" disabled>
+                        <button class="btn-cnt btn-cnt_plus" type="button" aria-label="Збільшити кількість" on:click={increase}></button>
+                    </p>
+                    <p class="order-item__sum">{item.cnt * item.product.price} <span class="currency">грн.</span></p>
+                    <button type="button" class="order-item__delete" on:click={deleteItem}>Видалити</button>
+                </div>
+            {/if}
+        </div>
+    </li>
+{/if}
 
 <style>
     .order-item {
