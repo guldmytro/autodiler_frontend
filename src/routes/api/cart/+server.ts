@@ -2,6 +2,7 @@ import { json } from '@sveltejs/kit'
 import type { RequestHandler } from './$types'
 import { getCartCount } from '$lib/utils'
 import { PUBLIC_API_URL } from '$env/static/public'
+import { number } from 'typesafe-i18n/formatters'
 
 export const POST: RequestHandler = async ({request, cookies}) => {
     const apiUrl = PUBLIC_API_URL.replace('[lang]', 'uk');
@@ -15,10 +16,8 @@ export const POST: RequestHandler = async ({request, cookies}) => {
     } catch(e) {
         cart = [];
     }
-    
     const productInDB = await fetch(`${apiUrl}products/?envelope=true&id=${id}&fields=id,quantity`).then(r => r.json());
     const dbQuantity = productInDB.results[0].quantity;
-
     const inCart = cart.filter(item => item.id == id).length > 0;
     if (!cookiecart || !inCart) {
         cart.push({
@@ -55,11 +54,23 @@ export const POST: RequestHandler = async ({request, cookies}) => {
 }
 
 export const GET: RequestHandler = async ({cookies}) => {
+    const apiUrl = PUBLIC_API_URL.replace('[lang]', 'uk');
     let cart = cookies.get('cart');
+
     let cnt = 0;
-    let items = [];
+    let items: {id: number, cnt: number}[] = [];
+
     if (cart) {
         items = JSON.parse(cart);
+        const ids = items.map(item => item.id).toString();
+        const { results } : { results: {id: number, quantity: number}[] } = await fetch(`${apiUrl}products/?envelope=true&id=${ids}&fields=id,quantity`).then(r => r.json());
+        items = items.filter(item => results.filter(result => result.quantity && result.id === item.id).length);
+        cookies.set('cart', JSON.stringify(items), {
+            path: '/',
+            maxAge: 604800,
+            sameSite: 'lax',
+            httpOnly: true
+        });
         cnt = getCartCount(items);
     }
 	return json({cnt, items});

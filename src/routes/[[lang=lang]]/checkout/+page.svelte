@@ -56,7 +56,7 @@
             <h1 class="section-header__title">{$LL.checkoutTitle()}</h1>
         </div>
         <form method="post" action="?/create" class="checkout-form checkout__row" use:enhance={create}>
-            <ClientInfo {form} user={data.user} />
+            <ClientInfo {form} cart={data.cart} user={data.user} />
             <Order cart={data.cart} {loading} />
         </form>
     </div>

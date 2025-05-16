@@ -9,6 +9,7 @@
     import MonobankLogo from '$lib/assets/img/monobank_logo.svg';
     export let form;
     export let user;
+    export let cart;
 
     let novaCityRef = '';
     /**
@@ -92,16 +93,19 @@
     <fieldset class="checkout-form__fieldset fieldset">
         <div class="fieldset__legend">{$LL.checkout.payment()}</div>
         <div class="radio-box">
-            <label class="label-radio">
-                <input type="radio" class="radio" name="payment_method" value="od" checked>
+            <label class="label-radio" class:disabled={cart.total < 200}>
+                <input type="radio" class="radio" name="payment_method" value="od" disabled={cart.total < 200} checked={cart.total >= 200}>
                 <span class="pseudo-radio"></span>
                 <span class="radio-label">{$LL.checkout.paymentAfter()}</span>
             </label>
+            {#if cart.total < 200}
+                <p class="error">{$LL.checkout.paynowError()}</p>
+            {/if}
         </div>
 
         <div class="radio-box">
             <label class="label-radio">
-                <input type="radio" class="radio" name="payment_method" value="ol">
+                <input type="radio" class="radio" name="payment_method" value="ol" checked={cart.total < 200}>
                 <span class="pseudo-radio"></span>
                 <span class="radio-label">
                     <img class="payment-logo" src={LiqPayLogo} width="500" height="104" alt="лікпей" loading="lazy">
@@ -157,5 +161,15 @@
         width: auto;
         position: relative;
         top: 1px;
+    }
+    
+    .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .error {
+        color: red;
+        font-size: 14px;
     }
 </style>
