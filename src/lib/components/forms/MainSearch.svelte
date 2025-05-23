@@ -70,7 +70,7 @@
                             <a href={`/${localePrefix}product-cat/${term?.data.slug}`} class="search-link">
                                 <img src={PUBLIC_API_MEDIA + term?.data?.image} alt={term?.data['name_ua']} class="search-link__img">
                                 <span class="search-link__label">
-                                    {#if localePrefix === 'ru'}
+                                    {#if localePrefix === 'ru/'}
                                         {term?.data['name_ru']}
                                     {:else}
                                         {term?.data['name_ua']}
