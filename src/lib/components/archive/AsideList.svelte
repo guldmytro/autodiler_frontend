@@ -62,6 +62,20 @@
 		margin-left: -1rem;
 	}
 
+	:global(.header-shop .list) {
+		padding-right: 20px;
+		max-height: calc(100svh - 230px);
+		overflow-y: auto;
+	}
+
+	:global(.header-shop .list button.list-item__btn) {
+		display: none;
+	}
+
+	:global(.header-shop .list .list) {
+		display: none;
+	}
+
 	.list-item {
 		list-style: none;
 	}
