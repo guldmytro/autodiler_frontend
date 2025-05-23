@@ -9,6 +9,7 @@
     let showAllCars = false;
     let termsToShow = 60;
     function filterTerms(term) {
+        if (!term?.data?.image) return false;
         return true;
     }
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
