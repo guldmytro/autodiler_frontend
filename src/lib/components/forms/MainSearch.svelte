@@ -7,12 +7,9 @@
     import bgMobile from '$lib/assets/img/bg-search_mobile.jpg';
 
     let showAllCars = false;
-    let termsToShow = 10;
+    let termsToShow = 60;
     function filterTerms(term) {
-        if (term.data.is_car_brand && term.data.image !== '') {
-            return true;
-        }
-        return false;
+        return true;
     }
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
     $: allTermsCnt = $page.data?.terms.filter(filterTerms).length;
@@ -62,11 +59,18 @@
             <ul class="search-cats">
                 {#each terms as term }
                     <li class="search-cats__item">
-                        <button class="search-link" class:active={currentProducer?.id == term?.id}
-                            on:click={setProducer(term)}>
-                            <img src={PUBLIC_API_MEDIA + term?.data?.image} alt={term?.data['name_ua']} class="search-link__img">
-                            <span class="search-link__label">{term?.data['name_ua']}</span>
-                        </button>
+                        {#if term?.data?.is_car_brand}
+                            <button class="search-link" class:active={currentProducer?.id == term?.id}
+                                on:click={() => setProducer(term)}>
+                                <img src={PUBLIC_API_MEDIA + term?.data?.image} alt={term?.data['name_ua']} class="search-link__img">
+                                <span class="search-link__label">{term?.data['name_ua']}</span>
+                            </button>
+                        {:else}
+                            <a href={`/${localePrefix}product-cat/${term?.data.slug}`} class="search-link">
+                                <img src={PUBLIC_API_MEDIA + term?.data?.image} alt={term?.data['name_ua']} class="search-link__img">
+                                <span class="search-link__label">{term?.data['name_ua']}</span>
+                            </a>
+                        {/if}
                     </li>
                 {/each}
             </ul>
