@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Splide, SplideSlide } from "@splidejs/svelte-splide";
     import '@splidejs/svelte-splide/css';
-    import '@splidejs/splide/css/sea-green';
+    // import '@splidejs/splide/css/sea-green';
 
     export let images: string[];
 
@@ -107,11 +107,32 @@
     }
 
     :global(.thumbs .splide__arrow--prev) {
+        top: 30px;
         left: -40px;
+        width: 30px;
+        height: 30px;
     }
     
     :global(.thumbs .splide__arrow--next) {
+        top: 30px;
         right: -40px;
+        z-index: 2;
+        width: 30px;
+        height: 30px;
+    }
+
+    :global(.thumbs .splide__arrows) {
+        top: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        z-index: 10;
+        height: 0;
+    }
+
+    :global(.splide__track--nav>.splide__list>.splide__slide.is-active) {
+        border-color: var(--color-primary);
+        border-radius: 4px;
     }
 
     .places {
@@ -121,6 +142,16 @@
     @media (max-width: 991px) {
         .places {
             display: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        :global(.thumbs .splide__arrow--prev) {
+            top: 22px;
+        }
+        
+        :global(.thumbs .splide__arrow--next) {
+            top: 22px;
         }
     }
 </style>
