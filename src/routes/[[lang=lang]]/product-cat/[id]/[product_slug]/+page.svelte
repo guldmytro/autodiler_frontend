@@ -9,12 +9,15 @@
     import { page } from '$app/stores';
     import Params from '$lib/components/single/Params.svelte';
     import BuyPlaces from '$lib/components/single/BuyPlaces.svelte';
+    import GallerySlider from '$lib/components/single/GallerySlider.svelte';
 
     export let data;
     
     $: titleToShow = getMetaValue(data?.meta, 'title_tag') || $LL.titlePattern({name: data.item.name});
     $: extraDescription = getMetaValue(data?.meta, 'meta_description') || false;
     $: extraContent = getMetaValue(data?.meta, 'content') || false;
+
+    $: images = [data.item.image, data.item.image2, data.item.image3, data.item.image4].filter(i => !!i);
 </script>
 
 <svelte:head>
@@ -39,7 +42,11 @@
 
 <Layout {data}>
     <div class="row">
-        <Gallery src={data.item.image} alt={data.item.alt} />
+        {#if images.length <= 1}
+            <Gallery src={data.item.image} alt={data.item.alt} />
+        {:else}
+            <GallerySlider {images} />
+        {/if}
         <Info product={data.item} />
     </div>
     <div class="row row_fluid">

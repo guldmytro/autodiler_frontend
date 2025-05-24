@@ -112,6 +112,8 @@
         .row_streched {
             column-gap: 1rem;
             align-items: center;
+            flex-wrap: wrap;
+            row-gap: 1rem;
         }
 
         .row_streched > * {
