@@ -131,7 +131,7 @@
     }
 
     :global(.splide__track--nav>.splide__list>.splide__slide.is-active) {
-        border-color: var(--color-primary);
+        border-color: var(--color-primary) !important;
         border-radius: 4px;
     }
 
