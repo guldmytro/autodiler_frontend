@@ -418,6 +418,8 @@ const ru = {
 	paymentsAllowed: 'Принимаем к оплате',
 	pay: 'Оплатить сейчас',
 	producer: 'Производитель',
+	scheduleWarn: '⚠️ Вы оформляете заказ в нерабочее время. Мы&nbsp;возьмем&nbsp;в&nbsp;работу Ваш&nbsp;заказ&nbsp;<strong>[when]</strong>.',
+	days: 'в&nbsp;воскресенье, в&nbsp;понедельник, во&nbsp;вторник, в&nbsp;среду, в&nbsp;четверг, в&nbsp;пятницу, в&nbsp;субботу, сегодня',
 } satisfies BaseTranslation
 
 export default ru

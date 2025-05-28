@@ -418,6 +418,8 @@ const uk = {
 	paymentsAllowed: 'Приймаємо до оплати',
 	pay: 'Оплатити зараз',
 	producer: 'Виробник',
+	scheduleWarn: '⚠️ Ви оформлюєте замовлення в неробочий час. Ми&nbsp;візьмемо&nbsp;в&nbsp;роботу Ваше&nbsp;замовлення&nbsp;<strong>[when]</strong>.',
+	days: 'в&nbsp;неділю, в&nbsp;понеділок, у&nbsp;вівторок, в&nbsp;середу, в&nbsp;четвер, в&nbsp;пятницю, в&nbsp;суботу, сьогодні',
 } satisfies BaseTranslation
 
 export default uk
