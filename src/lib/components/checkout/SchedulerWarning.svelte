@@ -1,5 +1,6 @@
 <script lang="ts">
     import LL from "$i18n/i18n-svelte";
+    import IconClock from '$lib/assets/img/icon-clock.png'; 
 	const now = new Date();
 	const day = now.getDay(); // 0 = неділя, ..., 6 = субота
 	const hour = now.getHours();
@@ -50,7 +51,9 @@
 
 	$: isOutOfHours = !isWorkingTime();
 	$: nextProcessingTime = isOutOfHours ? getNextWorkDateTime() : null;
-    $: message = isOutOfHours && nextProcessingTime ? String($LL.scheduleWarn()).replace('[when]', formatNextProcessingDate(nextProcessingTime)) : '';
+    $: message = isOutOfHours && nextProcessingTime ? String($LL.scheduleWarn())
+        .replace('[when]', formatNextProcessingDate(nextProcessingTime))
+        .replace('[image]', `<img src="${IconClock}" width="18" height="18" style="display: inline-block; margin-right: 4px; transform: translateY(3px)">`) : '';
 
 	// Форматуємо дату як "понеділок, 09:00"
 	function formatNextProcessingDate(date: Date): string {
@@ -71,7 +74,7 @@
 
 <style>
     .schedule-warning {
-        margin-top: 2rem;
+        margin-top: 1.8rem;
         color: orange;
         font-weight: 400;
         font-size: 14px;
