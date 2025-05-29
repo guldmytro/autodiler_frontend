@@ -168,8 +168,10 @@ export const actions = {
                     if (r.ok) {
                         return r.json();
                     }
-                    throw new Error('Bad request');
+                    // console.log(r);
+                    // throw new Error('Bad request');
                 });
+                console.log(res);
             } else {
                 res = await fetch(`${apiUrl}orders/`, {
                     method: 'POST',
