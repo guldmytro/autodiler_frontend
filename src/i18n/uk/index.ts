@@ -420,6 +420,8 @@ const uk = {
 	producer: 'Виробник',
 	scheduleWarn: '[image] Ви оформлюєте замовлення в неробочий час. Ми&nbsp;візьмемо&nbsp;в&nbsp;роботу Ваше&nbsp;замовлення&nbsp;<strong>[when]</strong>.',
 	days: 'в&nbsp;неділю, в&nbsp;понеділок, у&nbsp;вівторок, в&nbsp;середу, в&nbsp;четвер, в&nbsp;пятницю, в&nbsp;суботу, сьогодні',
+	checkEmailTitle: 'Перевірте Ваш email',
+	checkEmailSubTitle: 'Ми відправили на Ваш email <strong>[email]</strong> посилання для входу в особистий кабінет.'
 } satisfies BaseTranslation
 
 export default uk

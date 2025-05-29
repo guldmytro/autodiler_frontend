@@ -23,7 +23,7 @@
                 } 
                 return await update();
             }
-            goto(`/${localePrefix}account/login/check-email?email=${result?.data?.serverData?.email}`);
+            goto(`/${localePrefix}account/dashboard`);
         }
     }
     
@@ -45,9 +45,24 @@
                     <h1 class="auth-form__title">{$LL.login.form.title()}</h1>
                     <label class="label-input">
                         <span class="label-input__title">E-mail</span>
-                        <input type="email" class="input" name="email" required placeholder="your@mail.com">
+                        <input type="email" class="input" name="username">
+                        <p class="errors">
+                            {#if form?.errors?.username === 'required'}
+                            {$LL.login.errors.email.required()}
+                            {/if}
+                        </p>
+                    </label>
+                    <label class="label-input">
+                        <span class="label-input__title">Пароль</span>
+                        <input type="password" class="input" name="password">
+                        <p class="errors">
+                            {#if form?.errors?.password === 'required'}
+                                {$LL.login.errors.password.required()}
+                            {/if}
+                        </p>
                     </label>
                     <button type="submit" class="button" disabled={loading} class:button_loading={loading}>{$LL.login.form.submit()}</button>
+                    <p class="create">{$LL.login.form.createText()} <a href="/{localePrefix}account/create">{$LL.login.form.createLink()}</a></p>
                 </div>
             </form>
         </div>

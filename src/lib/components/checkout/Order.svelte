@@ -6,7 +6,7 @@
     import { pluralize } from "$lib/utils";
     export let cart;
     export let loading;
-    import SchedulerWarning from "./SchedulerWarning.svelte";
+    // import SchedulerWarning from "./SchedulerWarning.svelte";
 </script>
 
 <div class="orders">
@@ -37,7 +37,6 @@
                 </tbody>
             </table>
         </div>
-        <SchedulerWarning />
         <button type="submit" class="orders-total__button button" disabled={loading}>{$LL.checkout.createOrder()}</button>
         <p class="orders-total__agree">{$LL.checkout.notification()}</p>
     </div>

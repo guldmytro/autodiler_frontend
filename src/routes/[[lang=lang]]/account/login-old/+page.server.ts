@@ -10,11 +10,11 @@ import { redirect } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({locals: { LL, locale }, params, fetch, cookies }) => {
     const lang = params?.lang || 'uk';
-    const user = await getUser(fetch, cookies);
-    if (user) {
-        throw redirect(303, `/${lang}/account/dashboard`);
-    }
-    return {user};
+	const user = await getUser(fetch, cookies);
+	if (user) {
+		throw redirect(303, `/${lang}/account/dashboard`);
+	}
+	return {user};
 }
 
 export const actions = {
@@ -26,11 +26,16 @@ export const actions = {
             errors: {}
         };
         const jsonData = {
-            email: clearString(formData.get('email')),
+            username: clearString(formData.get('username')),
+            password: clearString(formData.get('password'))
         };
 
-        if (!jsonData.email) {
-            data.errors.email = 'required';
+        if (!jsonData.username) {
+            data.errors.username = 'required';
+        }
+
+        if (!jsonData.password) {
+            data.errors.password = 'required';
         }
 
         if (Object.keys(data.errors).length) {
@@ -40,22 +45,23 @@ export const actions = {
         // try to login
         try {
             const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
-            const tokens = await fetch(`${apiUrl}send-magic-link/`, {
+            const tokens = await fetch(`${apiUrl}token/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: JSON.stringify(jsonData)
             }).then(r => {
-                if (!r.ok) {
-                    throw new Error('Bad Request');
-                }
                 return r.json();
             });
-            return {
-                success: true,
-                serverData: tokens
-            };
+            if (tokens?.access) {
+                setTokens(cookies, tokens.access, tokens.refresh);
+                return {
+                    success: true,
+                    access: tokens.access
+                };
+            }
+            return fail(401, {});
         } catch(e) {
             return fail(400, {})
         }
