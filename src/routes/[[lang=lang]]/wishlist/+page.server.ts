@@ -3,6 +3,7 @@ import { PUBLIC_API_URL, PUBLIC_PRODUCTS_PER_PAGE } from '$env/static/public';
 import type { PageServerLoad } from './$types';
 import { getPageOffset } from '$lib/utils';
 import { getUser, getMeta } from '$lib/utils';
+import { fetchProducts } from '$lib/utils';
 
 
 export const load: PageServerLoad = async ({ locals: { locale, LL }, cookies, fetch, params, url }) => {
@@ -23,10 +24,12 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, cookies, fe
             if (offset) {
                 fetchUrl += `&offset=${offset}`;
             }
-            const products = await fetch(fetchUrl).then(r => r.json());
+            
+            const products = await fetchProducts(fetchUrl, user, fetch, cookies, params);
+
             return {
                 user,
-                products: products?.results,
+                products: products.results,
                 pagination: {
                     currentPage: products.current_page,
                     totalPages: products.total_pages,

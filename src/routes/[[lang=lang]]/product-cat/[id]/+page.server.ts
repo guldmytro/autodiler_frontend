@@ -4,6 +4,7 @@ import type { PageServerLoad } from './$types';
 import { getPageOffset } from '$lib/utils';
 import { error } from '@sveltejs/kit';
 import { getUser, getMeta } from '$lib/utils';
+import { fetchProducts } from '$lib/utils';
 
 export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, params, url, cookies }) => {
     const lang = params?.lang || 'uk';
@@ -30,12 +31,12 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, para
         fetchUrl += `&ordering=${ordering}`;
     }
 
-    const res = await fetch(fetchUrl);
-    const resJson = await res.json();
+    let resJson = await fetchProducts(fetchUrl, user, fetch, cookies, params);
+
     return {
         user,
         term,
-        products: resJson.results,
+        products: resJson?.results,
         pagination: {
             currentPage: resJson.current_page,
             totalPages: resJson.total_pages,

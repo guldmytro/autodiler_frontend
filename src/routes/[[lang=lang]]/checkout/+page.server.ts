@@ -9,6 +9,7 @@ import { fail } from '@sveltejs/kit';
 import { v4 as uuidv4 } from 'uuid';
 import { getUser, getMeta } from '$lib/utils';
 import { requestWithToken } from '$lib/utils';
+import { fetchProducts } from '$lib/utils';
 
 export const load: PageServerLoad = async ({fetch, cookies, url, params, locals: { LL, locale } }) => {
     const lang = params?.lang || 'uk';
@@ -21,8 +22,9 @@ export const load: PageServerLoad = async ({fetch, cookies, url, params, locals:
     if (!ids || ids == '') {
         redirect(302, `/${lang}/cart`);
     }
-	const res = await fetch(`${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku,slug`);
-    let {results} = await res.json();
+    let fetchUrl = `${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku,slug`;
+    let { results } = await fetchProducts(fetchUrl, user, fetch, cookies, params);
+
     if (!results.length) {
         redirect(302, `/${lang}/cart`);
     }
@@ -136,8 +138,15 @@ export const actions = {
         let cart = await fetch('/api/cart').then(r => r.json());
         const ids = cart.items.map((item: { id: any; }) => item.id).join(',');
         
-        const res = await fetch(`${apiUrl}products/?envelope=true&id=${ids}&fields=id,price`);
-        let {results} = await res.json();
+        let user;
+        try {
+            user = await getUser(fetch, cookies);
+        } catch(e) {
+            console.log(e);
+        }
+
+        let fetchUrl = `${apiUrl}products/?envelope=true&id=${ids}&fields=id,price`;
+        let { results } = await fetchProducts(fetchUrl, user, fetch, cookies, params);
         
         cart = cart.items.map((item: { id: any; }) => {
             return {
@@ -148,12 +157,6 @@ export const actions = {
         });
         
         jsonData['items'] = cart;
-        let user;
-        try {
-            user = await getUser(fetch, cookies);
-        } catch(e) {
-            console.log(e);
-        }
 
         try {
             let res;
@@ -164,14 +167,7 @@ export const actions = {
                         'Content-Type': 'application/json;charset=utf-8'
                     },
                     body: JSON.stringify(jsonData)
-                }).then(r => {
-                    if (r.ok) {
-                        return r.json();
-                    }
-                    // console.log(r);
-                    // throw new Error('Bad request');
                 });
-                console.log(res);
             } else {
                 res = await fetch(`${apiUrl}orders/`, {
                     method: 'POST',

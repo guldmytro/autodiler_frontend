@@ -2,6 +2,7 @@
 // @ts-nocheck
 import { PUBLIC_API_URL } from "$env/static/public";
 import { PUBLIC_API_MEDIA } from '$env/static/public';
+import { redirect } from "@sveltejs/kit";
 
 export const getCartCount = (cart: { cnt: any }[]): number => {
     return cart.reduce((accumulator: number, item: { cnt: any }) => accumulator + item.cnt, 0);
@@ -139,7 +140,7 @@ export function requestWithToken(url, fetch, cookies, options={}, recLevel=0) {
 			return response.json();
 		}
         if (response.status === 400) {
-            return response.json();
+            // return response.json();
             throw {code: 400, message: 'bad request'};
         }
 
@@ -217,4 +218,18 @@ export function getMetaValue(meta, key) {
     }
 
     return meta[0][key];
+}
+
+
+export async function fetchProducts(url: string, user:any, fetch, cookies, params) {
+    if (!user) {
+        const res = await fetch(url);
+        return await res.json();
+    }
+    const lang = params?.lang || 'uk';
+    try {
+        return await requestWithToken(url, fetch, cookies);
+    } catch (e) {
+        redirect(303, `/${lang}/account/login`)
+    }
 }
