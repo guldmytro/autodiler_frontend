@@ -54,5 +54,6 @@
     .auth-form__email {
         margin-inline: auto;
         width: 70px;
+        height: 70px;
     }
 </style>
