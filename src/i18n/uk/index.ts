@@ -421,7 +421,9 @@ const uk = {
 	scheduleWarn: '[image] Ви оформлюєте замовлення в неробочий час. Ми&nbsp;візьмемо&nbsp;в&nbsp;роботу Ваше&nbsp;замовлення&nbsp;<strong>[when]</strong>.',
 	days: 'в&nbsp;неділю, в&nbsp;понеділок, у&nbsp;вівторок, в&nbsp;середу, в&nbsp;четвер, в&nbsp;пятницю, в&nbsp;суботу, сьогодні',
 	checkEmailTitle: 'Перевірте Ваш email',
-	checkEmailSubTitle: 'Ми відправили на Ваш email <strong>[email]</strong> посилання для входу в особистий кабінет.'
+	checkEmailSubTitle: 'Ми відправили на Ваш email <strong>[email]</strong> посилання для входу в особистий кабінет.',
+	confirmEmailTitle: 'Помилка входу',
+	confirmEmailSubTitle: 'Нажаль нам не вдалось Вас авторизувати. Можливо посилання для входу застаріло.'
 } satisfies BaseTranslation
 
 export default uk

@@ -421,7 +421,9 @@ const ru = {
 	scheduleWarn: '[image] Вы оформляете заказ в нерабочее время. Мы&nbsp;возьмем&nbsp;в&nbsp;работу Ваш&nbsp;заказ&nbsp;<strong>[when]</strong>.',
 	days: 'в&nbsp;воскресенье, в&nbsp;понедельник, во&nbsp;вторник, в&nbsp;среду, в&nbsp;четверг, в&nbsp;пятницу, в&nbsp;субботу, сегодня',
 	checkEmailTitle: 'Проверьте Ваш email',
-	checkEmailSubTitle: 'Мы отправили на Ваш email <strong>[email]</strong> ссылку для входа в личный кабинет.'
+	checkEmailSubTitle: 'Мы отправили на Ваш email <strong>[email]</strong> ссылку для входа в личный кабинет.',
+	confirmEmailTitle: 'Ошибка входа',
+	confirmEmailSubTitle: 'К сожалению нам не удалось Вас авторизовать. Возможно ссылка для входа устарела.'
 } satisfies BaseTranslation
 
 export default ru
