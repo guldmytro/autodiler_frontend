@@ -17,7 +17,7 @@
     $: extraDescription = getMetaValue(data?.meta, 'meta_description') || false;
     $: extraContent = getMetaValue(data?.meta, 'content') || false;
 
-    $: images = [data.item.image, data.item.image2, data.item.image3, data.item.image4].filter(i => !!i);
+    $: images = [data.item.image, data.item.image2, data.item.image3, data.item.image4, data.item.image5].filter(i => !!i);
 </script>
 
 <svelte:head>
