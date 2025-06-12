@@ -72,7 +72,8 @@ export const actions = {
             address,
             payment_method: clearString(formData.get('payment_method')),
             comment: clearString(formData.get('comment')),
-        };    
+            dont_callback: formData.get('dont_callback') === 'on' ? 1 : 0,
+        };  
 
         if (!jsonData.first_name) {
             data.errors.first_name = 'required';

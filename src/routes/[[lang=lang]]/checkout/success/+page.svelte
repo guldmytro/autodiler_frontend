@@ -23,6 +23,10 @@
 </main>
 
 <style>
+    .checkout-success {
+        padding-bottom: 80px;
+    }
+
     .success-content {
         display: flex;
         flex-flow: column nowrap;

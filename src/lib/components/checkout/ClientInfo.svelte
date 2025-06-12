@@ -125,6 +125,15 @@
         </div> -->
     </fieldset>
     <fieldset class="checkout-form__fieldset fieldset">
+        <label class="checkbox-wrapper">
+            <input type="checkbox" name="dont_callback">
+            <span class="fieldset__checkbox-text">Мені можна не передзвонювати для підтвердження замовлення</span>
+        </label>
+        <p class="warning">
+            Якщо вам все ж потрібна консультація по замовленню - зніміть галочку
+        </p>
+    </fieldset>
+    <fieldset class="checkout-form__fieldset fieldset">
         <div class="fieldset__legend">{$LL.checkout.comment()}</div>
         <textarea name="comment" class="textarea" cols="30" rows="5"></textarea>
     </fieldset>
@@ -171,5 +180,31 @@
     .error {
         color: red;
         font-size: 14px;
+    }
+
+    .checkbox-wrapper {
+        cursor: pointer;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        column-gap: calc(var(--column-gap) / 4);
+    }
+
+    .checkbox-wrapper input {
+        transform: translateY(-2px);
+        width: 16px;
+        height: 16px;
+        accent-color: var(--color-primary);
+    }
+
+    .warning {
+        display: none;
+        padding: 12px 15px;
+        font-size: 14px;
+        background-color: rgb(253, 250, 207);
+    }
+
+    .checkbox-wrapper:has(:checked) + .warning {
+        display: block;
     }
 </style>
