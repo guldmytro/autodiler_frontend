@@ -52,7 +52,7 @@ const uk = {
 		'office': 'Відділ',
 		'officePlaceholder': 'Виберіть відділ',
 		'officePlaceholder2': 'Введіть номер або адресу відділення',
-		'selfdelivery': 'Самовивіз',
+		'selfdelivery': 'Самовивіз зі складу',
 		'payment': 'Оплата',
 		'paymentAfter': 'При отриманні',
 		'comment': 'Коментар',
@@ -423,7 +423,9 @@ const uk = {
 	checkEmailTitle: 'Перевірте Ваш email',
 	checkEmailSubTitle: 'Ми відправили на Ваш email <strong>[email]</strong> посилання для входу в особистий кабінет.',
 	confirmEmailTitle: 'Помилка входу',
-	confirmEmailSubTitle: 'Нажаль нам не вдалось Вас авторизувати. Можливо посилання для входу застаріло.'
+	confirmEmailSubTitle: 'Нажаль нам не вдалось Вас авторизувати. Можливо посилання для входу застаріло.',
+	dontCallBackTitle: 'Мені можна не передзвонювати для підтвердження замовлення',
+	dontCallBackSubTitle: 'Якщо вам все ж потрібна консультація по замовленню - зніміть галочку',
 } satisfies BaseTranslation
 
 export default uk

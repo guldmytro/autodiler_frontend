@@ -52,7 +52,7 @@ const ru = {
 		'office': 'Отделение',
 		'officePlaceholder': 'Выберите отделение',
 		'officePlaceholder2': 'Введите номер или адрес отделения',
-		'selfdelivery': 'Самовывоз',
+		'selfdelivery': 'Самовывоз со склада',
 		'payment': 'Оплата',
 		'paymentAfter': 'При получении',
 		'comment': 'Комментарий',
@@ -423,7 +423,10 @@ const ru = {
 	checkEmailTitle: 'Проверьте Ваш email',
 	checkEmailSubTitle: 'Мы отправили на Ваш email <strong>[email]</strong> ссылку для входа в личный кабинет.',
 	confirmEmailTitle: 'Ошибка входа',
-	confirmEmailSubTitle: 'К сожалению нам не удалось Вас авторизовать. Возможно ссылка для входа устарела.'
+	confirmEmailSubTitle: 'К сожалению нам не удалось Вас авторизовать. Возможно ссылка для входа устарела.',
+	dontCallBackTitle: 'Мне можно не перезванивать для подтверждения заказа',
+	dontCallBackSubTitle: 'Если вам всё же нужна консультация по заказу - снимите галочку',
+
 } satisfies BaseTranslation
 
 export default ru

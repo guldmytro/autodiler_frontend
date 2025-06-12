@@ -127,10 +127,10 @@
     <fieldset class="checkout-form__fieldset fieldset">
         <label class="checkbox-wrapper">
             <input type="checkbox" name="dont_callback">
-            <span class="fieldset__checkbox-text">Мені можна не передзвонювати для підтвердження замовлення</span>
+            <span class="fieldset__checkbox-text">{$LL.dontCallBackTitle()}</span>
         </label>
         <p class="warning">
-            Якщо вам все ж потрібна консультація по замовленню - зніміть галочку
+            {$LL.dontCallBackSubTitle()}
         </p>
     </fieldset>
     <fieldset class="checkout-form__fieldset fieldset">
@@ -191,7 +191,7 @@
     }
 
     .checkbox-wrapper input {
-        transform: translateY(-2px);
+        transform: translateY(-1px);
         width: 16px;
         height: 16px;
         accent-color: var(--color-primary);
