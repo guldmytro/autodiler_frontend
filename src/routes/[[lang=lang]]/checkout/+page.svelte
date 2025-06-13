@@ -28,7 +28,11 @@
                 return await update();
             }
             cart.set(await getCart())
-            goto(`/${localePrefix}checkout/${result.data.targetURL}`);
+            if (String(result.data.targetURL).includes('https://')) {
+                window.location.href = result.data.targetURL;
+            } else {
+                goto(`/${localePrefix}checkout/${result.data.targetURL}`);
+            }
         }
     }
 

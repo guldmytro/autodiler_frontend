@@ -191,9 +191,21 @@ export const actions = {
                 sameSite: 'lax',
                 httpOnly: true
             })
-            if (clearString(formData.get('payment_method')) !== 'ol') {
+            const pm = clearString(formData.get('payment_method'));
+            if (pm === 'od') {
                 data.targetURL = 'success';
-            } else {
+            } else if (pm === 'mb') {
+                const { pageUrl } = await fetch(`${apiUrl}orders/${res.id}/get_monobank_link/`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        },
+                    }
+                ).then(r => r.json());
+                console.log(pageUrl);
+                data.targetURL = pageUrl;
+            } else if (pm === 'ol') {
                 data.targetURL = 'pay/' + res.id;
             }
             return data;

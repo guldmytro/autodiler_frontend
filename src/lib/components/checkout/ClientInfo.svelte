@@ -102,10 +102,19 @@
                 <p class="error">{$LL.checkout.paynowError()}</p>
             {/if}
         </div>
-
         <div class="radio-box">
             <label class="label-radio">
-                <input type="radio" class="radio" name="payment_method" value="ol" checked={cart.total < 200}>
+                <input type="radio" class="radio" name="payment_method" value="mb" checked={cart.total < 200}>
+                <span class="pseudo-radio"></span>
+                <span class="radio-label">
+                    <img class="payment-logo" src={MonobankLogo} width="1366" height="613" alt="монобанк" loading="lazy">
+                    <span style="translate: 0 -2px">{$LL.pay()}</span>
+                </span>
+            </label>
+        </div>
+        <div class="radio-box">
+            <label class="label-radio">
+                <input type="radio" class="radio" name="payment_method" value="ol">
                 <span class="pseudo-radio"></span>
                 <span class="radio-label">
                     <img class="payment-logo" src={LiqPayLogo} width="500" height="104" alt="лікпей" loading="lazy">
@@ -113,16 +122,6 @@
                 </span>
             </label>
         </div>
-        <!-- <div class="radio-box">
-            <label class="label-radio">
-                <input type="radio" class="radio" name="payment_method" value="mb">
-                <span class="pseudo-radio"></span>
-                <span class="radio-label">
-                    <img class="payment-logo" src={MonobankLogo} width="1366" height="613" alt="монобанк" loading="lazy">
-                    <span style="translate: 0 -2px">{$LL.pay()}</span>
-                </span>
-            </label>
-        </div> -->
     </fieldset>
     <fieldset class="checkout-form__fieldset fieldset">
         <label class="checkbox-wrapper">
