@@ -93,18 +93,18 @@
     <fieldset class="checkout-form__fieldset fieldset">
         <div class="fieldset__legend">{$LL.checkout.payment()}</div>
         <div class="radio-box">
-            <label class="label-radio" class:disabled={cart.total < 200}>
-                <input type="radio" class="radio" name="payment_method" value="od" disabled={cart.total < 200} checked={cart.total >= 200}>
+            <label class="label-radio" class:disabled={cart.total < 300}>
+                <input type="radio" class="radio" name="payment_method" value="od" disabled={cart.total < 300} checked={cart.total >= 200}>
                 <span class="pseudo-radio"></span>
                 <span class="radio-label">{$LL.checkout.paymentAfter()}</span>
             </label>
-            {#if cart.total < 200}
+            {#if cart.total < 300}
                 <p class="error">{$LL.checkout.paynowError()}</p>
             {/if}
         </div>
         <div class="radio-box">
             <label class="label-radio">
-                <input type="radio" class="radio" name="payment_method" value="mb" checked={cart.total < 200}>
+                <input type="radio" class="radio" name="payment_method" value="mb" checked={cart.total < 300}>
                 <span class="pseudo-radio"></span>
                 <span class="radio-label">
                     <img class="payment-logo" src={MonobankLogo} width="1366" height="613" alt="монобанк" loading="lazy">
