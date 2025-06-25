@@ -60,13 +60,13 @@
             <ul class="search-cats">
                 {#each terms as term }
                     <li class="search-cats__item">
-                        {#if term?.data?.is_car_brand}
+                        <!-- {#if term?.data?.is_car_brand}
                             <button class="search-link" class:active={currentProducer?.id == term?.id}
                                 on:click={() => setProducer(term)}>
                                 <img src={PUBLIC_API_MEDIA + term?.data?.image} alt={term?.data['name_ua']} class="search-link__img">
                                 <span class="search-link__label">{term?.data['name_ua']}</span>
                             </button>
-                        {:else}
+                        {:else} -->
                             <a href={`/${localePrefix}product-cat/${term?.data.slug}`} class="search-link">
                                 <img src={PUBLIC_API_MEDIA + term?.data?.image} alt={term?.data['name_ua']} class="search-link__img">
                                 <span class="search-link__label">
@@ -77,7 +77,7 @@
                                     {/if}
                                 </span>
                             </a>
-                        {/if}
+                        <!-- {/if} -->
                     </li>
                 {/each}
             </ul>
@@ -89,7 +89,7 @@
                     </button>
                 </div>
             {/if}
-            <fieldset class="search-box__fieldset">
+            <!-- <fieldset class="search-box__fieldset">
                     <label class="search-label">
                         <span class="search-label__text">{$LL.search.model.title()}</span>
                         <div class="select-wrapper">
@@ -133,7 +133,7 @@
                             </span>
                         </a>
                     </div>
-            </fieldset>
+            </fieldset> -->
         </div>
     </div>
 </main>
