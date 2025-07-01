@@ -426,6 +426,7 @@ const ru = {
 	confirmEmailSubTitle: 'К сожалению нам не удалось Вас авторизовать. Возможно ссылка для входа устарела.',
 	dontCallBackTitle: 'Мне можно не перезванивать для подтверждения заказа',
 	dontCallBackSubTitle: 'Если вам всё же нужна консультация по заказу - снимите галочку',
+	color: 'Цвет детали:'
 
 } satisfies BaseTranslation
 

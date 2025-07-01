@@ -1,3 +1,13 @@
+export interface Child {
+    slug: string;
+    parentSlug: string;
+    parentCategorySlug: string;
+    color: {
+        name: string;
+        hex_code: string;
+    }
+}
+
 export interface Product {
     cnt: any;
     product: any;
@@ -12,6 +22,7 @@ export interface Product {
         id: number;
         name_ua: string;
         name_ru: string;
+        slug: string;
         parents: {
             id: number;
             name_ua: string;
@@ -21,6 +32,8 @@ export interface Product {
     producer: string;
     country: string;
     vin: string | null;
+    children?: Child[];
+    siblings?: Child[];
     params: {
         name: string;
         units: string;

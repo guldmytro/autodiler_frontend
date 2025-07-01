@@ -12,7 +12,7 @@
 
 <style>
     h3 {
-        margin-bottom: 0.2em;
+        margin-bottom: 0.3em;
     }
     .producer {
         font-size: 16px;

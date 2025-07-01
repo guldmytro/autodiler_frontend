@@ -12,6 +12,6 @@
 
 <style>
     .desc__title {
-        padding-bottom: 0.2em;
+        padding-bottom: 0.3em;
     }
 </style>

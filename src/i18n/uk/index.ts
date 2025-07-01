@@ -426,6 +426,7 @@ const uk = {
 	confirmEmailSubTitle: 'Нажаль нам не вдалось Вас авторизувати. Можливо посилання для входу застаріло.',
 	dontCallBackTitle: 'Мені можна не передзвонювати для підтвердження замовлення',
 	dontCallBackSubTitle: 'Якщо вам все ж потрібна консультація по замовленню - зніміть галочку',
+	color: 'Колір деталі:'
 } satisfies BaseTranslation
 
 export default uk

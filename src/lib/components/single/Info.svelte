@@ -7,12 +7,14 @@
     import DeliveryText from '../sections/DeliveryText.svelte';
     import Vin from './Vin.svelte';
     import Producer from './Producer.svelte';
+    import Colors from './Colors.svelte';
     export let product: Product;
 </script>
 
 <div class="product-info">
     <Title title={product.name} />
     <Sku sku={product.sku} />
+    <Colors children={product.siblings || product.children} />
     <AddToCart {product} />
     <Producer producer={product.producer} />
     <Vin vin={product.vin} />

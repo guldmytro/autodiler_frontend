@@ -91,7 +91,7 @@
     }
     
     .delivery_p {
-        margin-bottom: 0.2em;
+        margin-bottom: 0.3em;
     }
     
     .delivery-group {
