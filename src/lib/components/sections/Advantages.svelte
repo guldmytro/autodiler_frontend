@@ -41,14 +41,14 @@
                 </li>
             </ul>
         </div>
-        <div class="advantages-row">
+        <!-- <div class="advantages-row">
             <div class="advantages-banner">
                 <div class="advantages-banner__header">
                     <h2 class="advantages-banner__title">{$LL.ad.title()}</h2>
                     <p class="advantages-banner__subtitle">{$LL.ad.subtitle()}</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 

@@ -321,7 +321,7 @@
         transform: translateY(-50%);
 
     }
-
+    /*
     .search-box__fieldset {
         display: flex;
         flex-flow: row nowrap;
@@ -396,6 +396,7 @@
     .disabled {
         opacity: 0.5;
     }
+    */
     
     @media (max-width: 991px) {
         .search-cats__item {

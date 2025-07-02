@@ -11,6 +11,7 @@
     import SeoContent from "$lib/components/global/SeoContent.svelte";
     import { page } from "$app/stores";
     import bgMobile from '$lib/assets/img/bg-search_mobile.jpg';
+    import Categories from "$lib/components/sections/Categories.svelte";
 
     export let data;
 
@@ -43,6 +44,7 @@
 
 <MainSearch />
 <Advantages />
+<Categories />
 <QuestionForm><img src={details} class="questions__img" alt="деталі"></QuestionForm>
 <Stats />
 <Posts posts={data.posts} />
