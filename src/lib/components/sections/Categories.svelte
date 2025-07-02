@@ -110,4 +110,31 @@
         font-weight: 500;
         text-decoration: none;
     }
+
+    @media (max-width: 991px) {
+        .cats-group {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cats-group {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .cats-link {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-inline: 6px;
+        }
+
+        .cats-link__img {
+            height: 40px;
+            width: auto;
+        }
+
+        .cats-link__title {
+            font-size: 15px;
+        }
+    }
 </style>
