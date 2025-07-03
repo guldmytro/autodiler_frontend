@@ -426,7 +426,11 @@ const uk = {
 	confirmEmailSubTitle: 'Нажаль нам не вдалось Вас авторизувати. Можливо посилання для входу застаріло.',
 	dontCallBackTitle: 'Мені можна не передзвонювати для підтвердження замовлення',
 	dontCallBackSubTitle: 'Якщо вам все ж потрібна консультація по замовленню - зніміть галочку',
-	color: 'Колір деталі:'
+	color: 'Колір деталі:',
+	bannerUpTitle: 'Для СТО, магазинів, автопарків',
+	bannerTitle: 'Опт вигідний, як ніколи!',
+	bannerSubTitle: 'Спец. ціни в особистому кабінеті',
+	bannerButton: 'Переглянути ціни',
 } satisfies BaseTranslation
 
 export default uk

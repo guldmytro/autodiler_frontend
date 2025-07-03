@@ -426,8 +426,11 @@ const ru = {
 	confirmEmailSubTitle: 'К сожалению нам не удалось Вас авторизовать. Возможно ссылка для входа устарела.',
 	dontCallBackTitle: 'Мне можно не перезванивать для подтверждения заказа',
 	dontCallBackSubTitle: 'Если вам всё же нужна консультация по заказу - снимите галочку',
-	color: 'Цвет детали:'
-
+	color: 'Цвет детали:',
+	bannerUpTitle: 'Для СТО, магазинов, автопарков',
+	bannerTitle: 'Опт выгоден, как никогда!',
+	bannerSubTitle: 'Спец. цены в личном кабинете',
+	bannerButton: 'Посмотреть цены',
 } satisfies BaseTranslation
 
 export default ru

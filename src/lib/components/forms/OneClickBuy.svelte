@@ -8,11 +8,16 @@
 
     let sent = false;
     let errors = false;
+    let loading = true;
     $: showForm = $activeOneClickBuy == product.id;
 
     function send() {
+        loading = true;
+        alert(1)
         // @ts-ignore
         return async ({result, update}) => {
+            loading = false;
+            alert(2)
             if (result.status === 'ok') {
                 errors = false;
                 activeOneClickBuy.set('');
@@ -20,7 +25,6 @@
                 setTimeout(() => {sent = false}, 5000);
             } else {
                 errors = result?.errors;
-                
             }
         }
     }
@@ -53,7 +57,7 @@
                     <p class="errors">{$LL.oneClick.errors.phone.required()}</p>
                 {/if} 
             </label>
-            <button type="submit" class="button">{$LL.oneClick.callToAction()}</button>
+            <button type="submit" class="button" class:loading disabled={loading}>{$LL.oneClick.callToAction()}</button>
         </form>
     </div>
 {:else if sent}
@@ -122,6 +126,41 @@
         top: var(--gap);
         right: var(--gap);
         position: absolute;
+    }
+    
+    .button {
+        transition: color 150 ease;
+    }
+
+    .button.loading {
+        position: relative;
+        color: transparent;
+    }
+
+    .button.loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 22px;
+        aspect-ratio: 1;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        border-top-color: rgba(255, 255, 255, 0.9);
+        animation-name: spin;
+        animation-duration: 0.6s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes spin {
+        from {
+            rotate: 0deg;
+        }
+        to {
+            rotate: 360deg;
+        }
     }
 
     @media (max-width: 450px) {
