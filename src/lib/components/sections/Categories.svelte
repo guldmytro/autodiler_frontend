@@ -21,7 +21,7 @@
         [lang in 'ru' | 'uk']: Cat[]
     } = {
         'uk': [
-            {title: 'Оливи та рідини', href: '', img: {src: t1, alt: 'Оливи та рідини'}},
+            {title: 'Олива', href: '/product-cat/motorna-oliva-7e684864', img: {src: t1, alt: 'Оливи та рідини'}},
             {title: 'Аксесуари', href: '/product-cat/aksesuari-6a877ca3', img: {src: t2, alt: 'Аксесуари'}},
             {title: 'Акумулятори', href: '/product-cat/akumuliatori-2d371099', img: {src: t3, alt: 'Акумурятори'}},
             {title: 'Автохімія', href: '/product-cat/olivi-i-tekhnichni-ridini-6f1a2cd6', img: {src: t4, alt: 'Автохімія'}},
@@ -31,7 +31,7 @@
             {title: 'Резина', href: '/product-cat/shinomontazh-c348056e', img: {src: t8, alt: 'Резина'}},
         ],
         'ru': [
-            {title: 'Масла и жидкости', href: '', img: {src: t1, alt: 'Масла и жидкости'}},
+            {title: 'Масло', href: '/ru/product-cat/motorna-oliva-7e684864', img: {src: t1, alt: 'Масла и жидкости'}},
             {title: 'Аксесуары', href: '/ru/product-cat/aksesuari-6a877ca3', img: {src: t2, alt: 'Аксесуары'}},
             {title: 'Аккумуляторы', href: '/ru/product-cat/akumuliatori-2d371099', img: {src: t3, alt: 'Аккумуляторы'}},
             {title: 'Автохимия', href: '/ru/product-cat/olivi-i-tekhnichni-ridini-6f1a2cd6', img: {src: t4, alt: 'Автохимия'}},
