@@ -13,11 +13,9 @@
 
     function send() {
         loading = true;
-        alert(1)
         // @ts-ignore
         return async ({result, update}) => {
             loading = false;
-            alert(2)
             if (result.status === 'ok') {
                 errors = false;
                 activeOneClickBuy.set('');
