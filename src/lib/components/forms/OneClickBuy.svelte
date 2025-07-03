@@ -8,7 +8,7 @@
 
     let sent = false;
     let errors = false;
-    let loading = true;
+    let loading = false;
     $: showForm = $activeOneClickBuy == product.id;
 
     function send() {
