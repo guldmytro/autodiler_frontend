@@ -428,7 +428,7 @@ const uk = {
 	dontCallBackSubTitle: 'Якщо вам все ж потрібна консультація по замовленню - зніміть галочку',
 	color: 'Колір деталі:',
 	bannerUpTitle: 'Для СТО, магазинів, автопарків',
-	bannerTitle: 'Опт вигідний, як ніколи!',
+	bannerTitle: 'Опт вигідний, як&nbsp;ніколи!',
 	bannerSubTitle: 'Спец. ціни в особистому кабінеті',
 	bannerButton: 'Переглянути ціни',
 } satisfies BaseTranslation

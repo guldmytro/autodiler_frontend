@@ -68,7 +68,6 @@
 
 <style>
     .cats {
-        margin-block-start: calc(var(--padding-section) * 0.75);
         margin-block-end: 0;
         background-color: #F0F0F0;
     }

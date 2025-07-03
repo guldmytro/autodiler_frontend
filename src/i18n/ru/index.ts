@@ -428,7 +428,7 @@ const ru = {
 	dontCallBackSubTitle: 'Если вам всё же нужна консультация по заказу - снимите галочку',
 	color: 'Цвет детали:',
 	bannerUpTitle: 'Для СТО, магазинов, автопарков',
-	bannerTitle: 'Опт выгоден, как никогда!',
+	bannerTitle: 'Опт выгоден, как&nbsp;никогда!',
 	bannerSubTitle: 'Спец. цены в личном кабинете',
 	bannerButton: 'Посмотреть цены',
 } satisfies BaseTranslation

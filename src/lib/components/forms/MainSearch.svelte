@@ -144,6 +144,7 @@
         padding: 16rem 0 0;
         /* background: url("$lib/assets/img/bg-search.jpg") no-repeat center / cover; */
         isolation: isolate;
+        overflow: hidden;
     }
 
     .bg {

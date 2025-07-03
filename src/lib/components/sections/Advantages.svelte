@@ -4,6 +4,13 @@
     import iconDelivery from '$lib/assets/img/icon-delivery.png';
     import iconBoxes from '$lib/assets/img/icon-boxes.png';
 
+    import ToolsIMG from '$lib/assets/img/tools.jpg';
+    import BloodIMG from '$lib/assets/img/blood.png';
+    import Blood2IMG from '$lib/assets/img/blood-2.png';
+    import { page } from '$app/stores';
+
+    $: lang = $page.params.lang === 'ru' ? '/ru/' : '/';
+
     import LL from '$i18n/i18n-svelte';
 </script>
 
@@ -51,10 +58,26 @@
                 </div>
             </div>
         {/if}
-        <div class="advantages-row">
-            <div class="partner-banner">
-                dada
-            </div>
+    </div>
+    <div class="partner-banner" style={`background-image: url(${Blood2IMG}), url(${BloodIMG}), url(${ToolsIMG})`}>
+        <div class="container">
+            <p class="banner-uptitle">{$LL.bannerUpTitle()}</p>
+            <h2 class="banner-title">{@html $LL.bannerTitle()}</h2>
+            <p class="banner-subtitle">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="26px" width="26px" version="1.1" viewBox="0 0 512.001 512.001" xml:space="preserve">
+                <path style="fill:#128e41;" d="M256.001,0C114.615,0,0,114.615,0,256.001s114.615,256.001,256.001,256.001  s256.001-114.615,256.001-256.001S397.385,0,256.001,0z"/>
+                <path style="fill:#128e41;" d="M256.001,24c-128.13,0-232,103.87-232,232s103.87,232,232,232S488,384.13,488,256.001  S384.13,24,256.001,24z"/>
+                <polygon style="fill:#FFFFFF;" points="345.032,137.848 216.896,295.888 163.04,242.728 127.528,281.848 221.056,374.153   384.472,172.608 "/>
+                </svg>
+                {$LL.bannerSubTitle()}
+            </p>
+            <a href="{lang}account/dashboard" class="banner-link">
+                {$LL.bannerButton()}
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 5L11.7929 11.2929C12.1834 11.6834 12.1834 12.3166 11.7929 12.7071L5.5 19" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.5 5L19.7929 11.2929C20.1834 11.6834 20.1834 12.3166 19.7929 12.7071L13.5 19" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </div>
     </div>
 </div>
@@ -151,6 +174,71 @@
         transform: translateY(-0.35em);
     }
 
+    .partner-banner {
+        margin-top: 40px;
+        padding-block: 80px;
+        border: 4px solid var(--color-primary);
+        background-repeat: no-repeat;
+        background-color: #fff;
+        background-position: top left, right bottom 0px, right bottom -20px;
+        background-size: auto, 40% auto, 35% auto;
+    }
+
+    .partner-banner .container {
+        display: block;
+    }
+
+    .banner-uptitle {
+        width: fit-content;
+        padding: 14px 30px;
+        color: var(--color-primary);
+        text-transform: uppercase;
+        border: 4px solid var(--color-primary);
+        border-radius: 14px;
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    .banner-title {
+        margin-top: 30px;
+        font-size: 50px;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    .banner-subtitle {
+        display: flex;
+        flex-flow: row nowrap;
+        column-gap: 20px;
+        align-items: baseline;
+        margin-top: 30px;
+        font-size: 30px;
+        line-height: 1;
+        font-weight: 600;
+        color: #128e41;
+    }
+
+    .banner-subtitle svg {
+        position: relative;
+        top: 2px;
+    }
+
+    .banner-link {
+        width: fit-content;
+        column-gap: 0.4em;
+        display: flex;
+        flex-flow: row nowrap;
+        margin-top: 37px;
+        padding: 20px 36px;
+        background-image: linear-gradient(to right, #fdbe64, #e29621);
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 14px;
+        font-weight: 600;
+    }
+
     @media (max-width: 991px) {
         .advantages-group {
             display: grid;
@@ -166,6 +254,45 @@
     @media (max-width: 767px) {        
         .advantages-banner__header {
             font-size: 0.8rem;
+        }
+
+        .partner-banner {
+            padding-bottom: 300px;
+            background-repeat: no-repeat;
+            background-color: #fff;
+            background-position: top left, right bottom 0px, center bottom -30px;
+            background-size: auto, 100% auto, auto 310px;
+        }
+
+        .banner-uptitle {
+            font-size: 16px;
+            padding-inline: 14px;
+            padding-block: 10px;
+            margin-inline: auto;
+            text-align: center;
+        }
+
+        .banner-title {
+            margin-top: 20px;
+            font-size: 35px;
+            text-align: center;
+        }
+
+        .banner-subtitle {
+            margin-top: 20px;
+            display: block;
+            font-size: 25px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .banner-subtitle svg {
+            display: none;
+        }
+
+        .banner-link {
+            margin-top: 30px;
+            margin-inline: auto;            
         }
     }
 
