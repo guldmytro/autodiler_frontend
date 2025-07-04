@@ -15,50 +15,52 @@
 </script>
 
 <div class="advantages">
-    <div class="container">
-        <div class="advantages-row">
-            <ul class="advantages-group">
-                <li class="advantages-group__item advantages-item">
-                    <div class="advantages-item__img-box">
-                        <img src={iconWallet} alt="гаманець" class="advantages-item__img" loading="lazy"
-                        width="104" height="126">
-                    </div>
-                    <span class="advantages-item__text">{$LL.advantages.a()}</span>
-                </li>
-                <li class="advantages-group__item advantages-item">
-                    <div class="advantages-item__img-box">
-                        <img src={iconCards} alt="картки" class="advantages-item__img" loading="lazy"
-                        width="114" height="118">
-                    </div>
-                    <span class="advantages-item__text">{$LL.advantages.b()}</span>
-                </li>
-                <li class="advantages-group__item advantages-item">
-                    <div class="advantages-item__img-box">
-                        <img src={iconDelivery} alt="гаманець" class="advantages-item__img" loading="lazy"
-                        width="120" height="80">
-                    </div>
-                    <span class="advantages-item__text">{$LL.advantages.c()}</span>
-                </li>
-                <li class="advantages-group__item advantages-item">
-                    <div class="advantages-item__img-box">
-                        <img src={iconBoxes} alt="гаманець" class="advantages-item__img" loading="lazy"
-                        width="124" height="120">
-                    </div>
-                    <span class="advantages-item__text">{$LL.advantages.d()}</span>
-                </li>
-            </ul>
-        </div>
-        {#if false}
+    {#if false}
+        <div class="container">
             <div class="advantages-row">
-                <div class="advantages-banner">
-                    <div class="advantages-banner__header">
-                        <h2 class="advantages-banner__title">{$LL.ad.title()}</h2>
-                        <p class="advantages-banner__subtitle">{$LL.ad.subtitle()}</p>
+                <ul class="advantages-group">
+                    <li class="advantages-group__item advantages-item">
+                        <div class="advantages-item__img-box">
+                            <img src={iconWallet} alt="гаманець" class="advantages-item__img" loading="lazy"
+                            width="104" height="126">
+                        </div>
+                        <span class="advantages-item__text">{$LL.advantages.a()}</span>
+                    </li>
+                    <li class="advantages-group__item advantages-item">
+                        <div class="advantages-item__img-box">
+                            <img src={iconCards} alt="картки" class="advantages-item__img" loading="lazy"
+                            width="114" height="118">
+                        </div>
+                        <span class="advantages-item__text">{$LL.advantages.b()}</span>
+                    </li>
+                    <li class="advantages-group__item advantages-item">
+                        <div class="advantages-item__img-box">
+                            <img src={iconDelivery} alt="гаманець" class="advantages-item__img" loading="lazy"
+                            width="120" height="80">
+                        </div>
+                        <span class="advantages-item__text">{$LL.advantages.c()}</span>
+                    </li>
+                    <li class="advantages-group__item advantages-item">
+                        <div class="advantages-item__img-box">
+                            <img src={iconBoxes} alt="гаманець" class="advantages-item__img" loading="lazy"
+                            width="124" height="120">
+                        </div>
+                        <span class="advantages-item__text">{$LL.advantages.d()}</span>
+                    </li>
+                </ul>
+            </div>
+            {#if false}
+                <div class="advantages-row">
+                    <div class="advantages-banner">
+                        <div class="advantages-banner__header">
+                            <h2 class="advantages-banner__title">{$LL.ad.title()}</h2>
+                            <p class="advantages-banner__subtitle">{$LL.ad.subtitle()}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {/if}
-    </div>
+            {/if}
+        </div>
+    {/if}
     <div class="partner-banner" style={`background-image: url(${Blood2IMG}), url(${BloodIMG}), url(${ToolsIMG})`}>
         <div class="container">
             <p class="banner-uptitle">{$LL.bannerUpTitle()}</p>
