@@ -81,7 +81,6 @@
     }
 
     .warning {
-        display: none;
         padding: 12px 15px;
         font-size: 14px;
         background-color: rgb(253, 250, 207);
