@@ -22,12 +22,6 @@
     }) || [];
 
 afterNavigate(() => {
-    console.log({
-        transaction_id: data?.order?.id,
-        value: data.order.get_total_cost,
-        currency: 'UAH',
-        items
-    });
     if (!data?.order || data?.order.passed_to_google) return;
 
     let attempts = 0;
