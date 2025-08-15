@@ -193,7 +193,7 @@ export const actions = {
             })
             const pm = clearString(formData.get('payment_method'));
             if (pm === 'od') {
-                data.targetURL = 'success';
+                data.targetURL = `success/${res.id}`;
             } else if (pm === 'mb') {
                 const { pageUrl } = await fetch(`${apiUrl}orders/${res.id}/get_monobank_link/`,
                     {
@@ -203,7 +203,6 @@ export const actions = {
                         },
                     }
                 ).then(r => r.json());
-                console.log(pageUrl);
                 data.targetURL = pageUrl;
             } else if (pm === 'ol') {
                 data.targetURL = 'pay/' + res.id;

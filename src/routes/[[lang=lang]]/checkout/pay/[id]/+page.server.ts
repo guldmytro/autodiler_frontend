@@ -30,7 +30,7 @@ export const load: PageServerLoad = async ({fetch, params, url, locals: { LL, lo
         'description'    : 'Оплата замовлення ' + order.id,
         'order_id'       : order.id,
         'version'        : '3',
-        'result_url'     : 'https://avtodiler.com.ua/'+ lang +'/checkout/success',
+        'result_url'     : 'https://avtodiler.com.ua/'+ lang +'/checkout/success/' + order.id,
         'server_url'     : 'https://api.avtodiler.com.ua/payment/webhook/',
         'rro_info'       : {
             "delivery_emails": ["avtoodiler@gmail.com"]
