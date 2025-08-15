@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
     import { addItemToCart } from '$lib/stores/cart';
     import { inCart } from '$lib/stores/cart';
     import { browser } from '$app/environment';
     import { addItemToWishlist, deleteItemFromWishlist, wishlist } from '$lib/stores/wishlist';
     import OneClickBuy from '../single/OneClickBuy.svelte';
+    import type { Product } from '../single/product';
 
-    export let product;
+    export let product: Product;
     let productInCartExtra = false;
     $: productInCart = inCart(product.id) || productInCartExtra;
 
@@ -13,6 +14,22 @@
         await addItemToCart(product.id, 1, false, product.name || product.translation__name,
              product.price, product.image);
         productInCartExtra = true;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'add_to_cart', 
+            'ecommerce': {
+                'items': [{
+                    'item_name': product.name,
+                    'item_id': product.id,
+                    'price': product.price, 
+                    'item_brand': product.producer,
+                    'item_category': product?.category?.parents[0]?.name_ua,
+                    'item_category2': product?.category?.parents[1]?.name_ua,
+                    'item_category3': product?.category?.name_ua, 
+                    'quantity': 1
+                    }]
+            }
+            });
     }
 
     let wishlistDisabled = false;

@@ -10,6 +10,7 @@
     import Params from '$lib/components/single/Params.svelte';
     import BuyPlaces from '$lib/components/single/BuyPlaces.svelte';
     import GallerySlider from '$lib/components/single/GallerySlider.svelte';
+    import { afterNavigate } from '$app/navigation';
 
     export let data;
     
@@ -18,6 +19,27 @@
     $: extraContent = getMetaValue(data?.meta, 'content') || false;
 
     $: images = [data.item.image, data.item.image2, data.item.image3, data.item.image4, data.item.image5].filter(i => !!i);
+
+    afterNavigate(() => {
+        if (window) {
+            const product = data?.item;
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'view_item', 
+                'ecommerce': {
+                    'items': [{
+                        'item_name': product.name,
+                        'item_id': product.id,
+                        'price': product.price, 
+                        'item_brand': product.producer,
+                        'item_category': product?.category?.parents[0]?.name_ua,
+                        'item_category2': product?.category?.parents[1]?.name_ua,
+                        'item_category3': product?.category?.name_ua,
+                        }]
+                }
+            });
+        }
+    });
 </script>
 
 <svelte:head>

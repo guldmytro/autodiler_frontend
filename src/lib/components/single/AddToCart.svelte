@@ -38,6 +38,22 @@
     async function handleAddToCart() {
         await addItemToCart(product.id, count, false, product.name, product.price, product.image);
         productInCartExtra = true;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'add_to_cart', 
+            'ecommerce': {
+                'items': [{
+                    'item_name': product.name,
+                    'item_id': product.id,
+                    'price': product.price, 
+                    'item_brand': product.producer,
+                    'item_category': product?.category?.parents[0]?.name_ua,
+                    'item_category2': product?.category?.parents[1]?.name_ua,
+                    'item_category3': product?.category?.name_ua, 
+                    'quantity': count
+                    }]
+            }
+            });
     }
     
 </script>

@@ -13,7 +13,7 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, fetch, url,
     const ids = cart.items.map((item: { id: any; }) => item.id).join(',');
 
     const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
-    const fetchUrl = `${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku,slug,quantity,term_slug`;
+    const fetchUrl = `${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,category,producer,image,sku,slug,quantity,term_slug`;
 
     let { results } = await fetchProducts(fetchUrl, user, fetch, cookies, params);
     cart = cart.items.map((item: { id: any; }) => {

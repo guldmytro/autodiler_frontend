@@ -37,6 +37,22 @@
 
     function increase() {
         quantity++;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'add_to_cart', 
+            'ecommerce': {
+                'items': [{
+                    'item_name': cartItem?.product.name,
+                    'item_id': cartItem?.product.id,
+                    'price': cartItem?.product.price, 
+                    'item_brand': cartItem?.product.producer,
+                    'item_category': cartItem?.product?.category?.parents[0]?.name_ua,
+                    'item_category2': cartItem?.product?.category?.parents[1]?.name_ua,
+                    'item_category3': cartItem?.product?.category?.name_ua, 
+                    'quantity': quantity
+                    }]
+            }
+            });
         changeQuantity();
     }
 
