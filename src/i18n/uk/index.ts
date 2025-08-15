@@ -431,6 +431,7 @@ const uk = {
 	bannerTitle: 'Опт вигідний, як&nbsp;ніколи!',
 	bannerSubTitle: 'Спец. ціни в особистому кабінеті',
 	bannerButton: 'Переглянути ціни',
+	minTotalError: 'Мінімальна сума замовлення 500 гривень'
 } satisfies BaseTranslation
 
 export default uk

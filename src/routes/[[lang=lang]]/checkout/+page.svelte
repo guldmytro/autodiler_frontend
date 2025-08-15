@@ -59,10 +59,16 @@
         <div class="section-header">
             <h1 class="section-header__title">{$LL.checkoutTitle()}</h1>
         </div>
-        <form method="post" action="?/create" class="checkout-form checkout__row" use:enhance={create}>
-            <ClientInfo {form} cart={data.cart} user={data.user} />
-            <Order cart={data.cart} {loading} />
-        </form>
+        {#if data.cart.total >= 500}
+            <form method="post" action="?/create" class="checkout-form checkout__row" use:enhance={create}>
+                <ClientInfo {form} cart={data.cart} user={data.user} />
+                <Order cart={data.cart} {loading} />
+            </form>
+        {:else}
+            <p class="warning">
+                {$LL.minTotalError()}
+            </p>
+        {/if}
     </div>
 </main>
 <SeoContent content={extraContent} />
@@ -72,6 +78,13 @@
         display: grid;
         grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
         column-gap: 5rem;
+    }
+
+    .warning {
+        display: none;
+        padding: 12px 15px;
+        font-size: 14px;
+        background-color: rgb(253, 250, 207);
     }
 
     @media (max-width: 1399px) {

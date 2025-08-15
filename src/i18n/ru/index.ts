@@ -431,6 +431,7 @@ const ru = {
 	bannerTitle: 'Опт выгоден, как&nbsp;никогда!',
 	bannerSubTitle: 'Спец. цены в личном кабинете',
 	bannerButton: 'Посмотреть цены',
+	minTotalError: 'Минимальная сумма заказа 500 гривен'
 } satisfies BaseTranslation
 
 export default ru
