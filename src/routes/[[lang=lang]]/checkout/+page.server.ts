@@ -22,7 +22,7 @@ export const load: PageServerLoad = async ({fetch, cookies, url, params, locals:
     if (!ids || ids == '') {
         redirect(302, `/${lang}/cart`);
     }
-    let fetchUrl = `${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku,slug`;
+    let fetchUrl = `${apiUrl}products/?envelope=true&id=${ids}&fields=id,name,price,image,sku,slug,category,producer`;
     let { results } = await fetchProducts(fetchUrl, user, fetch, cookies, params);
 
     if (!results.length) {
