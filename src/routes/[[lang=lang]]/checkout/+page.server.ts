@@ -65,7 +65,7 @@ export const actions = {
             first_name: clearString(formData.get('first_name')),
             last_name: clearString(formData.get('last_name')),
             phone: clearString(formData.get('phone')),
-            email: clearString(formData.get('email')),
+            // email: clearString(formData.get('email')),
             delivery,
             city,
             nova_office,
@@ -87,9 +87,9 @@ export const actions = {
             data.errors.phone = 'required';
         }
 
-        if (!jsonData.email) {
-            data.errors.email = 'required';
-        }
+        // if (!jsonData.email) {
+        //     data.errors.email = 'required';
+        // }
 
         if (!jsonData.delivery) {
             data.errors.delivery = 'required';

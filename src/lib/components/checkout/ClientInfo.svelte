@@ -102,13 +102,13 @@
                     on:change={() => handleStartFillingUserInfo()}>
                 <p class="errors">{#if form?.errors?.phone === 'required'}{$LL.checkoutErrors.phone()}{/if}</p>
             </label>
-            <label class="label-input">
+            <!-- <label class="label-input">
                 <span class="label-input__title">{$LL.checkout.email()} <span class="required">*</span></span>
                 <input type="email" name="email" class="input" value={user?.user?.email || ''} 
                     on:input={() => handleStartFillingUserInfo()} 
                     on:change={() => handleStartFillingUserInfo()}>
                 <p class="errors">{#if form?.errors?.email === 'required'}{$LL.checkoutErrors.email()}{/if}</p>
-            </label>
+            </label> -->
         </div>
     </fieldset>
     <fieldset class="checkout-form__fieldset fieldset delivery">
