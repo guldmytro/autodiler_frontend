@@ -431,7 +431,10 @@ const ru = {
 	bannerTitle: 'Опт выгоден, как&nbsp;никогда!',
 	bannerSubTitle: 'Спец. цены в личном кабинете',
 	bannerButton: 'Посмотреть цены',
-	minTotalError: 'Минимальная сумма заказа 500 гривен'
+	minTotalError: 'Минимальная сумма заказа 500 гривен',
+	cookieText: 'Мы используем cookies, что б сделать наш сайт удобнее.',
+	cookieTextAccept: 'Принять',
+	cookieTextReject: 'Отклонить',
 } satisfies BaseTranslation
 
 export default ru

@@ -431,7 +431,10 @@ const uk = {
 	bannerTitle: 'Опт вигідний, як&nbsp;ніколи!',
 	bannerSubTitle: 'Спец. ціни в особистому кабінеті',
 	bannerButton: 'Переглянути ціни',
-	minTotalError: 'Мінімальна сума замовлення 500 гривень'
+	minTotalError: 'Мінімальна сума замовлення 500 гривень',
+	cookieText: 'Ми використовуємо cookies, щоб зробити наш сайт зручнішим.',
+	cookieTextAccept: 'Прийняти',
+	cookieTextReject: 'Відхилити',
 } satisfies BaseTranslation
 
 export default uk

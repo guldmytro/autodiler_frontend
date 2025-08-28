@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import LL from "$i18n/i18n-svelte";
 	let visible = false;
 
 	onMount(() => {
@@ -33,10 +34,10 @@
 
 {#if visible}
 	<div class="cookie-banner">
-		<p>Ми використовуємо cookies, щоб зробити сайт зручнішим.</p>
+		<p>{$LL.cookieText()}</p>
 		<div class="buttons">
-			<button class="reject" on:click={() => reject()}>Відхилити</button>
-			<button class="accept" on:click={() => accept()}>Прийняти</button>
+			<button class="reject" on:click={() => reject()}>{$LL.cookieTextReject()}</button>
+			<button class="accept" on:click={() => accept()}>{$LL.cookieTextAccept()}</button>
 		</div>
 	</div>
 {/if}
