@@ -35,7 +35,7 @@
     <li class={`list__item list-item list__item_depth_${depth}`}>
         <div class="list-item__element" class:accent={termAncestorIds.includes(item.id)} class:current={currentCategory && currentCategory == item.id}>
             <a href="/{localePrefix}product-cat/{item.data.slug}" class="term-link">
-				{#if item.data?.image}
+				{#if item.data?.image && depth === 0}
 					<img src="{PUBLIC_API_MEDIA}{item.data.image}" loading="lazy" height="10" class="term-img" alt={item.data[key]}>
 				{/if}
 				<span>
