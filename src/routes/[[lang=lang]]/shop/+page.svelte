@@ -73,7 +73,7 @@
 <style>
     .row-products {
         display: grid;
-        grid-template-columns: minmax(0, 3fr) minmax(0, 1.1fr);
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 3fr);
         column-gap: 2.8rem;
         align-items: start;
     }
