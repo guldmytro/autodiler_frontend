@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { PUBLIC_API_MEDIA } from '$env/static/public';
     export let term : any = null;
     type Term = {
         data: {
@@ -23,7 +24,7 @@
             <li class="terms-flat__item">
                 <a href={`/product-cat/${item.data.slug}`} class="terms-flat__link">
                     {#if item.data.image || true}
-                        <img src={item.data.image} alt={item.data.name_ua} class="terms-flat__image" loading="lazy" width="100" height="100" />
+                        <img src="{PUBLIC_API_MEDIA}{item.data.image}" alt={item.data.name_ua} class="terms-flat__image" loading="lazy" width="100" height="100" />
                     {/if}
                     <span class="terms-flat__name">{item.data.name_ua} <sup class="terms-flat__count">({item.data.quantity})</sup></span>
                     
