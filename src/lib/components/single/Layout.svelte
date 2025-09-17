@@ -2,6 +2,7 @@
     import BreadCrumbs from '$lib/components/global/BreadCrumbs.svelte';
     import Tabs from '$lib/components/single/Tabs.svelte';
     import RecommendedProducts from './RecommendedProducts.svelte';
+    import LL from '$i18n/i18n-svelte';
     export let data;
 </script>
 
@@ -14,6 +15,7 @@
 </main>
 
 <RecommendedProducts products={data?.item?.recommended_products} />
+<RecommendedProducts title={$LL.sameCatProducts()} products={data?.item?.same_category_products} />
 
 <style>
     .container {

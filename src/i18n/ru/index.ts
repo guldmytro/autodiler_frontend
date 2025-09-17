@@ -442,6 +442,7 @@ const ru = {
 	dlText: "Прямо сейчас",
 	mTitle: "Автозапчасти",
 	mDescription: "Для каждого автомобиля",
+	sameCatProducts: 'Похожие товары',
 } satisfies BaseTranslation
 
 export default ru

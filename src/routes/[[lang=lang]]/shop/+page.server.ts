@@ -15,7 +15,7 @@ export const load: PageServerLoad = async ({ locals: { locale, LL }, params, fet
     const offset = getPageOffset(page, PUBLIC_PRODUCTS_PER_PAGE);
     const ordering = url.searchParams.get('ordering');
     const s = url.searchParams.get('s') ? String(url.searchParams.get('s')).trim() : false;
-    let fetchUrl = `${apiUrl}products/?envelope=true&omit=params,category,description,producer,country&limit=${PUBLIC_PRODUCTS_PER_PAGE}`;
+    let fetchUrl = `${apiUrl}products/?envelope=true&omit=same_category_products,params,category,description,producer,country&limit=${PUBLIC_PRODUCTS_PER_PAGE}`;
     
     if (offset) {
         fetchUrl += `&offset=${offset}`;

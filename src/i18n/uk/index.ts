@@ -442,6 +442,7 @@ const uk = {
 	dlText: "Прямо зараз",
 	mTitle: "Автозапчастини",
 	mDescription: "Для кожної машини",
+	sameCatProducts: 'Схожі товари',
 } satisfies BaseTranslation
 
 export default uk
