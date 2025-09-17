@@ -25,6 +25,7 @@
 {#if Array.isArray(children) && children.length}
     <ul class="terms-flat">
         {#each children as item}
+            {#if item?.data?.quantity > 0 }
             <li class="terms-flat__item">
                 <a href="/{localePrefix}product-cat/{item.data.slug}" class="terms-flat__link">
                     {#if item.data.image}
@@ -37,6 +38,7 @@
                     
                 </a>
             </li>
+            {/if}
         {/each}
     </ul>
 {/if}
