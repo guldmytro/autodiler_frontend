@@ -27,7 +27,7 @@
         {#each children as item}
             <li class="terms-flat__item">
                 <a href="/{localePrefix}product-cat/{item.data.slug}" class="terms-flat__link">
-                    {#if item.data.image || true}
+                    {#if item.data.image}
                         <img src="{PUBLIC_API_MEDIA}{item.data.image}" alt={item.data.name_ua} class="terms-flat__image" loading="lazy" width="100" height="100" />
                     {/if}
                     <span class="terms-flat__name">
