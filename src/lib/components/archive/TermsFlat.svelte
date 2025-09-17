@@ -87,6 +87,11 @@
         line-height: 1;
     }
 
+    .terms-flat__name:first-child:last-child {
+        width: 100%;
+        text-align: center;
+    }
+
     .terms-flat__count {
         font-size: 0.7em;
         position: relative;
