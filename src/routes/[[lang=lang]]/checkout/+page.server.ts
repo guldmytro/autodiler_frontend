@@ -50,6 +50,8 @@ export const actions = {
 	create: async ({request, cookies, params, fetch, locals: { LL, locale }}) => {
         const lang = params?.lang || 'uk';
         const apiUrl = PUBLIC_API_URL.replace('[lang]', lang);
+        const utm = cookies.get('utm');
+        
         const data = {
             success: false,
             errors: {}
@@ -73,6 +75,7 @@ export const actions = {
             payment_method: clearString(formData.get('payment_method')),
             comment: clearString(formData.get('comment')),
             dont_callback: formData.get('dont_callback') === 'on' ? 1 : 0,
+            utm
         };  
 
         if (!jsonData.first_name) {

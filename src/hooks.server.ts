@@ -56,7 +56,31 @@ export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.LL = LL
 
 
+	const url = new URL(event.request.url);
 
+	// список utm-параметрів, які хочемо зберігати
+	const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+	let hasUtm = false;
+	const data: Record<string, string> = {};
+
+	for (const param of utmParams) {
+		const value = url.searchParams.get(param);
+		if (value) {
+		data[param] = value;
+		hasUtm = true;
+		}
+	}
+
+	if (hasUtm) {
+		event.cookies.set('utm', JSON.stringify(data), {
+		path: '/',
+		httpOnly: true,
+		sameSite: 'lax',
+		secure: true,
+		maxAge: 60 * 60 * 24 * 30 // 30 днів
+		});
+	}
 
 
 	// replace html lang attribute with correct language
