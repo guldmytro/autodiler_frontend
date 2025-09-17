@@ -15,6 +15,7 @@
 
     import { getMetaValue } from "$lib/utils";
     import SeoContent from "$lib/components/global/SeoContent.svelte";
+    import TermsFlat from '$lib/components/archive/TermsFlat.svelte';
 
     $: termsList = [
         ...data.term.parents.slice(0, 2),
@@ -72,8 +73,6 @@
         `
     }
 </svelte:head>
-
-
 <BreadCrumbs items={data.term} extraPath="product-cat/" currentPage={data.term[key]} />
 <main class="products">
     <div class="container">
@@ -81,6 +80,7 @@
         <div class="row-products">
             <Aside aside={true} />
             <div class="row-products__content">
+                <TermsFlat term={data?.term} />
                 <div class="row-products__header">
                     <div class="mobile-filters">
                         <FilterButton />
@@ -108,6 +108,7 @@
         grid-template-columns: minmax(0, 1.1fr) minmax(0, 3fr);
         column-gap: 2.8rem;
         align-items: start;
+
     }
 
     .row-products__content {

@@ -1,0 +1,115 @@
+<script lang="ts">
+    export let term : any = null;
+    type Term = {
+        data: {
+            source_id: string;
+            name_ua: string;
+            name_ru: string;
+            slug: string;
+            quantity: number;
+            image: string | null;
+            updated: string;
+            is_car_brand: boolean;
+            visible: boolean;
+        },
+        id: number;
+    };
+    $: children = term?.tree[0]?.children || [];
+</script>
+
+{#if Array.isArray(children) && children.length}
+    <ul class="terms-flat">
+        {#each children as item}
+            <li class="terms-flat__item">
+                <a href={`/product-cat/${item.data.slug}`} class="terms-flat__link">
+                    {#if item.data.image || true}
+                        <img src={item.data.image} alt={item.data.name_ua} class="terms-flat__image" loading="lazy" width="100" height="100" />
+                    {/if}
+                    <span class="terms-flat__name">{item.data.name_ua} <sup class="terms-flat__count">({item.data.quantity})</sup></span>
+                    
+                </a>
+            </li>
+        {/each}
+    </ul>
+{/if}
+
+<style>
+    .terms-flat {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .terms-flat__item {
+        box-sizing: border-box;
+    }
+
+    .terms-flat__link {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: inherit;
+        padding: 1.2rem 1rem;
+        border-radius: 0.5rem;
+        transition: color 0.15s ease;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        border-radius: 1rem;
+    }
+
+    .terms-flat__link:hover {
+        color: var(--color-secondary);
+    }
+
+    .terms-flat__image {
+        width: 70px;
+        height: 50px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .terms-flat__name {
+        font-size: 1.5rem;
+        text-wrap: balance;
+        line-height: 1;
+    }
+
+    .terms-flat__count {
+        font-size: 0.7em;
+        position: relative;
+    }
+
+    @media (max-width: 1399px) {
+        .terms-flat {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .terms-flat {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 991px) {
+        .terms-flat {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+        .terms-flat {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .terms-flat {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+</style>
