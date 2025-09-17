@@ -1,6 +1,7 @@
 <script lang="ts">
     import { PUBLIC_API_MEDIA } from '$env/static/public';
     export let term : any = null;
+    import { locale } from '$i18n/i18n-svelte';
     type Term = {
         data: {
             source_id: string;
@@ -16,13 +17,16 @@
         id: number;
     };
     $: children = term?.tree[0]?.children || [];
+
+    $: key = $locale === 'uk' ? 'name_ua' : 'name_ru';
+	$: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
 {#if Array.isArray(children) && children.length}
     <ul class="terms-flat">
         {#each children as item}
             <li class="terms-flat__item">
-                <a href={`/product-cat/${item.data.slug}`} class="terms-flat__link">
+                <a href="/{localePrefix}product-cat/{item.data.slug}" class="terms-flat__link">
                     {#if item.data.image || true}
                         <img src="{PUBLIC_API_MEDIA}{item.data.image}" alt={item.data.name_ua} class="terms-flat__image" loading="lazy" width="100" height="100" />
                     {/if}
