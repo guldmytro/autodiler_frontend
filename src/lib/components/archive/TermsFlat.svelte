@@ -30,7 +30,10 @@
                     {#if item.data.image || true}
                         <img src="{PUBLIC_API_MEDIA}{item.data.image}" alt={item.data.name_ua} class="terms-flat__image" loading="lazy" width="100" height="100" />
                     {/if}
-                    <span class="terms-flat__name">{item.data.name_ua} <sup class="terms-flat__count">({item.data.quantity})</sup></span>
+                    <span class="terms-flat__name">
+                        {item.data[key]} 
+                        <sup class="terms-flat__count">({item.data.quantity})</sup>
+                    </span>
                     
                 </a>
             </li>
