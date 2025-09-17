@@ -435,6 +435,11 @@ const uk = {
 	cookieText: 'Ми використовуємо cookies, щоб зробити наш сайт зручнішим.',
 	cookieTextAccept: 'Прийняти',
 	cookieTextReject: 'Відхилити',
+	dlTitle: "Зупиніться!",
+	dlSubtitle: "Знижка від 5–10% на автозапчастини або",
+	dlSubtitle2: "відправимо новинку за спеціальною ціною одразу після замовлення!",
+	dlButton: "Забрати знижку",
+	dlText: "Прямо зараз"
 } satisfies BaseTranslation
 
 export default uk

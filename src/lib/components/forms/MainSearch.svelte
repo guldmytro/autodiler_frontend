@@ -142,6 +142,8 @@
     .search {
         position: relative;
         padding: 16rem 0 0;
+        padding-bottom: 40px;
+        margin-bottom: -40px;
         /* background: url("$lib/assets/img/bg-search.jpg") no-repeat center / cover; */
         isolation: isolate;
         overflow: hidden;

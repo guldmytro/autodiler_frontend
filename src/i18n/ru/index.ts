@@ -435,6 +435,11 @@ const ru = {
 	cookieText: 'Мы используем cookies, что б сделать наш сайт удобнее.',
 	cookieTextAccept: 'Принять',
 	cookieTextReject: 'Отклонить',
+	dlTitle: "Остановитесь!",
+	dlSubtitle: "Скидка от 5 до 10% на автозапчасти или",
+	dlSubtitle2: "отправим новинку за специальной ценой сразу после заказа!",
+	dlButton: "Получить скидку",
+	dlText: "Прямо сейчас"
 } satisfies BaseTranslation
 
 export default ru
