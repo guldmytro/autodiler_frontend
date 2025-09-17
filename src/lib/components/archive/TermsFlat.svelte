@@ -75,6 +75,7 @@
         height: 50px;
         object-fit: contain;
         flex-shrink: 0;
+        filter: var(--filter-color-text);
     }
 
     .terms-flat__name {
