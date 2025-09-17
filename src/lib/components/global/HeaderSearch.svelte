@@ -1,10 +1,11 @@
 <script>
     import LL from '$i18n/i18n-svelte';
     import { locale } from '$i18n/i18n-svelte';
+    import { mobileMenu } from '$lib/stores/menu';
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
 
-<form action="/{localePrefix}shop" method="get" class="search-form active">
+<form action="/{localePrefix}shop" method="get" class="search-form" class:active={!$mobileMenu}>
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-form__icon">
         <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
