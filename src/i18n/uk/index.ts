@@ -439,7 +439,9 @@ const uk = {
 	dlSubtitle: "Знижка від 5–10% на автозапчастини або",
 	dlSubtitle2: "відправимо новинку за спеціальною ціною одразу після замовлення!",
 	dlButton: "Забрати знижку",
-	dlText: "Прямо зараз"
+	dlText: "Прямо зараз",
+	mTitle: "Автозапчастини",
+	mDescription: "Для кожної машини",
 } satisfies BaseTranslation
 
 export default uk

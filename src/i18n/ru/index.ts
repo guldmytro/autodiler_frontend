@@ -439,7 +439,9 @@ const ru = {
 	dlSubtitle: "Скидка от 5 до 10% на автозапчасти или",
 	dlSubtitle2: "отправим новинку за специальной ценой сразу после заказа!",
 	dlButton: "Получить скидку",
-	dlText: "Прямо сейчас"
+	dlText: "Прямо сейчас",
+	mTitle: "Автозапчасти",
+	mDescription: "Для каждого автомобиля",
 } satisfies BaseTranslation
 
 export default ru

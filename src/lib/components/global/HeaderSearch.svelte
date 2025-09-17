@@ -92,4 +92,10 @@
             pointer-events: all;
         }
     }
+
+    @media (max-width: 575px) {
+        .search-form input {
+            height: 40px;
+        }
+    }
 </style>

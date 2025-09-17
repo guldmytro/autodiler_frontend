@@ -49,14 +49,18 @@
 
 
 <main class="search">
-    <img src={bgDesktop} alt="спідометр" fetchprioty="high" class="bg bg_desktop" width="1920" height="755">
-    <img src={bgMobile} alt="спідометр" fetchprioty="high" class="bg bg_mobile" width="720" height="283">
+    <img src={bgDesktop} alt="спідометр" fetchpriority="high" class="bg bg_desktop" width="1920" height="755">
+    <img src={bgMobile} alt="спідометр" fetchpriority="high" class="bg bg_mobile" width="720" height="283">
     <div class="container">
         <div class="search__header">
-            <h1 class="search__title">{$LL.search.title()}</h1>
-            <p class="serch__subtitle">{$LL.search.title2()}</p>
+            <h1 class="search__title">{$LL.mTitle()}</h1>
+            <p class="serch__subtitle">{$LL.mDescription()}</p>
         </div>
         <div class="search-box">
+            <div class="search-box__header">
+                <h2 class="search-box__title">{$LL.search.title()}</h2>
+                <p class="search-box__subtitle">{$LL.search.title2()}</p>
+            </div>
             <ul class="search-cats">
                 {#each terms as term }
                     <li class="search-cats__item">
@@ -164,6 +168,19 @@
     .bg_mobile {
         display: none;
     }
+    .search-box {
+        position: relative;
+        z-index: 2;
+    }
+    .search-box__header {
+        padding: 2rem 4rem;
+    }
+
+    .search-box__title {
+        font-size: 3rem;
+        color: var(--color-text);
+        filter: unset;
+    }
     
     .search::after {
         content: '';
@@ -208,14 +225,19 @@
         font-size: 4.4rem;
         font-weight: 700;
         z-index: 2;
+        text-transform: uppercase;
+        font-weight: 800;
     }
 
     .serch__subtitle {
         position: relative;
-        font-size: 4.4rem;
+        font-size: 3.4rem;
         font-weight: 700;
         color: var(--color-primary);
         z-index: 2;
+        text-transform: uppercase;
+        font-weight: 400;
+
     }
 
     .search-box {
@@ -223,6 +245,7 @@
         background-color: #fff;
         box-shadow: var(--box-shadow-2);
         border-radius: 1rem;
+        padding-bottom: 20px;
     }
 
     .search-cats {
@@ -410,7 +433,7 @@
             width: 8rem;
             height: 3.5rem;
         }
-
+/* 
         .search-label {
             flex: 1 0 25%;
         }
@@ -422,7 +445,7 @@
 
         .search-result-link {
             width: 100%;
-        }
+        } */
     }
 
     @media (max-width: 767px) {
@@ -510,6 +533,14 @@
 
         .search-result-link {
             width: 100%;
+        }
+        
+        .search {
+            margin-top: 60px;
+        }
+        
+        .search-box__header {
+            text-align: center;
         }
     }
 
