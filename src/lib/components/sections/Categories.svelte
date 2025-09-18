@@ -28,7 +28,7 @@
             {title: 'Інструменти', href: '/product-cat/instrumenti-27553f65', img: {src: t5, alt: 'Інструменти'}},
             {title: 'Лампочки', href: '/product-cat/lampochki-b8200af7', img: {src: t6, alt: 'Лампочки'}},
             {title: 'Приладдя', href: '/product-cat/prinadlezhnosti-1da12569', img: {src: t7, alt: 'Приладдя'}},
-            {title: 'Резина', href: '/product-cat/shinomontazh-c348056e', img: {src: t8, alt: 'Резина'}},
+            {title: 'Інше', href: '/product-cat/prochee-9f13634e', img: {src: t8, alt: 'Інше'}},
         ],
         'ru': [
             {title: 'Масло', href: '/ru/product-cat/motorna-oliva-7e684864', img: {src: t1, alt: 'Масла и жидкости'}},
@@ -38,7 +38,7 @@
             {title: 'Инструменты', href: '/ru/product-cat/instrumenti-27553f65', img: {src: t5, alt: 'Инструменты'}},
             {title: 'Лампочки', href: '/ru/product-cat/lampochki-b8200af7', img: {src: t6, alt: 'Лампочки'}},
             {title: 'Принадлежности', href: '/ru/product-cat/prinadlezhnosti-1da12569', img: {src: t7, alt: 'Принадлежности'}},
-            {title: 'Резина', href: '/ru/product-cat/shinomontazh-c348056e', img: {src: t8, alt: 'Резина'}},
+            {title: 'Другое', href: '/ru/product-cat/prochee-9f13634e', img: {src: t8, alt: 'Другое'}},
         ]
     };
 
