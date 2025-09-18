@@ -15,7 +15,7 @@
     import t5 from '$lib/assets/img/cats/t-5.jpg';
     import t6 from '$lib/assets/img/cats/t-6.jpg';
     import t7 from '$lib/assets/img/cats/t-7.jpg';
-    import t8 from '$lib/assets/img/cats/t-8.jpg';
+    import t8 from '$lib/assets/img/cats/t-8_2.jpg';
 
     const cats: {
         [lang in 'ru' | 'uk']: Cat[]
@@ -28,7 +28,7 @@
             {title: 'Інструменти', href: '/product-cat/instrumenti-27553f65', img: {src: t5, alt: 'Інструменти'}},
             {title: 'Лампочки', href: '/product-cat/lampochki-b8200af7', img: {src: t6, alt: 'Лампочки'}},
             {title: 'Приладдя', href: '/product-cat/prinadlezhnosti-1da12569', img: {src: t7, alt: 'Приладдя'}},
-            {title: 'Інше', href: '/product-cat/prochee-9f13634e', img: {src: t8, alt: 'Інше'}},
+            {title: 'Автоелектрика', href: '/product-cat/avtoelektrika-2a3c8d8e', img: {src: t8, alt: 'Автоелектрика'}},
         ],
         'ru': [
             {title: 'Масло', href: '/ru/product-cat/motorna-oliva-7e684864', img: {src: t1, alt: 'Масла и жидкости'}},
@@ -38,7 +38,7 @@
             {title: 'Инструменты', href: '/ru/product-cat/instrumenti-27553f65', img: {src: t5, alt: 'Инструменты'}},
             {title: 'Лампочки', href: '/ru/product-cat/lampochki-b8200af7', img: {src: t6, alt: 'Лампочки'}},
             {title: 'Принадлежности', href: '/ru/product-cat/prinadlezhnosti-1da12569', img: {src: t7, alt: 'Принадлежности'}},
-            {title: 'Другое', href: '/ru/product-cat/prochee-9f13634e', img: {src: t8, alt: 'Другое'}},
+            {title: 'Автоэлектрика', href: '/ru/product-cat/avtoelektrika-2a3c8d8e', img: {src: t8, alt: 'Автоэлектрика'}},
         ]
     };
 
