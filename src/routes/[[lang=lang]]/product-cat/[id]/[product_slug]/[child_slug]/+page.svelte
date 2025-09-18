@@ -72,9 +72,11 @@
         <Info product={data.item} />
     </div>
     <div class="row row_fluid">
-        <div class="places">
-            <BuyPlaces />
-        </div>
+        {#if false}
+            <div class="places">
+                <BuyPlaces />
+            </div>
+        {/if}
         <Params params={data?.item?.params} />
     </div>
 </Layout>

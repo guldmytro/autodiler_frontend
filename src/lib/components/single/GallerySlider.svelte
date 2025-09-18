@@ -62,9 +62,11 @@
             {/each}
         </Splide>
     </div>
-    <div class="places">
-        <BuyPlaces />
-    </div>
+    {#if false}
+        <div class="places">
+            <BuyPlaces />
+        </div>
+    {/if}
 </div>
 
 <style>

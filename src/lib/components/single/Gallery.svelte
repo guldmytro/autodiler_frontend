@@ -13,9 +13,11 @@
             <img src={NoImage} alt="шестерня" />
         {/if}
     </div>
-    <div class="places">
-        <BuyPlaces />
-    </div>
+    {#if false}
+        <div class="places">
+            <BuyPlaces />
+        </div>
+    {/if}
 </div>
 
 <style>
