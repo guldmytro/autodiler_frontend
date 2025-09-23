@@ -443,6 +443,7 @@ const ru = {
 	mTitle: "Автозапчасти",
 	mDescription: "Для каждого автомобиля",
 	sameCatProducts: 'Похожие товары',
+	dLSuccess: 'Спасибо за Вашу заявку. В ближайшее время с Вами свяжется наш менеджер.',
 } satisfies BaseTranslation
 
 export default ru

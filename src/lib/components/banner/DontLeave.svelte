@@ -5,6 +5,31 @@
     import { LL } from '$i18n/i18n-svelte';
     import { fly } from 'svelte/transition';
     import { fade } from 'svelte/transition';
+    import { enhance } from '$app/forms';
+    import { addNotification } from '$lib/stores/notifications';
+
+    let phone = '';
+    let errors = false;
+    let loading = false;
+
+    function send() {
+        loading = true;
+        // @ts-ignore
+        return async ({result, update}) => {
+            loading = false;
+            $dontLeave = false;
+            if (result.status === 'ok') {
+                phone = '';
+                errors = false;
+                addNotification('dontLeave', {'id': Date.now(), 'status': 'ok'})
+            } else if (result?.errors && Object.keys(result?.errors).length) {
+                errors = result?.errors;
+            } else {
+                errors = false;
+                addNotification('email', {'id': Date.now(), 'status': 'bad'})
+            }
+        }
+    }
 </script>
 
 {#if $dontLeave}
@@ -23,19 +48,12 @@
                     <strong>{$LL.dlSubtitle()}</strong> 📦 
                     {$LL.dlSubtitle2()}
                 </p>
-                <div class="dont-leave__controls">
-                    <a href="tel:+380990791764" class="dont-leave__button">
-                        {$LL.dlButton()}
-                    </a>
-                    <span class="dont-leave__flash">
-                        <span>
-                            {$LL.dlText()}
-                        </span>
-                        <svg width="157" height="35" viewBox="0 0 157 35" fill="none">
-                            <path d="M1.15684 6.12241C0.63869 6.31354 0.373571 6.88853 0.5647 7.40669L3.67933 15.8506C3.87046 16.3687 4.44545 16.6338 4.96362 16.4427C5.48177 16.2516 5.74689 15.6766 5.55576 15.1584L2.78719 7.65276L10.2929 4.8842C10.811 4.69307 11.0761 4.11808 10.885 3.59992C10.6939 3.08176 10.1189 2.81665 9.60072 3.00778L1.15684 6.12241ZM149.503 1.06062L148.774 1.74484C152.376 5.58448 154.173 9.12208 154.532 12.2629C154.887 15.3646 153.855 18.2163 151.504 20.7707C146.724 25.9631 136.565 29.8242 122.238 31.353C93.6919 34.3992 49.499 28.0889 1.92163 6.15249L1.50291 7.06062L1.0842 7.96874C48.92 30.0243 93.4759 36.4336 122.451 33.3417C136.884 31.8015 147.679 27.8791 152.975 22.1253C155.662 19.2066 156.949 15.7946 156.52 12.0358C156.094 8.31617 154.004 4.39662 150.232 0.376392L149.503 1.06062Z" fill="currentColor"/>
-                        </svg>
-                    </span>
-                </div>
+                <form action="/api/dontleave" method="post" class="dont-leave__form" use:enhance={send}>
+                    <fieldset class="dont-leave__fieldset">
+                        <input type="tel" name="phone" placeholder="Ваш телефон" required class="dont-leave__input">
+                        <button type="submit" disabled={loading} class="dont-leave__submit">{$LL.dlButton()}</button>
+                    </fieldset>
+                </form>
             </div>
             <div class="dont-leave__img">
                 <picture>
@@ -72,8 +90,8 @@
         z-index: 9999;
         transform: translateX(-50%);
         padding: 70px clamp(
-                    50px,
-                    calc(50px + (20 * ((100vw - 375px) / (1920 - 375)))),
+                    20px,
+                    calc(20px + (50 * ((100vw - 375px) / (1920 - 375)))),
                     70px
                 ) 75px;
         border: 7px solid #FFBF00;
@@ -105,28 +123,6 @@
     .dont-leave__desc strong {
         color: #FFC60A;
     }
-    .dont-leave__controls {
-        display: flex;
-        flex-flow: row nowrap;
-        column-gap: 15px;
-        align-items: center;
-        margin-top: 10px;
-    }
-    .dont-leave__button {
-        border-radius: 200px;
-        color: #fff;
-        text-decoration: none;
-        background-image: linear-gradient(to right, #97150F 0%, #FF0B00 100%);
-        font-size: clamp(
-                    18px,
-                    calc(18px + (2 * ((100vw - 375px) / (1920 - 375)))),
-                    20px
-                );
-        padding-block: 1.25em;
-        padding-inline: 2.75em;
-        width: fit-content;
-        box-shadow: 0 0 50px rgba(255, 11, 0, 0.502);
-    }
 
     .dont-leave__img {
         display: flex;
@@ -142,21 +138,42 @@
         margin-left: auto;
         scale: 2;
     }
-    .dont-leave__flash {
-        padding-inline: 1.75em;
+    .dont-leave__form {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .dont-leave__fieldset {
+        width: fit-content;
+        border: none;
+        padding: 0;
+        margin: 0;
         position: relative;
-        font-size: clamp(
-                    18px,
-                    calc(18px + (2 * ((100vw - 375px) / (1920 - 375)))),
-                    20px
-                );
     }
-    .dont-leave__flash svg {
+
+    .dont-leave__input {
+        border-radius: 200px;
+        height: 64px;
+        padding-left: 20px;
+        border: none;
+        padding-right: 200px;
+        font-size: 18px;
+        box-shadow: var(--box-shadow);
+    }
+
+    .dont-leave__submit {
         position: absolute;
-        top: 100%;
-        right: 45%;
-        width: 60%;
+        right: 5px;
+        top: 5px;
+        bottom: 5px;
+        background-color: var(--color-primary);
+        border: none;
+        border-radius: 200px;
+        color: #fff;
+        padding: 0 20px;
+        font-size: 18px;
     }
+
     @media (max-width: 991px) {
         .dont-leave {
             grid-template-columns: minmax(0, 1fr);
@@ -165,6 +182,12 @@
             max-width: 750px;
             max-height: 80svh;
             overflow: auto;
+        }
+        .dont-leave__input, 
+        .dont-leave__fieldset {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
         }
         .dont-leave__content {
             justify-items: center;
@@ -179,14 +202,26 @@
     }
 
     @media (max-width: 620px) {
-        .dont-leave__flash {
-            display: none;
-        }
         .dont-leave__img img {
             scale: 1.7;
         }
-        .dont-leave__button {
-            padding-inline: 1.5em;
+    }
+
+    @media (max-width: 500px) {
+        .dont-leave__fieldset {
+            width: 100%;
+        }
+        .dont-leave__input {
+            padding-right: 20px;
+            width: 100%;
+            max-width: 100%;
+            display: block;          
+        }
+        .dont-leave__submit {
+            position: static;
+            width: 100%;
+            margin-top: 10px;
+            height: 64px;
         }
     }
 </style>

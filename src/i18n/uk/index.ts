@@ -443,6 +443,7 @@ const uk = {
 	mTitle: "Автозапчастини",
 	mDescription: "Для кожної машини",
 	sameCatProducts: 'Схожі товари',
+	dLSuccess: 'Дякуємо за Вашу заявку. Незабаром з Вами зв\'яжеться наш менеджер.',
 } satisfies BaseTranslation
 
 export default uk

@@ -5,6 +5,7 @@
     import NotificationsProduct from "./NotificationsProduct.svelte";
     import NotificationsEmail from './NotificationsEmail.svelte';
     import NotificationLogin from './NotificationLogin.svelte';
+    import NotificationsDontLeave from './NotificationsDontLeave.svelte';
 </script>
 
 <ul class="notifications">
@@ -26,6 +27,12 @@
             <NotificationLogin {notification} />
         </div>
     {/each}
+    {#each $notifications.login as notification (notification.id) }
+        <div class="notifications-item-wrapper" 
+            animate:flip={{duration: 300}}>
+            <NotificationsDontLeave {notification} />
+        </div>
+    {/each}
 </ul>
 
 <style>
@@ -39,6 +46,6 @@
         list-style: none;
         width: 45rem;
         max-width: calc(100% - 30px);
-        z-index: 99;
+        z-index: 9999;
     }
 </style>

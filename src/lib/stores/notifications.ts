@@ -5,7 +5,8 @@ import { writable, get } from "svelte/store";
 export const initialData = {
     product: [],
     email: [],
-    login: []
+    login: [],
+    dontLeave: [],
 };
 
 export const notifications = writable(initialData);
