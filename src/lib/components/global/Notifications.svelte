@@ -27,7 +27,7 @@
             <NotificationLogin {notification} />
         </div>
     {/each}
-    {#each $notifications.login as notification (notification.id) }
+    {#each $notifications.dontLeave as notification (notification.id) }
         <div class="notifications-item-wrapper" 
             animate:flip={{duration: 300}}>
             <NotificationsDontLeave {notification} />
