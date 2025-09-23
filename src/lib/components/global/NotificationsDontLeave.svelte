@@ -8,7 +8,7 @@
     let timer;
 
     function startTimer() {
-        timer = setTimeout(deleteItem, 3000);    
+        timer = setTimeout(deleteItem, 10000);    
     }
 
     function clearTimer() {
@@ -18,7 +18,7 @@
     }
 
     function deleteItem() {
-        removeNotification('email', notification.id);
+        removeNotification('dontLeave', notification.id);
     }
 
     onMount(() => {
