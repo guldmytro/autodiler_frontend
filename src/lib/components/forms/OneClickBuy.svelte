@@ -12,6 +12,7 @@
     $: showForm = $activeOneClickBuy == product.id;
 
     function send() {
+        localStorage.setItem("buyed", "true");
         loading = true;
         // @ts-ignore
         return async ({result, update}) => {

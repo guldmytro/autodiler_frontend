@@ -2,8 +2,17 @@
     import LL from "$i18n/i18n-svelte";
     import BreadCrumbs from "$lib/components/global/BreadCrumbs.svelte";
     import SectionHeader from "$lib/components/global/SectionHeader.svelte";
+    import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
 
     const crumbs = {'parents': [], 'slug': 'cart', 'name_ua': 'Кошик', 'name_ru': 'Корзина'};
+
+
+    onMount(() => {
+        if (browser) {
+            localStorage.setItem("buyed", "true");
+        }
+    });
 </script>
 
 

@@ -24,10 +24,12 @@
 	let shown = false;
 
 	function handleMouseLeave(e: MouseEvent) {
+		const buyed = localStorage.getItem("buyed");
+		if (buyed) return; // якщо вже купили, не показуємо
 		// показуємо банер, тільки якщо курсор вийшов зверху
 		if (e.clientY <= 0 && !shown) {
-		dontLeave.set(true);
-		shown = true; // щоб більше не показувався
+			dontLeave.set(true);
+			shown = true; // щоб більше не показувався
 		}
 	}
 

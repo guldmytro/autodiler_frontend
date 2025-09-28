@@ -3,6 +3,14 @@
     import BreadCrumbs from "$lib/components/global/BreadCrumbs.svelte";
     import SectionHeader from "$lib/components/global/SectionHeader.svelte";
     import { afterNavigate } from "$app/navigation";
+    import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
+
+    onMount(() => {
+        if (browser) {
+            localStorage.setItem("buyed", "true");
+        }
+    });
     const crumbs = {'parents': [], 'slug': 'cart', 'name_ua': 'Кошик', 'name_ru': 'Корзина'};
     export let data;
 

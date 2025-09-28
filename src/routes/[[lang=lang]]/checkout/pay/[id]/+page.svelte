@@ -3,6 +3,14 @@
     import BreadCrumbs from '$lib/components/global/BreadCrumbs.svelte';
     const crumbs = {'parents': []};
     import SectionHeader from '$lib/components/global/SectionHeader.svelte';
+    import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
+
+    onMount(() => {
+        if (browser) {
+            localStorage.setItem("buyed", "true");
+        }
+    });
 </script>
 
 

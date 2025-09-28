@@ -32,7 +32,7 @@
     }
 </script>
 
-{#if $dontLeave && false}
+{#if $dontLeave}
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="dont-leave-bg" on:click={() => dontLeave.set(false)}
