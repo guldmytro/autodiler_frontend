@@ -7,7 +7,7 @@
     export let product;
     import NoImage from '$lib/assets/img/no_image-350x350.png';
 
-    $: image = product.image || product.image_src;
+    $: image = product.image || product?.image2 || product?.image3 || product?.image4 || product.image_src;
     $: title = product.name || product.translation__name;
     $: localePrefix = $locale === 'uk' ? '' : $locale + '/';
 </script>
