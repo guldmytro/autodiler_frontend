@@ -45,6 +45,7 @@
     <div class="container">
         <SectionHeader {title} />
         <div class="row-products">
+            <Aside aside={true} />
             <div class="row-products__content">
                 <div class="row-products__header">
                     <div class="mobile-filters">
@@ -63,7 +64,6 @@
                 </div>
                 <List products={data.products} pagination={data.pagination} />
             </div>
-            <Aside aside={true} />
         </div>        
     </div>
 </main>
