@@ -1,8 +1,8 @@
 <script>
     // @ts-nocheck
     import { locale } from '$i18n/i18n-svelte';
-    import logo from '$lib/assets/img/logo-header.svg';
-    import logoMobile from '$lib/assets/img/logo-header_mobile.svg';
+    import logo from '$lib/assets/img/logo/logo_header_new.jpg';
+    import logoMobile from '$lib/assets/img/logo/logo_header_mobile_new.jpg';
     
     import LocaleSwitcher from '$lib/components/global/LocaleSwitcher.svelte';
     import Cart from './Cart.svelte';
@@ -42,12 +42,12 @@
                     <img src={logo} 
                         class="logo__img logo__img_desktop"
                         alt="логотип сайту" 
-                        width="324" height="98.5" 
+                        width="1280" height="387" 
                         fetchpriority="high">
                     <img src={logoMobile} 
                         class="logo__img logo__img_mobile"
                         alt="логотип сайту" 
-                        width="121.6" height="98.5" 
+                        width="480" height="384" 
                         fetchpriority="high">                        
                 </a>
                 <HeaderSearch />

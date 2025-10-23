@@ -1,6 +1,6 @@
 <script>
     import { locale } from '$i18n/i18n-svelte';
-    import logo from '$lib/assets/img/logo-footer.svg';
+    import logo from '$lib/assets/img/logo/logo_footer_new.jpg';
     import LL from '$i18n/i18n-svelte';
     import Socials from './Socials.svelte';
     import Phones from './Phones.svelte';
@@ -17,7 +17,7 @@
                 <img src={logo} 
                     class="logo__img"
                     alt="логотип сайту" 
-                    width="211.7" height="149.1"
+                    width="504" height="400"
                     loading="lazy">
             </a>
             <ul class="footer-menu">
